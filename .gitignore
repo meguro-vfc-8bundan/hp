@@ -13,3 +13,7 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# ローカル専用ファイル
+要件定義書/
+GitHubにアップロード.command
