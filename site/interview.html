@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="目黒消防団第８分団の団員インタビュー。実際に活動する団員の声をお届けします。">
+  <title>団員インタビュー | 目黒消防団第８分団</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* スクロール進行バー */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    /* アニメーション用クラス */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+    .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+    .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+
+    /* インタビューカード */
+    .interview-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+      margin-bottom: 3rem;
+      transition: all 0.4s ease;
+    }
+
+    .interview-card:hover {
+      box-shadow: 0 8px 35px rgba(0,0,0,0.15);
+    }
+
+    .interview-card__header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, #E53935 0%, #FF6D00 100%);
+      color: white;
+    }
+
+    .interview-card__header--navy {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+    }
+
+    @media (min-width: 768px) {
+      .interview-card__header {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .interview-card__photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,0.3);
+    }
+
+    .interview-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .interview-card__profile {
+      flex: 1;
+    }
+
+    .interview-card__name {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .interview-card__rank {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      margin-bottom: 0.75rem;
+    }
+
+    .interview-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .interview-card__tag {
+      background: rgba(255,255,255,0.2);
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .interview-card__body {
+      padding: 2rem;
+    }
+
+    /* 得意分野 */
+    .interview-card__intro {
+      background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+      padding: 1.25rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      border-left: 4px solid #FF6F00;
+    }
+
+    .interview-card__intro-title {
+      font-weight: 700;
+      color: #E65100;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .interview-card__intro-text {
+      color: #333;
+      font-size: 1rem;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* Q&Aセクション */
+    .interview-card__section {
+      margin-bottom: 1.75rem;
+    }
+
+    .interview-card__section:last-child {
+      margin-bottom: 0;
+    }
+
+    .interview-card__question {
+      color: #E53935;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .interview-card__question::before {
+      content: 'Q.';
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .interview-card__answer {
+      color: #333;
+      line-height: 1.9;
+      padding-left: 1.75rem;
+      position: relative;
+    }
+
+    .interview-card__answer::before {
+      content: 'A.';
+      position: absolute;
+      left: 0;
+      color: #1a2744;
+      font-weight: 700;
+    }
+
+    /* カテゴリ区切り */
+    .interview-card__category {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin: 2rem 0 1.5rem;
+      display: inline-block;
+    }
+
+    .interview-card__category:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ハイライトメッセージ */
+    .interview-card__highlight {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #FF6F00;
+      margin-top: 2rem;
+    }
+
+    .interview-card__highlight-title {
+      font-weight: 700;
+      color: #E65100;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+    }
+
+    .interview-card__highlight-text {
+      font-size: 1.1rem;
+      color: #5D4037;
+      margin: 0;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    /* 女性団員向け特別セクション */
+    .interview-card__special {
+      background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      border-left: 4px solid #E91E63;
+    }
+
+    .interview-card__special-title {
+      font-weight: 700;
+      color: #AD1457;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* 長期在籍向け特別セクション */
+    .interview-card__veteran {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      padding: 1.5rem;
+      border-radius: 12px;
+      margin-top: 2rem;
+      border-left: 4px solid #4CAF50;
+    }
+
+    .interview-card__veteran-title {
+      font-weight: 700;
+      color: #2E7D32;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* セクション区切り */
+    .section-divider {
+      text-align: center;
+      margin: 4rem 0 3rem;
+      position: relative;
+    }
+
+    .section-divider::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ddd, transparent);
+    }
+
+    .section-divider span {
+      background: #f5f5f5;
+      padding: 0.5rem 2rem;
+      position: relative;
+      color: #1a2744;
+      font-weight: 700;
+      font-size: 1.25rem;
+      border-radius: 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* セクションタイトル */
+    .section-title {
+      font-size: 2rem;
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    /* CTAセクション */
+    .cta-section {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+      margin: 3rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* スクロールトップボタン */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      font-size: 1.25rem;
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(229, 57, 53, 0.5);
+    }
+
+    /* ページコンテンツ調整 */
+    .page-content {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    /* モバイル対応 */
+    @media (max-width: 767px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .interview-card__body {
+        padding: 1.5rem;
+      }
+
+      .interview-card__name {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* メンバータイプラベル */
+    .member-type-label {
+      display: inline-block;
+      background: rgba(255,255,255,0.25);
+      padding: 0.3rem 0.85rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    /* ローディング */
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <!-- スクロール進行バー -->
+  <div class="scroll-progress"></div>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">分団の強み</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">分団の強み</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ページヘッダー -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">団員インタビュー</h1>
+      <p class="page-header__subtitle">実際に活動する団員の声をお届けします</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="page-content">
+    <div class="container">
+      <p class="section-subtitle animate-on-scroll">様々な職業・年齢の団員が、それぞれの想いを持って活動しています。<br>先輩団員の生の声をぜひご覧ください。</p>
+
+      <!-- インタビューコンテンツ（JSONから動的に生成） -->
+      <div id="interview-container">
+        <p class="loading">読み込み中...</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section animate-on-scroll">
+        <h2>あなたも仲間になりませんか？</h2>
+        <p>様々な背景を持つ団員が、同じ目標に向かって活動しています。<br>まずはお気軽にお問い合わせください。</p>
+        <a href="form.html" class="btn btn--accent btn--large">入団に申し込む</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- スクロールトップボタン -->
+  <button class="scroll-top-btn" aria-label="ページトップへ戻る">↑</button>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <!-- インタビューデータ（編集はこのファイルまたはdata/interviews.jsonを参照） -->
+  <script src="data/interviews.js"></script>
+  <script>
+    // インタビューデータを読み込んで表示
+    function loadInterviews() {
+      if (typeof interviewData !== 'undefined') {
+        renderInterviews(interviewData.sections);
+      } else {
+        document.getElementById('interview-container').innerHTML =
+          '<p style="text-align: center; color: #E53935;">データの読み込みに失敗しました。</p>';
+      }
+    }
+
+    // インタビューをレンダリング
+    function renderInterviews(sections) {
+      const container = document.getElementById('interview-container');
+      let html = '';
+
+      sections.forEach(section => {
+        if (section.type === 'divider') {
+          html += renderDivider(section);
+        } else if (section.type === 'member') {
+          html += renderMemberCard(section);
+        }
+      });
+
+      container.innerHTML = html;
+
+      // アニメーション再適用
+      setTimeout(animateOnScroll, 100);
+    }
+
+    // セクション区切りをレンダリング
+    function renderDivider(section) {
+      return `
+        <div class="section-divider animate-on-scroll">
+          <span>${section.title}</span>
+        </div>
+      `;
+    }
+
+    // メンバーカードをレンダリング
+    function renderMemberCard(member) {
+      const headerClass = member.headerStyle === 'navy'
+        ? 'interview-card__header interview-card__header--navy'
+        : 'interview-card__header';
+
+      let categoriesHtml = '';
+      member.categories.forEach(category => {
+        categoriesHtml += `<div class="interview-card__category">${category.title}</div>`;
+        category.qa.forEach(qa => {
+          categoriesHtml += `
+            <div class="interview-card__section">
+              <p class="interview-card__question">${qa.q}</p>
+              <p class="interview-card__answer">${qa.a}</p>
+            </div>
+          `;
+        });
+      });
+
+      let specialSectionHtml = '';
+      if (member.specialSection) {
+        const specialClass = member.specialSection.type === 'female'
+          ? 'interview-card__special'
+          : 'interview-card__veteran';
+        const titleClass = member.specialSection.type === 'female'
+          ? 'interview-card__special-title'
+          : 'interview-card__veteran-title';
+
+        let specialQaHtml = '';
+        member.specialSection.qa.forEach(qa => {
+          specialQaHtml += `
+            <div class="interview-card__section">
+              <p class="interview-card__question">${qa.q}</p>
+              <p class="interview-card__answer">${qa.a}</p>
+            </div>
+          `;
+        });
+
+        specialSectionHtml = `
+          <div class="${specialClass}">
+            <p class="${titleClass}">${member.specialSection.title}</p>
+            ${specialQaHtml}
+          </div>
+        `;
+      }
+
+      const tagsHtml = member.tags.map(tag =>
+        `<span class="interview-card__tag">${tag}</span>`
+      ).join('');
+
+      return `
+        <div class="interview-card animate-on-scroll">
+          <div class="${headerClass}">
+            <div class="interview-card__photo">
+              <img src="${member.photo}" alt="${member.name}">
+            </div>
+            <div class="interview-card__profile">
+              <span class="member-type-label">${member.memberType}</span>
+              <p class="interview-card__name">${member.name}</p>
+              <p class="interview-card__rank">${member.rank}</p>
+              <div class="interview-card__meta">
+                ${tagsHtml}
+              </div>
+            </div>
+          </div>
+          <div class="interview-card__body">
+            <div class="interview-card__intro">
+              <p class="interview-card__intro-title">得意分野</p>
+              <p class="interview-card__intro-text">${member.specialty}</p>
+            </div>
+            ${categoriesHtml}
+            ${specialSectionHtml}
+            <div class="interview-card__highlight">
+              <p class="interview-card__highlight-title">${member.highlight.title}</p>
+              <p class="interview-card__highlight-text">${member.highlight.text}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // スクロール進行バー
+    window.addEventListener('scroll', function() {
+      const scrollProgress = document.querySelector('.scroll-progress');
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
+
+    // スクロールアニメーション
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+          element.classList.add('animated');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+    // スクロールトップボタン
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // ページ読み込み時にインタビューデータを取得
+    document.addEventListener('DOMContentLoaded', loadInterviews);
+  </script>
+</body>
+</html>

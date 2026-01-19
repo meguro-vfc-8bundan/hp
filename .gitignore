@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Claude
+.claude/
+
+# Thumbnails
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

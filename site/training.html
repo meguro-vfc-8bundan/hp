@@ -1,0 +1,1636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="目黒消防団第８分団の訓練内容。消火訓練、救助訓練、応急救護訓練など、基礎から段階的に学べる充実のカリキュラムをご紹介します。">
+  <title>訓練内容 | 目黒消防団第８分団</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* スクロール進行バー */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    /* アニメーション定義 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* セクション見出しスタイル */
+    .section-title {
+      font-size: 2rem;
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+    }
+
+    /* 基本方針カード */
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .policy-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .policy-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+    }
+
+    .policy-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .policy-card__number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .policy-card__title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .policy-card__text {
+      color: #555;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* 統計カード */
+    .stats-section {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      margin: 3rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .stat-card:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.03);
+    }
+
+    .stat-card__number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #FF6F00;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-card__label {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* 訓練カテゴリーカード */
+    .training-category {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+    }
+
+    .training-category:hover {
+      box-shadow: 0 8px 35px rgba(0,0,0,0.12);
+    }
+
+    .training-category__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .training-category__icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+    }
+
+    .training-category__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0;
+    }
+
+    /* ギャラリースタイル */
+    .training-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    @media (max-width: 767px) {
+      .training-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .training-gallery__item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+    }
+
+    .training-gallery__item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .training-gallery__item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+    }
+
+    .training-gallery__item:hover::after {
+      opacity: 1;
+    }
+
+    .training-gallery__item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .training-gallery__item:hover img {
+      transform: scale(1.1);
+    }
+
+    .training-gallery__caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.75rem;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      font-size: 0.85rem;
+      text-align: center;
+      color: white;
+      z-index: 1;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .training-gallery__item:hover .training-gallery__caption {
+      transform: translateY(0);
+    }
+
+    /* 訓練詳細カード */
+    .training-detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .training-detail-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border-left: 4px solid #E53935;
+      transition: all 0.3s ease;
+    }
+
+    .training-detail-card:hover {
+      transform: translateX(8px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .training-detail-card__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .training-detail-card__title::before {
+      content: '▶';
+      color: #E53935;
+      font-size: 0.8rem;
+    }
+
+    .training-detail-card ul {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .training-detail-card li {
+      color: #555;
+      margin-bottom: 0.4rem;
+      line-height: 1.6;
+    }
+
+    /* スキルカード */
+    .skill-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .skill-card:hover {
+      border-color: #E53935;
+      transform: translateY(-4px);
+    }
+
+    .skill-card__icon {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .skill-card__text {
+      font-size: 0.9rem;
+      color: #333;
+      font-weight: 500;
+    }
+
+    /* ハイライトボックス */
+    .highlight-box {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-left: 4px solid #FF6F00;
+    }
+
+    .highlight-box__title {
+      font-weight: 700;
+      color: #E65100;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .highlight-box__text {
+      color: #5D4037;
+      line-height: 1.7;
+    }
+
+    /* スケジュールカード */
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .schedule-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .schedule-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .schedule-card__header {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      color: white;
+      padding: 1.25rem;
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .schedule-card__body {
+      padding: 1.5rem;
+    }
+
+    .schedule-card__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .schedule-card__item:last-child {
+      margin-bottom: 0;
+    }
+
+    .schedule-card__label {
+      background: #f5f5f5;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+      white-space: nowrap;
+    }
+
+    .schedule-card__value {
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* 成長カード */
+    .growth-section {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .growth-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 767px) {
+      .growth-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .growth-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.75rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .growth-card:hover {
+      transform: scale(1.03);
+    }
+
+    .growth-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .growth-card__title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+    }
+
+    .growth-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .growth-card__list li {
+      padding: 0.4rem 0;
+      color: #555;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .growth-card__list li:last-child {
+      border-bottom: none;
+    }
+
+    /* ステップカード */
+    .step-section {
+      margin: 3rem 0;
+    }
+
+    .step-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      padding-left: 1rem;
+      border-left: 4px solid #E53935;
+    }
+
+    .step-cards {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+    }
+
+    .step-card {
+      flex: 0 0 220px;
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .step-card__number {
+      position: absolute;
+      top: -12px;
+      left: 20px;
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .step-card__title {
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .step-card__text {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* 雰囲気カード */
+    .atmosphere-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .atmosphere-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .atmosphere-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(229, 57, 53, 0.03) 0%, rgba(255, 111, 0, 0.03) 100%);
+      z-index: 0;
+    }
+
+    .atmosphere-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .atmosphere-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .atmosphere-card__title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .atmosphere-card__text {
+      color: #555;
+      line-height: 1.8;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* FAQ アコーディオン */
+    .faq-section {
+      background: #f8f9fa;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin: 3rem 0;
+    }
+
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-item:hover {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .accordion-header {
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background: #f8f9fa;
+    }
+
+    .accordion-header span {
+      font-size: 1.5rem;
+      color: #E53935;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-header span {
+      transform: rotate(45deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out, padding 0.3s ease;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 500px;
+      overflow: visible;
+    }
+
+    .accordion-content p {
+      padding: 0 1.5rem 1.5rem;
+      margin: 0;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* CTA セクション */
+    .cta-section {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: white;
+      margin: 3rem 0;
+    }
+
+    .cta-section h2 {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* スクロールトップボタン */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 1000;
+      font-size: 1.25rem;
+    }
+
+    .scroll-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-top-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(229, 57, 53, 0.5);
+    }
+
+    /* アニメーション用クラス */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+    .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+    .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+    .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+    .animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+
+    /* ページコンテンツ調整 */
+    .page-content {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    /* モバイル対応 */
+    @media (max-width: 767px) {
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .training-category {
+        padding: 1.5rem;
+      }
+
+      .training-category__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .stats-section {
+        padding: 2rem 1rem;
+      }
+
+      .stat-card__number {
+        font-size: 2rem;
+      }
+
+      .step-cards {
+        flex-direction: column;
+      }
+
+      .step-card {
+        flex: none;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- スクロール進行バー -->
+  <div class="scroll-progress"></div>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">分団の強み</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">分団の強み</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ページヘッダー -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">訓練内容</h1>
+      <p class="page-header__subtitle">基礎から段階的に学べる充実のカリキュラム</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="page-content">
+    <div class="container">
+      <p class="section-subtitle animate-on-scroll">第８分団では、実際の災害現場で確実に活動できるよう、多様な訓練を実施しています。<br>初心者から経験者まで、それぞれのレベルに合わせた段階的な指導を行っています。</p>
+
+      <!-- 統計セクション -->
+      <div class="stats-section animate-on-scroll">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="70">0</div>
+            <div class="stat-card__label">応急手当指導員<br>資格保有率 %</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="70">0</div>
+            <div class="stat-card__label">操法大会出場<br>経験者率 %</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="50">0</div>
+            <div class="stat-card__label">特殊技能団員<br>在籍率 %</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__number" data-count="11">0</div>
+            <div class="stat-card__label">操法大会<br>連続優勝回数</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 訓練の基本方針 -->
+      <h2 class="section-title animate-on-scroll">訓練の基本方針</h2>
+
+      <div class="policy-grid">
+        <div class="policy-card animate-on-scroll delay-1">
+          <div class="policy-card__number">1</div>
+          <div class="policy-card__title">段階的な指導</div>
+          <p class="policy-card__text">基礎から応用まで、無理なく技術を習得できるカリキュラムを組んでいます。</p>
+        </div>
+        <div class="policy-card animate-on-scroll delay-2">
+          <div class="policy-card__number">2</div>
+          <div class="policy-card__title">実践重視</div>
+          <p class="policy-card__text">実際の災害現場を想定した、実践的な訓練を重視しています。</p>
+        </div>
+        <div class="policy-card animate-on-scroll delay-3">
+          <div class="policy-card__number">3</div>
+          <div class="policy-card__title">計画・実行・運用の一体訓練</div>
+          <p class="policy-card__text">訓練の準備から実行まで、団員が主体的に関わることで実践的なマネジメント力を養います。</p>
+        </div>
+        <div class="policy-card animate-on-scroll delay-4">
+          <div class="policy-card__number">4</div>
+          <div class="policy-card__title">安全第一</div>
+          <p class="policy-card__text">すべての訓練において、安全を最優先に進めています。</p>
+        </div>
+        <div class="policy-card animate-on-scroll delay-5">
+          <div class="policy-card__number">5</div>
+          <div class="policy-card__title">丁寧な指導体制</div>
+          <p class="policy-card__text">経験豊富な先輩団員が、一人ひとりに丁寧に指導します。</p>
+        </div>
+      </div>
+
+      <!-- 訓練カテゴリー -->
+      <h2 class="section-title animate-on-scroll">訓練カテゴリー</h2>
+
+      <!-- 1. 消火訓練 -->
+      <div class="training-category animate-on-scroll">
+        <div class="training-category__header">
+          <div class="training-category__icon">🔥</div>
+          <h3 class="training-category__title">1. 消火訓練</h3>
+        </div>
+
+        <div class="training-gallery">
+          <div class="training-gallery__item">
+            <img src="images/real/TR-01_fire_water.jpg" alt="放水訓練">
+            <div class="training-gallery__caption">放水訓練</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-02_fire_basic.jpg" alt="基本操法">
+            <div class="training-gallery__caption">基本操法</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-03_fire_pump.jpg" alt="ポンプ操作">
+            <div class="training-gallery__caption">ポンプ操作</div>
+          </div>
+        </div>
+
+        <div class="training-detail-grid">
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">放水訓練</div>
+            <ul>
+              <li>消防ポンプの操作方法</li>
+              <li>ホースの延長・撤収</li>
+              <li>放水姿勢と操作技術</li>
+              <li>チーム連携</li>
+            </ul>
+          </div>
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">基本操法訓練</div>
+            <ul>
+              <li>消火活動の基本動作</li>
+              <li>指揮者〜3番員の役割分担</li>
+              <li>迅速・正確な動作の習得</li>
+              <li>チームの一体感醸成</li>
+            </ul>
+          </div>
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">火災現場出動訓練</div>
+            <ul>
+              <li>通報受信から出動までの流れ</li>
+              <li>現場到着後の初動対応</li>
+              <li>消防署との連携</li>
+              <li>安全管理</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-box__title">🏆 第８分団の実績</div>
+          <p class="highlight-box__text">平成24年度から令和7年度まで連続優勝（令和2、3、4年度は大会中止）。<br>初心者の方へ：ポンプの操作は最初は複雑に感じるかもしれませんが、先輩団員が丁寧に指導します。</p>
+        </div>
+      </div>
+
+      <!-- 2. 救助訓練 -->
+      <div class="training-category animate-on-scroll">
+        <div class="training-category__header">
+          <div class="training-category__icon">🛟</div>
+          <h3 class="training-category__title">2. 救助訓練</h3>
+        </div>
+
+        <div class="training-gallery">
+          <div class="training-gallery__item">
+            <img src="images/real/AC-13_chainsaw.jpg" alt="救助器具">
+            <div class="training-gallery__caption">救助器具</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-05_rescue_rope.jpg" alt="ロープワーク">
+            <div class="training-gallery__caption">ロープワーク</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-06_rescue_activity.jpg" alt="救助活動">
+            <div class="training-gallery__caption">救助活動</div>
+          </div>
+        </div>
+
+        <div class="training-detail-grid">
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">チェーンソー訓練</div>
+            <ul>
+              <li>チェーンソーの安全な取扱い</li>
+              <li>メンテナンス方法</li>
+              <li>倒木の除去技術</li>
+              <li>障害物の撤去</li>
+            </ul>
+          </div>
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">油圧式救助器具訓練</div>
+            <ul>
+              <li>油圧カッター・スプレッダーの操作</li>
+              <li>車両事故での救助方法</li>
+              <li>建物倒壊時の対応</li>
+            </ul>
+          </div>
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">ロープワーク訓練</div>
+            <ul>
+              <li>本結び・もやい結び</li>
+              <li>巻き結び・二重もやい結び</li>
+              <li>救助活動での安全確保</li>
+              <li>資機材の固定・吊り上げ</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-box__title">🔧 特殊技能団員</div>
+          <p class="highlight-box__text">約50%の団員が特殊技能団員として、救助に役立つ防火知識・輸送技術・語学を習得しています。</p>
+        </div>
+      </div>
+
+      <!-- 3. 応急救護訓練 -->
+      <div class="training-category animate-on-scroll">
+        <div class="training-category__header">
+          <div class="training-category__icon">🏥</div>
+          <h3 class="training-category__title">3. 応急救護訓練</h3>
+        </div>
+
+        <div class="training-gallery">
+          <div class="training-gallery__item">
+            <img src="images/real/TR-07_firstaid_cpr.jpg" alt="心肺蘇生法">
+            <div class="training-gallery__caption">心肺蘇生法</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-08_firstaid_aed.jpg" alt="AED訓練">
+            <div class="training-gallery__caption">AED訓練</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-09_firstaid_bandage.jpg" alt="応急処置">
+            <div class="training-gallery__caption">応急処置</div>
+          </div>
+        </div>
+
+        <div class="training-detail-grid">
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">基礎編</div>
+            <ul>
+              <li>心肺蘇生法（CPR）の基本</li>
+              <li>AEDの使用方法</li>
+              <li>気道確保</li>
+              <li>異物除去</li>
+            </ul>
+          </div>
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">応用編</div>
+            <ul>
+              <li>止血法（直接・間接圧迫）</li>
+              <li>骨折の応急処置</li>
+              <li>やけど・ショック状態への対応</li>
+              <li>搬送方法</li>
+            </ul>
+          </div>
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">指導者養成</div>
+            <ul>
+              <li>応急手当普及員資格の取得</li>
+              <li>応急手当指導員資格の取得</li>
+              <li>地域住民への指導方法</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-box__title">💪 第８分団の強み</div>
+          <p class="highlight-box__text">約70%の団員が応急手当指導員の資格を保持。高度な救護技術を持つ先輩団員から直接学べます。</p>
+        </div>
+      </div>
+
+      <!-- 4. 指揮・通信訓練 -->
+      <div class="training-category animate-on-scroll">
+        <div class="training-category__header">
+          <div class="training-category__icon">📡</div>
+          <h3 class="training-category__title">4. 指揮・通信訓練</h3>
+        </div>
+
+        <div class="training-gallery">
+          <div class="training-gallery__item">
+            <img src="images/real/TR-10_command_post.jpg" alt="指揮所設営">
+            <div class="training-gallery__caption">指揮所設営</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-11_command_radio.jpg" alt="無線訓練">
+            <div class="training-gallery__caption">無線訓練</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-12_command_other.jpg" alt="通信連携">
+            <div class="training-gallery__caption">通信連携</div>
+          </div>
+        </div>
+
+        <div class="training-detail-grid">
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">分団本部指揮所設営訓練</div>
+            <ul>
+              <li>指揮所の迅速な設営</li>
+              <li>情報収集・整理</li>
+              <li>指揮命令系統の確立</li>
+              <li>消防署との連携</li>
+            </ul>
+          </div>
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">無線機取扱訓練</div>
+            <ul>
+              <li>無線機の基本操作</li>
+              <li>正確な情報伝達方法</li>
+              <li>通信規律</li>
+              <li>トラブル対応</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-box__title">📻 資格取得支援</div>
+          <p class="highlight-box__text">第三級陸上特殊無線技士の資格取得も支援しています。費用は消防団が負担します。</p>
+        </div>
+      </div>
+
+      <!-- 5. 規律・基礎訓練 -->
+      <div class="training-category animate-on-scroll">
+        <div class="training-category__header">
+          <div class="training-category__icon">🎖️</div>
+          <h3 class="training-category__title">5. 規律・基礎訓練</h3>
+        </div>
+
+        <div class="training-gallery">
+          <div class="training-gallery__item">
+            <img src="images/real/TR-13_discipline_salute.jpg" alt="敬礼訓練">
+            <div class="training-gallery__caption">敬礼訓練</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-14_discipline_march.jpg" alt="行進訓練">
+            <div class="training-gallery__caption">行進訓練</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-15_discipline_other.jpg" alt="整列訓練">
+            <div class="training-gallery__caption">整列訓練</div>
+          </div>
+        </div>
+
+        <div class="skill-cards">
+          <div class="skill-card">
+            <div class="skill-card__icon">👤</div>
+            <div class="skill-card__text">整列</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon">🫡</div>
+            <div class="skill-card__text">敬礼</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon">🚶</div>
+            <div class="skill-card__text">行進</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon">↩️</div>
+            <div class="skill-card__text">方向変換</div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-card__icon">📋</div>
+            <div class="skill-card__text">基本動作</div>
+          </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 1.5rem;">
+          <div class="highlight-box__title">🎯 目的</div>
+          <p class="highlight-box__text">消防団員としての規律と品位を保ち、組織としての一体感を醸成します。訓練の冒頭や式典前に実施します。</p>
+        </div>
+      </div>
+
+      <!-- 6. 地域指導訓練 -->
+      <div class="training-category animate-on-scroll">
+        <div class="training-category__header">
+          <div class="training-category__icon">🏘️</div>
+          <h3 class="training-category__title">6. 地域指導訓練</h3>
+        </div>
+
+        <div class="training-gallery">
+          <div class="training-gallery__item">
+            <img src="images/real/TR-16_guide_resident.jpg" alt="住民指導">
+            <div class="training-gallery__caption">住民指導</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-17_guide_extinguisher.jpg" alt="消火器指導">
+            <div class="training-gallery__caption">消火器指導</div>
+          </div>
+          <div class="training-gallery__item">
+            <img src="images/real/TR-18_guide_other.jpg" alt="防災訓練">
+            <div class="training-gallery__caption">防災訓練</div>
+          </div>
+        </div>
+
+        <div class="training-detail-grid">
+          <div class="training-detail-card">
+            <div class="training-detail-card__title">地域町会の防災訓練指導</div>
+            <ul>
+              <li>初期消火指導（消火器の使い方）</li>
+              <li>応急救護指導（CPR、AED）</li>
+              <li>防災講話</li>
+              <li>資機材展示・説明</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <div class="highlight-box__title">✨ やりがい</div>
+          <p class="highlight-box__text">自分が学んだことを人に教えることで、より深い理解が得られます。地域住民から感謝の言葉をいただくことも多く、大きなやりがいを感じられます。</p>
+        </div>
+      </div>
+
+      <!-- 訓練スケジュール -->
+      <h2 class="section-title animate-on-scroll">訓練スケジュール</h2>
+
+      <div class="schedule-grid">
+        <div class="schedule-card animate-on-scroll delay-1">
+          <div class="schedule-card__header">📅 定期訓練</div>
+          <div class="schedule-card__body">
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">頻度</span>
+              <span class="schedule-card__value">月1〜2回</span>
+            </div>
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">時間</span>
+              <span class="schedule-card__value">主に夜間・休日（2〜3時間程度）</span>
+            </div>
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">内容</span>
+              <span class="schedule-card__value">訓練内容をローテーションで実施</span>
+            </div>
+          </div>
+        </div>
+        <div class="schedule-card animate-on-scroll delay-2">
+          <div class="schedule-card__header">🏆 集中訓練期間</div>
+          <div class="schedule-card__body">
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">時期</span>
+              <span class="schedule-card__value">操法大会前（3月〜6月）</span>
+            </div>
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">内容</span>
+              <span class="schedule-card__value">基本操法の集中訓練</span>
+            </div>
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">頻度</span>
+              <span class="schedule-card__value">週2〜3回程度</span>
+            </div>
+          </div>
+        </div>
+        <div class="schedule-card animate-on-scroll delay-3">
+          <div class="schedule-card__header">📜 資格取得講習</div>
+          <div class="schedule-card__body">
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">開催</span>
+              <span class="schedule-card__value">随時開催</span>
+            </div>
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">内容</span>
+              <span class="schedule-card__value">各種資格取得のための講習会</span>
+            </div>
+            <div class="schedule-card__item">
+              <span class="schedule-card__label">費用</span>
+              <span class="schedule-card__value">消防団負担（自己負担なし）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 訓練の進め方 -->
+      <h2 class="section-title animate-on-scroll">訓練の進め方</h2>
+
+      <div class="step-section animate-on-scroll">
+        <div class="step-title">🔰 初心者の方</div>
+        <div class="step-cards">
+          <div class="step-card">
+            <div class="step-card__number">1</div>
+            <div class="step-card__title">見学・体験</div>
+            <p class="step-card__text">まずは訓練を見学し、雰囲気を知る</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">2</div>
+            <div class="step-card__title">基礎訓練</div>
+            <p class="step-card__text">先輩団員とペアで基本動作を学ぶ</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">3</div>
+            <div class="step-card__title">段階的習得</div>
+            <p class="step-card__text">少しずつできることを増やしていく</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">4</div>
+            <div class="step-card__title">実践参加</div>
+            <p class="step-card__text">チームの一員として活動に参加</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-section animate-on-scroll">
+        <div class="step-title">⭐ 経験者の方</div>
+        <div class="step-cards">
+          <div class="step-card">
+            <div class="step-card__number">1</div>
+            <div class="step-card__title">スキル確認</div>
+            <p class="step-card__text">現在のスキルレベルを確認</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">2</div>
+            <div class="step-card__title">応用訓練</div>
+            <p class="step-card__text">より高度な技術や指導方法を習得</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">3</div>
+            <div class="step-card__title">資格取得</div>
+            <p class="step-card__text">各種資格にチャレンジ</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">4</div>
+            <div class="step-card__title">後輩指導</div>
+            <p class="step-card__text">指導者として後輩を育成</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 訓練の雰囲気 -->
+      <h2 class="section-title animate-on-scroll">訓練の雰囲気</h2>
+
+      <div class="atmosphere-grid">
+        <div class="atmosphere-card animate-on-scroll delay-1">
+          <div class="atmosphere-card__icon">😊</div>
+          <div class="atmosphere-card__title">真剣だけど、厳しすぎない</div>
+          <p class="atmosphere-card__text">災害に対応するための訓練なので真剣に取り組みますが、理不尽な厳しさはありません。訓練が厳しいという理由で退団した団員は見たことも聞いたこともありません。</p>
+        </div>
+        <div class="atmosphere-card animate-on-scroll delay-2">
+          <div class="atmosphere-card__icon">🤝</div>
+          <div class="atmosphere-card__title">チームで支え合う</div>
+          <p class="atmosphere-card__text">分からないことがあれば、いつでも先輩団員に質問できます。みんなで支え合いながら成長していく雰囲気です。</p>
+        </div>
+        <div class="atmosphere-card animate-on-scroll delay-3">
+          <div class="atmosphere-card__icon">🔥</div>
+          <div class="atmosphere-card__title">緊張感のある訓練もある</div>
+          <p class="atmosphere-card__text">災害や火災は理不尽なものです。それに対応できる力を身につけるため、緊張感のある訓練も実施します。これは「厳しさ」ではなく、地域を守るために必要な「真剣さ」です。</p>
+        </div>
+      </div>
+
+      <!-- 訓練を通じて成長できること -->
+      <div class="growth-section animate-on-scroll">
+        <h2 class="section-title" style="color: var(--color-primary);">訓練を通じて成長できること</h2>
+
+        <div class="growth-grid">
+          <div class="growth-card">
+            <div class="growth-card__icon">🛠️</div>
+            <div class="growth-card__title">技術面</div>
+            <ul class="growth-card__list">
+              <li>消火技術</li>
+              <li>救助技術</li>
+              <li>応急救護技術</li>
+              <li>資機材取扱技術</li>
+            </ul>
+          </div>
+          <div class="growth-card">
+            <div class="growth-card__icon">💎</div>
+            <div class="growth-card__title">精神面</div>
+            <ul class="growth-card__list">
+              <li>責任感</li>
+              <li>判断力</li>
+              <li>冷静さ</li>
+              <li>チームワーク</li>
+            </ul>
+          </div>
+          <div class="growth-card">
+            <div class="growth-card__icon">🌐</div>
+            <div class="growth-card__title">社会面</div>
+            <ul class="growth-card__list">
+              <li>リーダーシップ</li>
+              <li>コミュニケーション能力</li>
+              <li>地域とのつながり</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- よくある質問 -->
+      <div class="faq-section animate-on-scroll">
+        <h2 class="section-title">訓練についてのよくある質問</h2>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Q. 訓練についていけるか不安です
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              <p>A. 初心者の方でも無理なくついていけるよう、段階的に指導します。約70%の団員が指導員資格を持っているので、丁寧なサポートが受けられます。</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Q. 全ての訓練に参加しなければいけませんか？
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              <p>A. 仕事や家庭の都合で参加できない場合もあります。できる範囲で参加していただければ問題ありません。</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Q. 体力に自信がありません
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              <p>A. 特別な体力は必要ありません。訓練を続けるうちに、自然と必要な体力が身につきます。</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="accordion-header">
+              Q. 資格取得は必須ですか？
+              <span>+</span>
+            </button>
+            <div class="accordion-content">
+              <p>A. 必須ではありませんが、多くの団員が積極的に資格取得にチャレンジしています。費用は消防団が負担するので、ぜひ挑戦してください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section animate-on-scroll">
+        <h2>実践的な訓練で、確かな力を。</h2>
+        <p>目黒消防団第８分団で、あなたも地域を守る力を身につけませんか？</p>
+        <a href="form.html" class="btn btn--accent btn--large">入団に申し込む</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- スクロールトップボタン -->
+  <button class="scroll-top-btn" aria-label="ページトップへ戻る">↑</button>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // スクロール進行バー
+    window.addEventListener('scroll', function() {
+      const scrollProgress = document.querySelector('.scroll-progress');
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
+
+    // スクロールアニメーション
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+          element.classList.add('animated');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+    // カウントアップアニメーション
+    function countUp() {
+      const counters = document.querySelectorAll('.stat-card__number[data-count]');
+      counters.forEach(counter => {
+        if (counter.classList.contains('counted')) return;
+
+        const rect = counter.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+          counter.classList.add('counted');
+          const target = parseInt(counter.getAttribute('data-count'));
+          const duration = 2000;
+          const step = target / (duration / 16);
+          let current = 0;
+
+          const updateCounter = () => {
+            current += step;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          requestAnimationFrame(updateCounter);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', countUp);
+    window.addEventListener('load', countUp);
+
+    // ギャラリーアイテムにスタッガーアニメーション
+    document.querySelectorAll('.training-gallery').forEach(gallery => {
+      const items = gallery.querySelectorAll('.training-gallery__item');
+      items.forEach((item, index) => {
+        item.style.transitionDelay = (index * 0.1) + 's';
+      });
+    });
+
+    // スクロールトップボタン
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
+
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 500) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // アコーディオン
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const item = this.parentElement;
+        const isActive = item.classList.contains('active');
+
+        // 他のアコーディオンを閉じる
+        document.querySelectorAll('.accordion-item').forEach(i => {
+          i.classList.remove('active');
+        });
+
+        // クリックしたアコーディオンをトグル
+        if (!isActive) {
+          item.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

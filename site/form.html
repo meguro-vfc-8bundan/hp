@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="目黒消防団第８分団への入団申込フォーム。地域を守る仲間を募集しています。">
+  <title>入団申込 | 目黒消防団第８分団</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">分団の強み</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">分団の強み</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- メインコンテンツ -->
+  <main class="form-page">
+    <div class="form-container">
+      <h1 class="text-center" style="color: var(--color-primary); margin-bottom: var(--spacing-sm);">入団申込フォーム</h1>
+      <p class="text-center" style="margin-bottom: var(--spacing-md);">以下のフォームに必要事項を入力し、送信してください。<br>担当者から折り返しご連絡いたします。<br><small>（概ね１週間以内に連絡がない場合は、目黒消防署へご連絡ください）</small></p>
+
+      <!-- プライバシーポリシー -->
+      <div class="form__privacy">
+        <strong>個人情報の取り扱いについて</strong><br>
+        入力いただいた個人情報は、入団に関すること以外では使用いたしません。個人情報は適切に管理し、第三者に提供することはありません。
+      </div>
+
+      <!-- フォーム -->
+      <!-- Formspreeを使用する場合は、action属性のURLを取得したエンドポイントに置き換えてください -->
+      <!-- 例: action="https://formspree.io/f/xxxxx" -->
+      <form class="form" id="entry-form" action="https://formspree.io/f/xzddgpjq" method="POST">
+        <!-- 送信先メールアドレス（非表示） -->
+        <!-- Formspreeの設定で複数メールアドレスに送信設定を行う -->
+        <input type="hidden" name="_subject" value="【入団申込】目黒消防団第８分団 Webサイトより">
+        <input type="hidden" name="送信元" value="目黒消防団第８分団のホームページから送信されたものです。ご連絡をお願いします。">
+
+        <!-- 氏名 -->
+        <div class="form__group">
+          <label for="name" class="form__label form__label--required">お名前</label>
+          <input type="text" id="name" name="name" class="form__input" required placeholder="例：山田 太郎">
+        </div>
+
+        <!-- フリガナ -->
+        <div class="form__group">
+          <label for="name_kana" class="form__label form__label--required">フリガナ</label>
+          <input type="text" id="name_kana" name="name_kana" class="form__input" required placeholder="例：ヤマダ タロウ">
+        </div>
+
+        <!-- 年齢または生年月日 -->
+        <div class="form__group">
+          <label for="birthdate" class="form__label form__label--required">生年月日</label>
+          <input type="date" id="birthdate" name="birthdate" class="form__input" required>
+        </div>
+
+        <!-- 電話番号 -->
+        <div class="form__group">
+          <label for="phone" class="form__label form__label--required">電話番号</label>
+          <input type="tel" id="phone" name="phone" class="form__input" required placeholder="例：090-1234-5678">
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="form__group">
+          <label for="email" class="form__label form__label--required">メールアドレス</label>
+          <input type="email" id="email" name="email" class="form__input" required placeholder="例：example@email.com">
+        </div>
+
+        <!-- 住所 -->
+        <div class="form__group">
+          <label for="address" class="form__label form__label--required">住所</label>
+          <input type="text" id="address" name="address" class="form__input" required placeholder="例：東京都目黒区目黒本町1-2-3">
+        </div>
+
+        <!-- 勤務先の地域 -->
+        <div class="form__group">
+          <label for="workplace" class="form__label">勤務先の地域（任意）</label>
+          <input type="text" id="workplace" name="workplace" class="form__input" placeholder="例：目黒区、渋谷区など">
+        </div>
+
+        <!-- 志望動機・質問 -->
+        <div class="form__group">
+          <label for="message" class="form__label">志望動機・ご質問（任意）</label>
+          <textarea id="message" name="message" class="form__textarea" placeholder="入団を希望する理由や、ご質問があればご記入ください。"></textarea>
+        </div>
+
+        <!-- 同意チェックボックス -->
+        <div class="form__group">
+          <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+            <input type="checkbox" id="agree" name="agree" required style="margin-top: 4px;">
+            <span>上記の個人情報の取り扱いについて同意します</span>
+          </label>
+        </div>
+
+        <!-- 送信ボタン -->
+        <button type="submit" class="btn btn--accent btn--large form__submit">
+          申し込みを送信する
+        </button>
+      </form>
+
+      <!-- 送信完了メッセージ（初期は非表示、JSで表示切り替え） -->
+      <div id="success-message" style="display: none; text-align: center; padding: 2rem; background: white; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+        <div style="width: 80px; height: 80px; background: #4CAF50; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center;">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2 style="color: #4CAF50; margin-bottom: 1rem;">ありがとうございます！</h2>
+        <p>入団申し込みを受け付けました。</p>
+        <p>近日中に分団担当者からご連絡させていただきます。</p>
+        <p>ご不明な点がございましたら、お気軽に目黒消防署までお問い合わせください。</p>
+        <p style="margin-top: 1.5rem; font-weight: 700; color: var(--color-primary);">一緒に地域を守る仲間として、<br>お会いできることを楽しみにしています！</p>
+        <div style="margin-top: 2rem; padding: 1rem; background: #f5f5f5; border-radius: 8px;">
+          <p style="font-size: 0.9rem; color: #666; margin: 0;">
+            【お問い合わせ先】<br>
+            目黒消防署：<a href="tel:03-3710-0119" style="color: var(--color-primary); font-weight: 600;">03-3710-0119</a>
+          </p>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: #666;">目黒消防団第８分団</p>
+        <a href="index.html" class="btn btn--accent mt-2">トップページに戻る</a>
+      </div>
+
+      <!-- 注意事項 -->
+      <div style="margin-top: 2rem; padding: 1rem; background: #fff3e0; border-radius: 8px; font-size: 0.9rem;">
+        <strong>入団条件</strong>
+        <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+          <li style="list-style: disc;">18歳以上の健康な方</li>
+          <li style="list-style: disc;">目黒区内在住または在勤の方</li>
+          <li style="list-style: disc;">定期的に訓練に参加できる方</li>
+        </ul>
+        <p style="margin-top: 0.5rem; margin-bottom: 0;">※消防の知識・経験は不問です。未経験の方も歓迎です。</p>
+      </div>
+
+      <!-- お問い合わせ先 -->
+      <div style="margin-top: 2rem; text-align: center;">
+        <p>フォーム以外でのお問い合わせは、お電話でも受け付けております。</p>
+        <p><strong>目黒消防署</strong><br>
+        <a href="tel:03-3710-0119" style="font-size: 1.25rem; color: var(--color-primary); font-weight: 700;">03-3710-0119</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // フォーム送信処理
+    document.getElementById('entry-form').addEventListener('submit', function(e) {
+      // Formspreeを使用しない場合のデモ用処理
+      // 実際の運用では、Formspreeなどのサービスを設定してください
+
+      // フォームのバリデーション
+      const requiredFields = this.querySelectorAll('[required]');
+      let isValid = true;
+
+      requiredFields.forEach(function(field) {
+        if (!field.value.trim() || (field.type === 'checkbox' && !field.checked)) {
+          isValid = false;
+          field.style.borderColor = '#E53935';
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      if (!isValid) {
+        e.preventDefault();
+        alert('必須項目を入力してください。');
+        return;
+      }
+
+      // デモ用：フォーム送信をシミュレート
+      // 実際の運用では、この部分を削除してFormspreeの自然な動作に任せる
+      /*
+      e.preventDefault();
+      document.getElementById('entry-form').style.display = 'none';
+      document.getElementById('success-message').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      */
+    });
+  </script>
+</body>
+</html>
