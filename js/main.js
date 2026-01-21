@@ -489,12 +489,12 @@ function initBackgroundColorScroll() {
   // 背景色の設定（上から下へのグラデーション）
   const colorStops = [
     { position: 0, color: [255, 255, 255] },      // 白（ヒーロー下部）
-    { position: 0.15, color: [255, 250, 245] },   // 温かみのある白
-    { position: 0.3, color: [255, 245, 238] },    // うっすらオレンジ
-    { position: 0.5, color: [245, 248, 255] },    // うっすら青
-    { position: 0.7, color: [240, 248, 255] },    // アリスブルー
-    { position: 0.85, color: [248, 245, 255] },   // うっすら紫
-    { position: 1, color: [245, 245, 250] }       // グレーがかった白
+    { position: 0.15, color: [255, 245, 235] },   // 温かみのあるクリーム
+    { position: 0.3, color: [255, 235, 220] },    // 淡いオレンジ
+    { position: 0.5, color: [230, 240, 255] },    // 淡い青
+    { position: 0.7, color: [220, 235, 255] },    // ライトブルー
+    { position: 0.85, color: [235, 225, 250] },   // 淡いラベンダー
+    { position: 1, color: [240, 238, 245] }       // グレーがかった紫
   ];
 
   let ticking = false;
