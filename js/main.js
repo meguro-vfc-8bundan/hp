@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ヒーローパララックス効果
   initHeroParallax();
+
+  // 背景色のスクロール変化（トップページのみ）
+  initBackgroundColorScroll();
 });
 
 /**
@@ -469,4 +472,88 @@ function initHeroParallax() {
       }
     });
   }
+}
+
+/**
+ * 背景色のスクロール変化
+ * トップページでスクロールに応じて背景色がグラデーション的に変化
+ */
+function initBackgroundColorScroll() {
+  // トップページ（index.html）のみで動作
+  const isTopPage = window.location.pathname === '/' ||
+                    window.location.pathname.endsWith('index.html') ||
+                    window.location.pathname.endsWith('/');
+
+  if (!isTopPage) return;
+
+  // 背景色の設定（上から下へのグラデーション）
+  const colorStops = [
+    { position: 0, color: [255, 255, 255] },      // 白（ヒーロー下部）
+    { position: 0.15, color: [255, 250, 245] },   // 温かみのある白
+    { position: 0.3, color: [255, 245, 238] },    // うっすらオレンジ
+    { position: 0.5, color: [245, 248, 255] },    // うっすら青
+    { position: 0.7, color: [240, 248, 255] },    // アリスブルー
+    { position: 0.85, color: [248, 245, 255] },   // うっすら紫
+    { position: 1, color: [245, 245, 250] }       // グレーがかった白
+  ];
+
+  let ticking = false;
+
+  // 2色間を補間する関数
+  function interpolateColor(color1, color2, factor) {
+    return [
+      Math.round(color1[0] + (color2[0] - color1[0]) * factor),
+      Math.round(color1[1] + (color2[1] - color1[1]) * factor),
+      Math.round(color1[2] + (color2[2] - color1[2]) * factor)
+    ];
+  }
+
+  // スクロール位置に応じた背景色を取得
+  function getColorForPosition(scrollProgress) {
+    // 0-1の範囲に正規化
+    scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+
+    // 該当する2つのカラーストップを見つける
+    let lowerStop = colorStops[0];
+    let upperStop = colorStops[colorStops.length - 1];
+
+    for (let i = 0; i < colorStops.length - 1; i++) {
+      if (scrollProgress >= colorStops[i].position && scrollProgress <= colorStops[i + 1].position) {
+        lowerStop = colorStops[i];
+        upperStop = colorStops[i + 1];
+        break;
+      }
+    }
+
+    // 2つのストップ間での位置を計算
+    const range = upperStop.position - lowerStop.position;
+    const factor = range === 0 ? 0 : (scrollProgress - lowerStop.position) / range;
+
+    return interpolateColor(lowerStop.color, upperStop.color, factor);
+  }
+
+  // スクロールイベントハンドラー
+  function handleScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        const scrollY = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollProgress = docHeight > 0 ? scrollY / docHeight : 0;
+
+        const color = getColorForPosition(scrollProgress);
+        document.body.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+
+        ticking = false;
+      });
+
+      ticking = true;
+    }
+  }
+
+  // 初期背景色を設定
+  document.body.style.transition = 'background-color 0.1s ease-out';
+  handleScroll();
+
+  // スクロールイベントをリッスン
+  window.addEventListener('scroll', handleScroll, { passive: true });
 }
