@@ -953,6 +953,15 @@ p {
   border-color: var(--color-primary);
 }
 
+/* 日付入力欄のスマホ対応 */
+.form__input[type="date"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-height: 48px;
+  line-height: 1.5;
+}
+
 .form__textarea {
   min-height: 120px;
   resize: vertical;
