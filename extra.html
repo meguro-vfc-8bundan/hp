@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/fabicon.jpg" type="image/jpeg">
+  <meta name="description" content="目黒消防団第８分団のおまけページ。ファビコン、キャラクター、分団訓、徽章、階級などの豆知識を紹介します。">
+  <title>おまけ | 目黒消防団第８分団</title>
+  <link rel="canonical" href="https://meguro8bundan.tokyo/extra.html">
+  <meta property="og:title" content="おまけ | 目黒消防団第８分団">
+  <meta property="og:description" content="目黒消防団第８分団のおまけページ。ファビコン、キャラクター、分団訓、徽章、階級などの豆知識を紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://meguro8bundan.tokyo/extra.html">
+  <meta property="og:image" content="https://meguro8bundan.tokyo/images/character_phoenix.png">
+  <meta property="og:site_name" content="目黒消防団第８分団">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* おまけページ専用スタイル */
+
+    /* ヒーローセクション */
+    .extra-hero {
+      background: linear-gradient(135deg, #1a2744 0%, #E53935 50%, #FF6D00 100%);
+      color: white;
+      padding: 120px 20px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .extra-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      animation: patternMove 20s linear infinite;
+    }
+
+    @keyframes patternMove {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(60px) translateY(60px); }
+    }
+
+    .extra-hero__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .extra-hero__title {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: bounceIn 0.8s ease-out;
+    }
+
+    .extra-hero__subtitle {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes bounceIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* セクション共通 */
+    .extra-section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .extra-section:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    .extra-section__title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .extra-section__title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6D00);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    .extra-section__emoji {
+      font-size: 2.5rem;
+      display: block;
+      margin-bottom: 0.5rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* カード */
+    .extra-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .extra-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    /* ファビコンセクション */
+    .favicon-section {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .favicon-display {
+      text-align: center;
+    }
+
+    .favicon-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      margin: 0 auto 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .favicon-image:hover {
+      transform: rotate(5deg) scale(1.05);
+    }
+
+    .favicon-browser-demo {
+      background: #dee2e6;
+      border-radius: 8px;
+      padding: 8px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #495057;
+    }
+
+    .favicon-browser-demo img {
+      width: 16px;
+      height: 16px;
+      border-radius: 2px;
+    }
+
+    .favicon-details h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--color-navy);
+    }
+
+    .favicon-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .favicon-details li {
+      padding: 0.8rem 0;
+      border-bottom: 1px dashed #dee2e6;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .favicon-details li:last-child {
+      border-bottom: none;
+    }
+
+    .favicon-details .point-icon {
+      background: linear-gradient(135deg, #E53935, #FF6D00);
+      color: white;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    /* キャラクターセクション */
+    .character-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .character-image-wrap {
+      text-align: center;
+      position: relative;
+    }
+
+    .character-image {
+      max-width: 350px;
+      margin: 0 auto;
+      filter: drop-shadow(0 10px 30px rgba(229, 57, 53, 0.3));
+      transition: transform 0.5s ease;
+    }
+
+    .character-image:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+
+    .character-details h3 {
+      font-size: 1.5rem;
+      color: var(--color-navy);
+      margin-bottom: 1rem;
+    }
+
+    .character-details p {
+      margin-bottom: 1rem;
+      line-height: 1.9;
+    }
+
+    .character-meaning {
+      background: linear-gradient(135deg, rgba(229, 57, 53, 0.1), rgba(255, 109, 0, 0.1));
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .character-meaning h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: var(--color-primary);
+    }
+
+    .character-meaning ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .character-meaning li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .character-meaning li::before {
+      content: '🔥';
+      position: absolute;
+      left: 0;
+      font-size: 0.9rem;
+    }
+
+    /* 分団訓セクション */
+    .bundankun-section {
+      text-align: center;
+    }
+
+    .bundankun-main {
+      background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+      color: white;
+      padding: 3rem;
+      border-radius: 20px;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bundankun-main::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.8; }
+    }
+
+    .bundankun-text {
+      font-size: 2rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      letter-spacing: 0.1em;
+    }
+
+    .bundankun-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .bundankun-item {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .bundankun-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .bundankun-item__keyword {
+      font-size: 2.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #E53935, #FF6D00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+    }
+
+    .bundankun-item__desc {
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.8;
+      text-align: left;
+    }
+
+    /* 徽章セクション */
+    .emblem-section {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .emblem-image-wrap {
+      text-align: center;
+    }
+
+    .emblem-image {
+      max-width: 250px;
+      margin: 0 auto;
+      filter: drop-shadow(0 5px 20px rgba(0,0,0,0.2));
+      transition: transform 0.5s ease;
+    }
+
+    .emblem-image:hover {
+      transform: rotate(10deg);
+    }
+
+    .emblem-details h3 {
+      font-size: 1.3rem;
+      color: var(--color-navy);
+      margin-bottom: 1rem;
+    }
+
+    .emblem-details p {
+      margin-bottom: 1rem;
+      line-height: 1.9;
+    }
+
+    .emblem-elements {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .emblem-element {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .emblem-element__icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .emblem-element__name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--color-navy);
+    }
+
+    .emblem-element__meaning {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+    }
+
+    /* 階級セクション */
+    .rank-section {
+      max-width: 100%;
+    }
+
+    .rank-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--color-text-light);
+    }
+
+    .rank-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .rank-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .rank-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #E53935, #FF6D00);
+    }
+
+    .rank-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    /* 一般団員 - 淡いグリーン（成長・新芽） */
+    .rank-card--entry {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    }
+    .rank-card--entry::before {
+      background: linear-gradient(180deg, #66bb6a, #43a047);
+    }
+
+    /* 初級幹部 - 淡いブルー（信頼・安定） */
+    .rank-card--junior {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    }
+    .rank-card--junior::before {
+      background: linear-gradient(180deg, #42a5f5, #1e88e5);
+    }
+
+    /* 中級幹部 - 落ち着いたパープル（重厚感） */
+    .rank-card--middle {
+      background: linear-gradient(135deg, #7e57c2 0%, #5e35b1 100%);
+      color: white;
+    }
+    .rank-card--middle::before {
+      background: linear-gradient(180deg, #b39ddb, #9575cd);
+    }
+    .rank-card--middle .rank-card__note {
+      border-top-color: rgba(255,255,255,0.3);
+    }
+
+    /* 上級幹部 - 重厚なネイビー */
+    .rank-card--top {
+      background: linear-gradient(135deg, var(--color-navy) 0%, #0d1520 100%);
+      color: white;
+    }
+    .rank-card--top::before {
+      background: linear-gradient(180deg, #FFD700, #FFA000);
+    }
+    .rank-card--top .rank-card__note {
+      border-top-color: rgba(255,255,255,0.3);
+    }
+
+    .rank-card__image {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .rank-card__info {
+      flex: 1;
+    }
+
+    .rank-card__name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .rank-card__role {
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .rank-card__note {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      border-top: 1px dashed rgba(255,255,255,0.3);
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .rank-card:not(.rank-card--top) .rank-card__note {
+      border-top-color: #dee2e6;
+    }
+
+    /* フッターナビ */
+    .extra-nav {
+      background: var(--color-navy);
+      padding: 3rem 20px;
+      text-align: center;
+    }
+
+    .extra-nav__title {
+      color: white;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .extra-nav__links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .extra-nav__link {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .extra-nav__link:hover {
+      background: var(--color-primary);
+      transform: translateY(-2px);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+      .extra-hero__title {
+        font-size: 2rem;
+      }
+
+      .favicon-section,
+      .character-section,
+      .emblem-section {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .bundankun-items {
+        grid-template-columns: 1fr;
+      }
+
+      .bundankun-text {
+        font-size: 1.5rem;
+      }
+
+      .emblem-elements {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .rank-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .character-meaning,
+      .favicon-details ul {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">分団の強み</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="extra.html" class="nav__link">おまけ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">分団の強み</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="extra.html" class="mobile-menu__link">おまけ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ヒーロー -->
+  <section class="extra-hero">
+    <div class="extra-hero__content">
+      <h1 class="extra-hero__title">おまけページ</h1>
+      <p class="extra-hero__subtitle">知って楽しい！８分団の豆知識コレクション</p>
+    </div>
+  </section>
+
+  <!-- ファビコン紹介 -->
+  <section class="extra-section">
+    <h2 class="extra-section__title">
+      <span class="extra-section__emoji">🌐</span>
+      ファビコンについて
+    </h2>
+    <div class="extra-card">
+      <div class="favicon-section">
+        <div class="favicon-display">
+          <img src="images/fabicon.jpg" alt="８分団ファビコン" class="favicon-image">
+          <div class="favicon-browser-demo">
+            <img src="images/fabicon.jpg" alt="">
+            <span>目黒消防団第８分団</span>
+          </div>
+        </div>
+        <div class="favicon-details">
+          <h3>ファビコンとは？</h3>
+          <p>ブラウザのタブやブックマークに表示される小さなアイコンのことです。上の画像のように、サイト名の横に表示されます。</p>
+          <h3 style="margin-top: 1.5rem;">デザインの由来</h3>
+          <ul>
+            <li>
+              <span class="point-icon">T</span>
+              <span><strong>TOKYO</strong> - 東京であることを示すアルファベット</span>
+            </li>
+            <li>
+              <span class="point-icon">目</span>
+              <span><strong>目八</strong> - 目黒の第８分団を漢字でロゴ化</span>
+            </li>
+            <li>
+              <span class="point-icon">色</span>
+              <span><strong>赤・オレンジ</strong> - 消防を象徴する炎の色、<strong>紺色</strong> - 作業服のカラー</span>
+            </li>
+            <li>
+              <span class="point-icon">E</span>
+              <span><strong>エヴァンゲリオン</strong>シリーズが好きな団員がいるため、フォントや配色はオマージュになっています</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- キャラクター紹介 -->
+  <section class="extra-section">
+    <h2 class="extra-section__title">
+      <span class="extra-section__emoji">🔥</span>
+      キャラクター紹介
+    </h2>
+    <div class="extra-card">
+      <div class="character-section">
+        <div class="character-image-wrap">
+          <img src="images/character_phoenix.png" alt="８分団キャラクター フェニックス" class="character-image">
+        </div>
+        <div class="character-details">
+          <h3>火の鳥（フェニックス）</h3>
+          <p>TOPページの一番最初に表示されるこのキャラクターは、団員が考案したオリジナルキャラクターです。名前はまだありません。<br><strong style="color: var(--color-primary);">いい名前があったら、ぜひ名付け親になってください！</strong></p>
+          <p>放水活動で使用する<strong>筒先（管そう）</strong>と<strong>鳶口</strong>を抱え、消防団のシンボルである<strong>桜の紋章</strong>を掲げています。</p>
+          <p>デザインのモデルは、米海軍特殊部隊<strong>Navy SEALs</strong>の徽章です。</p>
+
+          <div class="character-meaning">
+            <h4>込められた意味</h4>
+            <ul>
+              <li><strong>諦めない心</strong> - 何度でも復活する不死鳥のように</li>
+              <li><strong>向上心・上昇志向</strong> - 大空へ羽ばたく鳥のように</li>
+              <li><strong>火を克服するイメージ</strong> - 火を我が物とする火の鳥</li>
+            </ul>
+          </div>
+
+          <div class="character-meaning" style="margin-top: 1rem; background: linear-gradient(135deg, rgba(26, 39, 68, 0.1), rgba(26, 39, 68, 0.05));">
+            <h4 style="color: var(--color-navy);">「真鋭不屈」の由来</h4>
+            <p style="margin: 0; line-height: 1.8;">ロゴに刻まれた<strong>「真鋭不屈」</strong>は、「真の精鋭は決して諦めない」という意味。災害に立ち向かう私たち消防団は、日々の訓練を積んで街の防災リーダー＝精鋭となり、どんな困難にも決して諦めずに行動する。そんな強い意志を込めた言葉です。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 分団訓 -->
+  <section class="extra-section">
+    <h2 class="extra-section__title">
+      <span class="extra-section__emoji">📜</span>
+      分団訓
+    </h2>
+    <div class="bundankun-section">
+      <div class="bundankun-main">
+        <p class="bundankun-text">一、明るく<br>一、正しく<br>一、優しく</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9; position: relative; z-index: 1;">この分団訓は、先先代の分団長（現副団長）が<br>「分団員にこうあって欲しい」という願いを込めて作ったものです。</p>
+      </div>
+      <div class="bundankun-items">
+        <div class="bundankun-item">
+          <div class="bundankun-item__keyword">明るく</div>
+          <p class="bundankun-item__desc">明るく元気にエネルギッシュな活動と円滑な人間関係の形成。会計や活動指針なども明るく（クリアに）する。</p>
+        </div>
+        <div class="bundankun-item">
+          <div class="bundankun-item__keyword">正しく</div>
+          <p class="bundankun-item__desc">正しい知識と技術、安全管理の徹底。時には撤退も辞さず、力を正しく利用する。</p>
+        </div>
+        <div class="bundankun-item">
+          <div class="bundankun-item__keyword">優しく</div>
+          <p class="bundankun-item__desc">思いやりや他人を助ける心を持つ。時には厳しさや理不尽さにも向き合う。甘やかすこととは違う、仲間を守る心。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 徽章 -->
+  <section class="extra-section">
+    <h2 class="extra-section__title">
+      <span class="extra-section__emoji">🎖️</span>
+      消防団の徽章
+    </h2>
+    <div class="extra-card">
+      <div class="emblem-section">
+        <div class="emblem-image-wrap">
+          <img src="images/emblem_shobodan.png" alt="消防団徽章" class="emblem-image">
+        </div>
+        <div class="emblem-details">
+          <h3>消防団章（桜のマーク）について</h3>
+          <p>消防団のシンボルは<strong>桜の花</strong>をモチーフにした「消防団章」。昭和22年（1947年）に制定された、歴史あるマークです。</p>
+          <p style="margin-top: 0.8rem;">消防署の徽章が「雪の結晶」（水・団結・純潔）をモチーフにしているのに対し、消防団は「桜」を採用。日本を象徴する花で<strong>郷土愛</strong>を、散り際の美しさで<strong>潔さ</strong>を表現しています。</p>
+
+          <div class="emblem-elements">
+            <div class="emblem-element">
+              <div class="emblem-element__icon">🌸</div>
+              <div class="emblem-element__name">桜の花</div>
+              <div class="emblem-element__meaning">日本の象徴・郷土愛護の精神</div>
+            </div>
+            <div class="emblem-element">
+              <div class="emblem-element__icon">💮</div>
+              <div class="emblem-element__name">潔さ</div>
+              <div class="emblem-element__meaning">桜のように潔しという心意気</div>
+            </div>
+          </div>
+
+          <div style="margin-top: 1.5rem; padding: 1.2rem; background: #f8f9fa; border-radius: 10px;">
+            <h4 style="font-size: 1rem; margin-bottom: 0.8rem; color: var(--color-navy);">中央の「Y字形」の由来</h4>
+            <p style="margin: 0; font-size: 0.95rem; line-height: 1.8;">桜の中央にある三又のマーク。これは江戸時代の町火消しが使っていた<strong>「さすまた（刺股）」</strong>をデフォルメしたものと言われています。当時は消防ポンプがなく、燃えている建物を引き倒して延焼を防ぐ「破壊消防」が主流。さすまたはその重要な道具でした。</p>
+            <p style="margin: 0.8rem 0 0; font-size: 0.9rem; color: var(--color-text-light);">※ 他にも「纏（まとい）を上から見た形」「輸入消防車のマーク」など諸説あり</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 階級 -->
+  <section class="extra-section">
+    <h2 class="extra-section__title">
+      <span class="extra-section__emoji">⭐</span>
+      消防団の階級
+    </h2>
+    <p class="rank-intro">消防団員の階級は全7階級。入団時は「団員」からスタートし、経験と実績を積んでランクアップしていきます。<br>分団長までは所属する分団の分団長から指名され、副団長以上は団全体を統括する団本部から指名されます。</p>
+
+    <div class="rank-grid">
+      <div class="rank-card rank-card--entry">
+        <img src="images/rank_danin.png" alt="団員の階級章" class="rank-card__image">
+        <div class="rank-card__info">
+          <div class="rank-card__name">団員</div>
+          <div class="rank-card__role">入団時はここからスタート！技術と経験を積みながら、将来の団活動を担う中核メンバーへと成長していく。</div>
+          <div class="rank-card__note">一般団員・未来のエース候補</div>
+        </div>
+      </div>
+
+      <div class="rank-card rank-card--junior">
+        <img src="images/rank_hancho.png" alt="班長の階級章" class="rank-card__image">
+        <div class="rank-card__info">
+          <div class="rank-card__name">班長</div>
+          <div class="rank-card__role">団歴数年、各種資格や経験を積んで新人指導ができるようになった階級。分団運営にも役割を持ち、活動を支える。</div>
+          <div class="rank-card__note">初級幹部・幹部への第一歩</div>
+        </div>
+      </div>
+
+      <div class="rank-card rank-card--junior">
+        <img src="images/rank_bucho.png" alt="部長の階級章" class="rank-card__image">
+        <div class="rank-card__info">
+          <div class="rank-card__name">部長</div>
+          <div class="rank-card__role">分団の中核的存在。経験を積んで各種指導を担い、活動時は隊を率いる分隊長的な役割を果たす。</div>
+          <div class="rank-card__note">初級幹部</div>
+        </div>
+      </div>
+
+      <div class="rank-card rank-card--middle">
+        <img src="images/rank_fukubundancho.png" alt="副分団長の階級章" class="rank-card__image">
+        <div class="rank-card__info">
+          <div class="rank-card__name">副分団長</div>
+          <div class="rank-card__role">分団のブレーン役。分団運用の指揮監督を行いながら分団長を補佐し、分団長不在時はその職務を代理する。</div>
+          <div class="rank-card__note">中級幹部・各分団に最大4名</div>
+        </div>
+      </div>
+
+      <div class="rank-card rank-card--middle">
+        <img src="images/rank_bundancho.png" alt="分団長の階級章" class="rank-card__image">
+        <div class="rank-card__info">
+          <div class="rank-card__name">分団長</div>
+          <div class="rank-card__role">実働部隊である分団の長。事務から現場活動まで分団全体を掌握し、所属団員を指揮監督する。</div>
+          <div class="rank-card__note">中級幹部・各分団に1名</div>
+        </div>
+      </div>
+
+      <div class="rank-card rank-card--top">
+        <img src="images/rank_fukudancho.png" alt="副団長の階級章" class="rank-card__image">
+        <div class="rank-card__info">
+          <div class="rank-card__name">副団長</div>
+          <div class="rank-card__role">複数の分団を受け持つエリアマネージャー的存在。団長を補佐し、団長に事故があるときはその職務を代理する。</div>
+          <div class="rank-card__note">上級幹部・目黒では6名</div>
+        </div>
+      </div>
+
+      <div class="rank-card rank-card--top">
+        <img src="images/rank_dancho.png" alt="団長の階級章" class="rank-card__image">
+        <div class="rank-card__info">
+          <div class="rank-card__name">団長</div>
+          <div class="rank-card__role">消防団の長。団全体を統括し、指揮監督する最高責任者。</div>
+          <div class="rank-card__note">各市区町村に1名</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section" style="text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);">
+    <h2 style="color: white; margin-bottom: 1rem;">地域を守る。自分を高める。仲間とつながる。</h2>
+    <p style="color: rgba(255,255,255,0.9); margin-bottom: 2rem;">目黒消防団第８分団で、あなたも一緒に活動しませんか？</p>
+    <a href="form.html" class="btn btn--accent btn--large">入団に申し込む</a>
+  </div>
+
+  <!-- スクロールトップボタン -->
+  <button class="scroll-top-btn" aria-label="ページトップへ戻る">↑</button>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
