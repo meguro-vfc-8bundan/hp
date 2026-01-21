@@ -37,6 +37,11 @@
   <style>
     /* おまけページ専用スタイル */
 
+    /* 横スクロール防止 */
+    html, body {
+      overflow-x: hidden;
+    }
+
     /* ヒーローセクション */
     .extra-hero {
       background: linear-gradient(135deg, #1a2744 0%, #E53935 50%, #FF6D00 100%);
@@ -591,11 +596,34 @@
         font-size: 2rem;
       }
 
+      .extra-section {
+        padding: 60px 15px;
+      }
+
+      .extra-card {
+        padding: 1.5rem;
+      }
+
       .favicon-section,
       .character-section,
       .emblem-section {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
+      }
+
+      .character-image {
+        max-width: 100%;
+        width: 80%;
+      }
+
+      .favicon-image {
+        width: 120px;
+        height: 120px;
+      }
+
+      .emblem-image {
+        max-width: 180px;
       }
 
       .bundankun-items {
@@ -604,6 +632,10 @@
 
       .bundankun-text {
         font-size: 1.5rem;
+      }
+
+      .bundankun-main {
+        padding: 2rem 1.5rem;
       }
 
       .emblem-elements {
