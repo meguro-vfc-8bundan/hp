@@ -1197,8 +1197,17 @@ p {
    レスポンシブ（PC: 1024px〜）
    ---------------------------------------- */
 @media (min-width: 1024px) {
+  .header__inner {
+    padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-xs);
+  }
+
   .nav {
     display: block;
+    align-self: flex-end;
+  }
+
+  .nav__list {
+    align-items: flex-end;
   }
 
   .menu-btn {
