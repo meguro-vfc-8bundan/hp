@@ -1,7 +1,4 @@
-# 目黒消防団第８分団 ホームページ
-# https://meguro-vfc-8bundan.github.io/hp/
-
 User-agent: *
 Allow: /
 
-Sitemap: https://meguro-vfc-8bundan.github.io/hp/sitemap.xml
+Sitemap: https://meguro8bundan.tokyo/sitemap.xml
