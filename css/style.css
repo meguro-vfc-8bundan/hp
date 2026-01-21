@@ -953,13 +953,26 @@ p {
   border-color: var(--color-primary);
 }
 
-/* 日付入力欄のスマホ対応 */
+/* 日付入力欄のスマホ対応（iOS Chrome/Safari） */
 .form__input[type="date"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   min-height: 48px;
+  height: auto;
   line-height: 1.5;
+  background-color: #fff;
+  padding: var(--spacing-sm);
+  font-size: 16px; /* iOS自動ズーム防止 */
+}
+
+/* iOS Safari/Chrome専用 */
+@supports (-webkit-touch-callout: none) {
+  .form__input[type="date"] {
+    min-height: 52px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
 }
 
 .form__textarea {
