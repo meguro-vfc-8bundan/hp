@@ -1585,12 +1585,6 @@ p {
   box-shadow: 0 6px 25px rgba(229, 57, 53, 0.5);
 }
 
-.floating-cta__btn svg {
-  width: 18px;
-  height: 18px;
-  fill: currentColor;
-}
-
 /* モバイルのみ表示 */
 @media (max-width: 768px) {
   .floating-cta {
