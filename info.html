@@ -61,31 +61,6 @@
   <link rel="stylesheet" href="css/style.css">
   <style>
     /* 情報ページ専用スタイル */
-    .info-hero {
-      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
-      padding: 8rem 2rem 4rem;
-      text-align: center;
-      color: white;
-    }
-
-    .info-hero__title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .info-hero__subtitle {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .info-section {
-      padding: 4rem 2rem;
-    }
-
-    .info-section--alt {
-      background: #f8f9fa;
-    }
-
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -208,34 +183,6 @@
       border: none;
     }
 
-    /* セクションタイトル */
-    .section-title {
-      font-size: 1.8rem;
-      color: #1a2744;
-      text-align: center;
-      margin-bottom: 1rem;
-      position: relative;
-      padding-bottom: 1rem;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: linear-gradient(90deg, #E53935, #FF6F00);
-      border-radius: 2px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 3rem;
-    }
-
     /* お問い合わせセクション */
     .contact-box {
       background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
@@ -310,18 +257,6 @@
     }
 
     @media (max-width: 768px) {
-      .info-hero {
-        padding: 6rem 1.5rem 3rem;
-      }
-
-      .info-hero__title {
-        font-size: 1.8rem;
-      }
-
-      .info-section {
-        padding: 3rem 1.5rem;
-      }
-
       .contact-box {
         padding: 2rem 1.5rem;
       }
@@ -379,16 +314,21 @@
     </div>
   </div>
 
-  <!-- ヒーロー -->
-  <section class="info-hero">
-    <h1 class="info-hero__title">分団情報</h1>
-    <p class="info-hero__subtitle">目黒消防団第８分団の基本情報</p>
+  <!-- ページヘッダー -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">分団情報</h1>
+      <p class="page-header__subtitle">目黒消防団第８分団の基本情報</p>
+    </div>
   </section>
 
+  <!-- メインコンテンツ -->
+  <main class="page-content">
+
   <!-- 基本情報セクション -->
-  <section class="info-section">
+  <section class="section">
     <div class="container">
-      <h2 class="section-title">基本情報</h2>
+      <h2 class="section__title">基本情報</h2>
       <div class="info-grid">
         <div class="info-card">
           <div class="info-card__icon">
@@ -482,10 +422,10 @@
   </section>
 
   <!-- 管轄地域セクション -->
-  <section class="info-section info-section--alt">
+  <section class="section section--alt">
     <div class="container">
-      <h2 class="section-title">管轄地域</h2>
-      <p class="section-subtitle">第８分団が担当する7つの町会</p>
+      <h2 class="section__title">管轄地域</h2>
+      <p class="section__subtitle">第８分団が担当する7つの町会</p>
       <div class="info-card info-card--large" style="max-width: 800px; margin: 0 auto;">
         <div class="area-list" style="justify-content: center;">
           <span class="area-tag">月光町会</span>
@@ -505,10 +445,10 @@
   </section>
 
   <!-- アクセスセクション -->
-  <section class="info-section">
+  <section class="section">
     <div class="container">
-      <h2 class="section-title">アクセス</h2>
-      <p class="section-subtitle">分団本部への交通案内</p>
+      <h2 class="section__title">アクセス</h2>
+      <p class="section__subtitle">分団本部への交通案内</p>
 
       <div class="access-grid">
         <div class="access-card">
@@ -538,10 +478,10 @@
   </section>
 
   <!-- お問い合わせセクション -->
-  <section class="info-section info-section--alt">
+  <section class="section section--alt">
     <div class="container">
-      <h2 class="section-title">お問い合わせ</h2>
-      <p class="section-subtitle">入団に関するお問い合わせは目黒消防署へ</p>
+      <h2 class="section__title">お問い合わせ</h2>
+      <p class="section__subtitle">入団に関するお問い合わせは目黒消防署へ</p>
 
       <div class="contact-box">
         <p class="contact-box__title">入団・その他のお問い合わせ</p>
@@ -571,6 +511,8 @@
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- CTAセクション -->
   <section class="cta cta--navy">
