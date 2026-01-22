@@ -1543,3 +1543,57 @@ p {
   color: var(--color-text-light);
   font-size: 0.9rem;
 }
+
+/* ----------------------------------------
+   モバイル用フローティングCTAボタン
+   ---------------------------------------- */
+.floating-cta {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.floating-cta.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.floating-cta__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.25rem;
+  background: var(--gradient-primary);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(229, 57, 53, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-cta__btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(229, 57, 53, 0.5);
+}
+
+.floating-cta__btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* モバイルのみ表示 */
+@media (max-width: 768px) {
+  .floating-cta {
+    display: block;
+  }
+}

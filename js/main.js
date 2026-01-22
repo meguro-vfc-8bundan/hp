@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // 背景色のスクロール変化（トップページのみ）
   initBackgroundColorScroll();
+
+  // モバイル用フローティングCTAボタン
+  initFloatingCta();
 });
 
 /**
@@ -556,4 +559,59 @@ function initBackgroundColorScroll() {
 
   // スクロールイベントをリッスン
   window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+/**
+ * モバイル用フローティングCTAボタンの初期化
+ * スクロールで表示、CTAセクションが見えたら非表示
+ */
+function initFloatingCta() {
+  const floatingCta = document.querySelector('.floating-cta');
+  const ctaSection = document.querySelector('.cta');
+
+  if (!floatingCta) return;
+
+  let isCtaVisible = false;
+  const scrollThreshold = 300; // ボタンが表示されるスクロール量
+
+  // CTAセクションの可視性を監視
+  if (ctaSection) {
+    const ctaObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        isCtaVisible = entry.isIntersecting;
+        updateFloatingCtaVisibility();
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    ctaObserver.observe(ctaSection);
+  }
+
+  // スクロール位置を監視
+  let ticking = false;
+
+  function updateFloatingCtaVisibility() {
+    const scrollY = window.pageYOffset;
+    const shouldShow = scrollY > scrollThreshold && !isCtaVisible;
+
+    if (shouldShow) {
+      floatingCta.classList.add('is-visible');
+    } else {
+      floatingCta.classList.remove('is-visible');
+    }
+  }
+
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        updateFloatingCtaVisibility();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // 初期状態を設定
+  updateFloatingCtaVisibility();
 }
