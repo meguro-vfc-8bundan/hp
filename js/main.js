@@ -567,12 +567,14 @@ function initBackgroundColorScroll() {
  */
 function initFloatingCta() {
   const floatingCta = document.querySelector('.floating-cta');
-  // .cta または .cta-section のどちらかを検出
+  // .cta または .cta-section またはフッターを検出
   const ctaSection = document.querySelector('.cta') || document.querySelector('.cta-section');
+  const footer = document.querySelector('.footer');
 
   if (!floatingCta) return;
 
   let isCtaVisible = false;
+  let isFooterVisible = false;
   const scrollThreshold = 300; // ボタンが表示されるスクロール量
 
   // CTAセクションの可視性を監視
@@ -589,12 +591,26 @@ function initFloatingCta() {
     ctaObserver.observe(ctaSection);
   }
 
+  // フッターの可視性を監視
+  if (footer) {
+    const footerObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        isFooterVisible = entry.isIntersecting;
+        updateFloatingCtaVisibility();
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    footerObserver.observe(footer);
+  }
+
   // スクロール位置を監視
   let ticking = false;
 
   function updateFloatingCtaVisibility() {
     const scrollY = window.pageYOffset;
-    const shouldShow = scrollY > scrollThreshold && !isCtaVisible;
+    const shouldShow = scrollY > scrollThreshold && !isCtaVisible && !isFooterVisible;
 
     if (shouldShow) {
       floatingCta.classList.add('is-visible');

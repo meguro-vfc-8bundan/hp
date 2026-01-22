@@ -836,6 +836,13 @@
       box-shadow: 0 8px 25px rgba(229, 57, 53, 0.5);
     }
 
+    /* モバイルではscroll-top-btnを非表示（フローティングCTAと重複するため） */
+    @media (max-width: 768px) {
+      .scroll-top-btn {
+        display: none !important;
+      }
+    }
+
     /* アニメーション用クラス */
     .animate-on-scroll {
       opacity: 0;

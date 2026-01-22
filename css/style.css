@@ -1590,4 +1590,9 @@ p {
   .floating-cta {
     display: block;
   }
+
+  /* scroll-top-btnを非表示（フローティングCTAと重複するため） */
+  .scroll-top-btn {
+    display: none !important;
+  }
 }
