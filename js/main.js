@@ -567,7 +567,8 @@ function initBackgroundColorScroll() {
  */
 function initFloatingCta() {
   const floatingCta = document.querySelector('.floating-cta');
-  const ctaSection = document.querySelector('.cta');
+  // .cta または .cta-section のどちらかを検出
+  const ctaSection = document.querySelector('.cta') || document.querySelector('.cta-section');
 
   if (!floatingCta) return;
 
