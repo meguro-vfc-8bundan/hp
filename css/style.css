@@ -1595,4 +1595,22 @@ p {
   .scroll-top-btn {
     display: none !important;
   }
+
+  /* モバイル時、セクション内のボタンを中央揃え */
+  .activity__text {
+    text-align: center;
+  }
+
+  .activity__text h3,
+  .activity__text p {
+    text-align: left;
+  }
+
+  .activity__list {
+    text-align: left;
+  }
+
+  .activity__text .btn {
+    display: inline-flex;
+  }
 }
