@@ -238,7 +238,7 @@
       background: linear-gradient(90deg, #FF6F00, #FFA726);
     }
 
-    .flow-steps {
+    .flow-main {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -252,8 +252,12 @@
       padding: 1.5rem;
       border-radius: 12px;
       text-align: center;
-      min-width: 180px;
+      min-width: 140px;
       backdrop-filter: blur(10px);
+    }
+
+    .flow-step--large {
+      min-width: 160px;
     }
 
     .flow-step__number {
@@ -281,6 +285,129 @@
     .flow-arrow {
       font-size: 2rem;
       color: rgba(255,255,255,0.5);
+    }
+
+    /* 分岐フロー */
+    .flow-branch {
+      background: rgba(255,255,255,0.05);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .flow-branch__label {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #E53935, #FF6F00);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 0.75rem;
+    }
+
+    .flow-branch__title {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-bottom: 1rem;
+    }
+
+    .flow-branch__paths {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .flow-path {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: left;
+      flex: 1;
+      max-width: 220px;
+    }
+
+    .flow-path--a {
+      border-top: 3px solid #4CAF50;
+    }
+
+    .flow-path--b {
+      border-top: 3px solid #2196F3;
+    }
+
+    .flow-path__header {
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .flow-path__badge {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .flow-path--a .flow-path__badge {
+      background: #4CAF50;
+    }
+
+    .flow-path--b .flow-path__badge {
+      background: #2196F3;
+    }
+
+    .flow-path__content {
+      text-align: center;
+    }
+
+    .flow-path__icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-path__title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-path__text {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-path__list {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0 0;
+      text-align: left;
+      font-size: 0.8rem;
+    }
+
+    .flow-path__list li {
+      background: rgba(255,255,255,0.1);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .flow-path__list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .flow-path__list strong {
+      color: #FFA726;
     }
 
     /* ワッペンセクション */
@@ -388,12 +515,20 @@
 
     /* モバイル対応 */
     @media (max-width: 767px) {
-      .flow-steps {
+      .flow-main {
         flex-direction: column;
       }
 
       .flow-arrow {
         transform: rotate(90deg);
+      }
+
+      .flow-branch__paths {
+        flex-direction: column;
+      }
+
+      .flow-path {
+        max-width: 100%;
       }
 
       .specialist-intro {
@@ -716,8 +851,10 @@
       <section class="flow-section animate-on-scroll">
         <h2 class="section-title">特殊技能団員になるには</h2>
 
-        <div class="flow-steps">
-          <div class="flow-step">
+        <!-- メインフロー -->
+        <div class="flow-main">
+          <!-- STEP 1 -->
+          <div class="flow-step flow-step--large">
             <div class="flow-step__number">1</div>
             <div class="flow-step__title">消防団に入団</div>
             <p class="flow-step__text">まずは消防団員として入団</p>
@@ -725,15 +862,48 @@
 
           <span class="flow-arrow">→</span>
 
-          <div class="flow-step">
-            <div class="flow-step__number">2</div>
-            <div class="flow-step__title">資格の確認</div>
-            <p class="flow-step__text">対象資格を保有しているか確認</p>
+          <!-- STEP 2: 分岐 -->
+          <div class="flow-branch">
+            <div class="flow-branch__label">2</div>
+            <div class="flow-branch__title">資格についてはどちらかのルートへ</div>
+
+            <div class="flow-branch__paths">
+              <!-- ルートA -->
+              <div class="flow-path flow-path--a">
+                <div class="flow-path__header">
+                  <span class="flow-path__badge">A</span>
+                  既に資格をお持ちの方
+                </div>
+                <div class="flow-path__content">
+                  <div class="flow-path__icon">✓</div>
+                  <div class="flow-path__title">資格の確認</div>
+                  <p class="flow-path__text">お持ちの資格が対象資格に該当するか確認</p>
+                </div>
+              </div>
+
+              <!-- ルートB -->
+              <div class="flow-path flow-path--b">
+                <div class="flow-path__header">
+                  <span class="flow-path__badge">B</span>
+                  入団後に資格を取得する方
+                </div>
+                <div class="flow-path__content">
+                  <div class="flow-path__icon">📚</div>
+                  <div class="flow-path__title">資格を取得</div>
+                  <p class="flow-path__text">以下のいずれかの方法で取得</p>
+                  <ul class="flow-path__list">
+                    <li><strong>団内講習</strong><br>消防団が実施する指定資格の講習を受講</li>
+                    <li><strong>外部取得</strong><br>外部で資格を取得し、証明書類を準備</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
           <span class="flow-arrow">→</span>
 
-          <div class="flow-step">
+          <!-- STEP 3 -->
+          <div class="flow-step flow-step--large">
             <div class="flow-step__number">3</div>
             <div class="flow-step__title">申請・届出</div>
             <p class="flow-step__text">必要書類を提出して申請</p>
@@ -741,7 +911,8 @@
 
           <span class="flow-arrow">→</span>
 
-          <div class="flow-step">
+          <!-- STEP 4 -->
+          <div class="flow-step flow-step--large">
             <div class="flow-step__number">4</div>
             <div class="flow-step__title">認定</div>
             <p class="flow-step__text">特殊技能団員として認定</p>
