@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="images/fabicon.jpg" type="image/jpeg">
-  <meta name="description" content="特殊技能団員とは？消防団員として活躍できる専門資格・技能を持つ団員制度についてご紹介します。">
+  <meta name="description" content="特殊技能団員とは？消防団員として活躍できる専門資格・技能を持つ団員制度についてご紹介します。重機操作、自動車等運転、医療、活動支援の4区分があります。">
   <title>特殊技能団員とは | 目黒消防団第８分団</title>
   <link rel="canonical" href="https://meguro8bundan.tokyo/specialist.html">
   <meta property="og:title" content="特殊技能団員とは | 目黒消防団第８分団">
@@ -40,21 +40,100 @@
       padding: 3rem 2rem;
       border-radius: 16px;
       margin-bottom: 3rem;
-      text-align: center;
     }
 
     .specialist-intro__title {
       font-size: 1.75rem;
       color: var(--color-primary);
       margin-bottom: 1.5rem;
+      text-align: center;
     }
 
     .specialist-intro__text {
-      font-size: 1.1rem;
-      line-height: 1.8;
+      font-size: 1.05rem;
+      line-height: 1.9;
       color: #333;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
+    }
+
+    .specialist-intro__note {
+      background: white;
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--color-primary);
+      font-size: 0.95rem;
+    }
+
+    .specialist-intro__note strong {
+      color: var(--color-primary);
+    }
+
+    /* 活動区分セクション */
+    .category-section {
+      margin-bottom: 4rem;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .category-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .category-card__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a2744;
+      margin-bottom: 0.75rem;
+    }
+
+    .category-card__description {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .category-card__stat {
+      display: inline-block;
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
 
     /* 資格一覧セクション */
@@ -62,45 +141,84 @@
       margin-bottom: 4rem;
     }
 
-    .qualification-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+    .qualification-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      justify-content: center;
     }
 
-    .qualification-card {
+    .qualification-tab {
+      padding: 0.75rem 1.25rem;
+      border: 2px solid #ddd;
+      border-radius: 25px;
+      background: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: #666;
+    }
+
+    .qualification-tab:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    .qualification-tab.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+    }
+
+    .qualification-content {
+      display: none;
+    }
+
+    .qualification-content.active {
+      display: block;
+    }
+
+    .qualification-list {
       background: white;
       border-radius: 12px;
-      padding: 1.5rem;
+      padding: 2rem;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      border-left: 4px solid var(--color-primary);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .qualification-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
-
-    .qualification-card__category {
-      font-size: 0.85rem;
-      color: var(--color-primary);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .qualification-card__title {
+    .qualification-list__title {
       font-size: 1.1rem;
       font-weight: 700;
-      color: #1a2744;
-      margin-bottom: 0.75rem;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #eee;
     }
 
-    .qualification-card__description {
-      font-size: 0.95rem;
-      color: #666;
-      line-height: 1.6;
+    .qualification-list ul {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .qualification-list li {
+      padding: 0.5rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .qualification-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: bold;
     }
 
     /* フロー図セクション */
@@ -167,8 +285,15 @@
 
     /* ワッペンセクション */
     .badge-section {
-      text-align: center;
       margin-bottom: 4rem;
+    }
+
+    .badge-content {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      align-items: center;
+      margin-top: 2rem;
     }
 
     .badge-image-container {
@@ -176,23 +301,54 @@
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      display: inline-block;
-      margin-top: 2rem;
+      text-align: center;
     }
 
     .badge-image {
-      max-width: 300px;
+      max-width: 250px;
       height: auto;
       border-radius: 8px;
     }
 
-    .badge-description {
-      margin-top: 1.5rem;
+    .badge-info {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2rem;
+      border-radius: 16px;
+    }
+
+    .badge-info__title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a2744;
+      margin-bottom: 1rem;
+    }
+
+    .badge-info__text {
       font-size: 1rem;
-      color: #666;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .badge-info__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .badge-info__list li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .badge-info__list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: bold;
     }
 
     /* プレースホルダー */
@@ -203,6 +359,31 @@
       border-radius: 12px;
       text-align: center;
       color: #999;
+    }
+
+    /* 統計セクション */
+    .stats-banner {
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      color: white;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .stats-banner__title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .stats-banner__number {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    .stats-banner__unit {
+      font-size: 1.25rem;
     }
 
     /* モバイル対応 */
@@ -221,6 +402,19 @@
 
       .specialist-intro__title {
         font-size: 1.4rem;
+      }
+
+      .badge-content {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .qualification-list ul {
+        grid-template-columns: 1fr;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -285,41 +479,245 @@
 
       <!-- 特殊技能団員の説明 -->
       <section class="specialist-intro animate-on-scroll">
-        <h2 class="specialist-intro__title">特殊技能団員とは？</h2>
+        <h2 class="specialist-intro__title">特殊技能班とは？</h2>
         <p class="specialist-intro__text">
-          特殊技能団員とは、消防活動に役立つ専門的な資格や技能を持つ消防団員のことです。<br>
-          防火・防災に関する知識、輸送技術、語学力など、さまざまな専門スキルを活かして消防団活動に貢献しています。<br><br>
-          第８分団では約50%の団員が特殊技能団員として認定されており、それぞれの専門性を活かした活動を行っています。
+          特殊技能班は、<strong>震災等の大規模災害</strong>において、特殊技能団員が消防署隊と連携して、効果的に<strong>救助活動、救護活動、資器材等の搬送活動、安全管理等</strong>の活動を行うことを目的として編成される組織です。
+          <br><br>
+          平成17年6月の特別区消防団運営委員会諮問「震災時の大規模な災害等において特殊技能を有する消防団員が効果的に活動するための方策はいかにあるべきか」の答申を受け、<strong>平成18年9月1日</strong>から施行されました。
         </p>
+        <div class="specialist-intro__note">
+          <strong>適用事象：</strong>震災及び大規模災害において、署長が特殊技能班の活動を必要と認めた場合又は団長が災害の状況等により必要と認めた場合に、団長が特殊技能団員を招集し、特殊技能班の出場を命じた災害を対象に活動要領が適用されます。
+        </div>
+      </section>
+
+      <!-- 統計バナー -->
+      <div class="stats-banner animate-on-scroll">
+        <div class="stats-banner__title">東京消防庁管内 特殊技能団員</div>
+        <div class="stats-banner__number">1,373<span class="stats-banner__unit">名</span></div>
+      </div>
+
+      <!-- 4つの活動区分 -->
+      <section class="category-section">
+        <h2 class="section-title animate-on-scroll">4つの活動区分</h2>
+
+        <div class="category-grid">
+          <div class="category-card animate-on-scroll">
+            <div class="category-card__icon">🚜</div>
+            <div class="category-card__title">重機操作</div>
+            <p class="category-card__description">重機を操作し、災害に対応した活動を行います。がれきの撤去や救助活動の支援など、重機の専門技能を活かした活動です。</p>
+            <span class="category-card__stat">登録者数 464名</span>
+          </div>
+
+          <div class="category-card animate-on-scroll">
+            <div class="category-card__icon">🚛</div>
+            <div class="category-card__title">自動車等運転</div>
+            <p class="category-card__description">マイクロバス、トラック等を運行し、活動人員、資器材、傷者等の搬送を行います。輸送技能を活かした機動的な活動です。</p>
+            <span class="category-card__stat">登録者数 569名</span>
+          </div>
+
+          <div class="category-card animate-on-scroll">
+            <div class="category-card__icon">🏥</div>
+            <div class="category-card__title">医療</div>
+            <p class="category-card__description">現場救護所や仮救護所等における救護活動やトリアージに関する協力を行います。医療の専門知識を活かした活動です。</p>
+            <span class="category-card__stat">登録者数 47名</span>
+          </div>
+
+          <div class="category-card animate-on-scroll">
+            <div class="category-card__icon">🔧</div>
+            <div class="category-card__title">活動支援</div>
+            <p class="category-card__description">特殊技能資格等を活用した災害活動の支援を行います。建築・電気・語学など多様な専門スキルを活かした活動です。</p>
+            <span class="category-card__stat">登録者数 679名</span>
+          </div>
+        </div>
       </section>
 
       <!-- 対象となる資格一覧 -->
       <section class="qualification-section">
-        <h2 class="section-title animate-on-scroll">対象となる資格一覧</h2>
+        <h2 class="section-title animate-on-scroll">活動支援区分 対象資格一覧</h2>
 
-        <div class="qualification-grid">
-          <div class="qualification-card animate-on-scroll">
-            <div class="qualification-card__category">防火分野</div>
-            <div class="qualification-card__title">防火管理者・消防設備士など</div>
-            <p class="qualification-card__description">建物の防火管理や消防設備の点検・整備に関する専門知識を持つ資格です。</p>
+        <div class="qualification-tabs animate-on-scroll">
+          <button class="qualification-tab active" data-tab="construction">建築関係</button>
+          <button class="qualification-tab" data-tab="civil">建設関係</button>
+          <button class="qualification-tab" data-tab="equipment">設備関係</button>
+          <button class="qualification-tab" data-tab="electric">電気関係</button>
+          <button class="qualification-tab" data-tab="radio">無線関係</button>
+          <button class="qualification-tab" data-tab="maintenance">整備関係</button>
+          <button class="qualification-tab" data-tab="hazmat">危険物関係</button>
+          <button class="qualification-tab" data-tab="language">語学関係</button>
+          <button class="qualification-tab" data-tab="other">その他</button>
+        </div>
+
+        <!-- 建築関係 -->
+        <div class="qualification-content active" id="tab-construction">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">建築関係</div>
+            <ul>
+              <li>一級建築士</li>
+              <li>二級建築士</li>
+              <li>木造建築士</li>
+              <li>一級土木施工管理技士</li>
+              <li>二級土木施工管理技士</li>
+              <li>二級建築施工管理技士</li>
+              <li>一級建設機械施工技士</li>
+              <li>一級管工事施工管理技士</li>
+              <li>二級管工事施工管理技士</li>
+              <li>二級ボイラー技士</li>
+              <li>測量士</li>
+              <li>測量士補</li>
+              <li>技術士（建設）</li>
+              <li>土止め支保工作作業主任者</li>
+              <li>木造組立作業主任者</li>
+              <li>木造建築物解体工事作業責任者</li>
+              <li>一級造園施工管理技士</li>
+              <li>造園業従事者</li>
+              <li>都市ガス内管工事士</li>
+              <li>二級左官技能</li>
+              <li>上下水道工事士</li>
+              <li>配管技能</li>
+              <li>とび職</li>
+              <li>大工</li>
+            </ul>
           </div>
+        </div>
 
-          <div class="qualification-card animate-on-scroll">
-            <div class="qualification-card__category">輸送分野</div>
-            <div class="qualification-card__title">大型自動車免許・二輪免許など</div>
-            <p class="qualification-card__description">消防車両の運転や機動力を活かした活動に必要な運転技能です。</p>
+        <!-- 建設関係 -->
+        <div class="qualification-content" id="tab-civil">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">建設関係</div>
+            <ul>
+              <li>第二種酸素欠乏危険作業特別教育</li>
+              <li>酸素欠乏危険作業主任者技能講習</li>
+              <li>有機溶剤作業主任者</li>
+              <li>毒劇物取扱責任者（一般）</li>
+              <li>石綿作業主任者技能講習</li>
+              <li>高所作業車運転者技能講習</li>
+              <li>火薬類取扱保安責任者 甲種</li>
+              <li>足場の組立て等作業主任者</li>
+              <li>コンクリート破砕器作業主任者</li>
+              <li>高圧ガス保安責任者（甲種化学）</li>
+              <li>高圧ガス取扱主任者</li>
+              <li>高圧ガス移動監視者</li>
+              <li>第一種高圧ガス販売主任者</li>
+              <li>玉掛け技能講習</li>
+              <li>ガス溶接技能者</li>
+              <li>ガス溶接作業主任者</li>
+              <li>アーク溶接等業務に係る特別教育</li>
+              <li>特定化学物質作業主任者</li>
+              <li>有機溶剤管理者</li>
+              <li>建設機材</li>
+              <li>ホイストクレーン</li>
+            </ul>
           </div>
+        </div>
 
-          <div class="qualification-card animate-on-scroll">
-            <div class="qualification-card__category">語学分野</div>
-            <div class="qualification-card__title">英語・中国語・韓国語など</div>
-            <p class="qualification-card__description">外国人への避難誘導や情報伝達に活かせる語学力です。</p>
+        <!-- 設備関係 -->
+        <div class="qualification-content" id="tab-equipment">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">設備関係</div>
+            <ul>
+              <li>設備士甲四</li>
+              <li>設備士乙一</li>
+              <li>設備士乙四</li>
+              <li>二級ボイラー技士</li>
+              <li>多重無線設備</li>
+              <li>液化ガス設備</li>
+            </ul>
           </div>
+        </div>
 
-          <div class="qualification-card animate-on-scroll">
-            <div class="qualification-card__category">その他</div>
-            <div class="qualification-card__title">各種専門資格</div>
-            <p class="qualification-card__description">消防活動に活かせるその他の専門資格も対象となります。詳細はお問い合わせください。</p>
+        <!-- 電気関係 -->
+        <div class="qualification-content" id="tab-electric">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">電気関係</div>
+            <ul>
+              <li>第一種電気工事士</li>
+              <li>第二種電気工事士</li>
+              <li>第二種電気主任技術者</li>
+              <li>第三種電気主任技術者</li>
+              <li>技術士（電気・電子）</li>
+              <li>電気工事施工管理技士</li>
+              <li>電気工事従事者認定</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 無線関係 -->
+        <div class="qualification-content" id="tab-radio">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">無線関係</div>
+            <ul>
+              <li>1級海上特殊無線</li>
+              <li>2級海上特殊無線</li>
+              <li>1級陸上特殊無線</li>
+              <li>2級陸上特殊無線</li>
+              <li>3級陸上特殊無線</li>
+              <li>一級アマチュア無線技士</li>
+              <li>二級アマチュア無線技士</li>
+              <li>三級アマチュア無線技士</li>
+              <li>四級アマチュア無線技士</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 整備関係 -->
+        <div class="qualification-content" id="tab-maintenance">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">整備関係</div>
+            <ul>
+              <li>二等航空整備士（回転翼航空機）</li>
+              <li>二級ガソリン自動車整備士</li>
+              <li>三級ガソリンエンジン整備士</li>
+              <li>二級ディーゼル自動車整備士</li>
+              <li>一級大型自動車整備士</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 危険物関係 -->
+        <div class="qualification-content" id="tab-hazmat">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">危険物関係</div>
+            <ul>
+              <li>危険物取扱者 甲種</li>
+              <li>危険物取扱者 乙種第一類</li>
+              <li>危険物取扱者 乙種第二類</li>
+              <li>危険物取扱者 乙種第三類</li>
+              <li>危険物取扱者 乙種第四類</li>
+              <li>危険物取扱者 乙種第五類</li>
+              <li>危険物取扱者 丙種</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 語学関係 -->
+        <div class="qualification-content" id="tab-language">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">語学関係</div>
+            <ul>
+              <li>通訳案内業（ガイド）英語</li>
+              <li>手話通訳士</li>
+              <li>実用英語技能検定 一級</li>
+              <li>実用英語技能検定 準二級</li>
+              <li>実用英語技能検定 二級</li>
+              <li>英語検定3級</li>
+              <li>TOEIC 860点以上</li>
+              <li>外国語（英語）</li>
+              <li>外国語（北京語）</li>
+              <li>外国語（台湾語）</li>
+              <li>外国語（スペイン語）</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- その他 -->
+        <div class="qualification-content" id="tab-other">
+          <div class="qualification-list animate-on-scroll">
+            <div class="qualification-list__title">その他</div>
+            <ul>
+              <li>潜水士</li>
+              <li>第一種衛生管理者</li>
+              <li>船内荷役作業主任</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -363,19 +761,32 @@
 
       <!-- ワッペン紹介 -->
       <section class="badge-section">
-        <h2 class="section-title animate-on-scroll">特殊技能団員ワッペン</h2>
+        <h2 class="section-title animate-on-scroll">特殊技能章</h2>
 
-        <div class="badge-image-container animate-on-scroll">
-          <div class="placeholder-box">
-            <p>ワッペン画像</p>
-            <p style="font-size: 0.85rem; margin-top: 0.5rem;">（画像を追加予定）</p>
+        <div class="badge-content">
+          <div class="badge-image-container animate-on-scroll">
+            <div class="placeholder-box">
+              <p>特殊技能章 画像</p>
+              <p style="font-size: 0.85rem; margin-top: 0.5rem;">（画像を追加予定）</p>
+            </div>
+          </div>
+
+          <div class="badge-info animate-on-scroll">
+            <div class="badge-info__title">特殊技能章について</div>
+            <p class="badge-info__text">
+              特殊技能団員として指定を受けた団員は、<strong>活動服（左上腕部）</strong>に特殊技能章を着用できます。
+            </p>
+            <p class="badge-info__text">
+              特殊技能章には、認定された活動区分が記載されています：
+            </p>
+            <ul class="badge-info__list">
+              <li>重機操作</li>
+              <li>自動車等運転</li>
+              <li>医療</li>
+              <li>活動支援</li>
+            </ul>
           </div>
         </div>
-
-        <p class="badge-description animate-on-scroll">
-          特殊技能団員に認定されると、専用のワッペンが授与されます。<br>
-          このワッペンは活動服に装着し、特殊技能を持つ団員であることを示します。
-        </p>
       </section>
 
       <!-- CTA -->
@@ -430,6 +841,22 @@
 
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('load', animateOnScroll);
+
+    // タブ切り替え
+    document.querySelectorAll('.qualification-tab').forEach(tab => {
+      tab.addEventListener('click', function() {
+        // タブのアクティブ状態を切り替え
+        document.querySelectorAll('.qualification-tab').forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+
+        // コンテンツの表示を切り替え
+        const tabId = this.getAttribute('data-tab');
+        document.querySelectorAll('.qualification-content').forEach(content => {
+          content.classList.remove('active');
+        });
+        document.getElementById('tab-' + tabId).classList.add('active');
+      });
+    });
   </script>
 </body>
 </html>
