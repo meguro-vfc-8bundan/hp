@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/fabicon.jpg" type="image/jpeg">
+  <meta name="description" content="特殊技能団員とは？消防団員として活躍できる専門資格・技能を持つ団員制度についてご紹介します。">
+  <title>特殊技能団員とは | 目黒消防団第８分団</title>
+  <link rel="canonical" href="https://meguro8bundan.tokyo/specialist.html">
+  <meta property="og:title" content="特殊技能団員とは | 目黒消防団第８分団">
+  <meta property="og:description" content="特殊技能団員とは？消防団員として活躍できる専門資格・技能を持つ団員制度についてご紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://meguro8bundan.tokyo/specialist.html">
+  <meta property="og:image" content="https://meguro8bundan.tokyo/images/fabicon.jpg">
+  <meta property="og:site_name" content="目黒消防団第８分団">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a2a4a">
+  <meta name="author" content="目黒消防団第８分団">
+  <!-- 構造化データ: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://meguro8bundan.tokyo/"},
+      {"@type": "ListItem", "position": 2, "name": "特殊技能団員とは", "item": "https://meguro8bundan.tokyo/specialist.html"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="css/style.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ページ固有スタイル */
+    .specialist-intro {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .specialist-intro__title {
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .specialist-intro__text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #333;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* 資格一覧セクション */
+    .qualification-section {
+      margin-bottom: 4rem;
+    }
+
+    .qualification-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .qualification-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-left: 4px solid var(--color-primary);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .qualification-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    }
+
+    .qualification-card__category {
+      font-size: 0.85rem;
+      color: var(--color-primary);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .qualification-card__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a2744;
+      margin-bottom: 0.75rem;
+    }
+
+    .qualification-card__description {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* フロー図セクション */
+    .flow-section {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 4rem;
+      color: white;
+    }
+
+    .flow-section .section-title {
+      color: white;
+    }
+
+    .flow-section .section-title::after {
+      background: linear-gradient(90deg, #FF6F00, #FFA726);
+    }
+
+    .flow-steps {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .flow-step {
+      background: rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 180px;
+      backdrop-filter: blur(10px);
+    }
+
+    .flow-step__number {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #E53935, #FF6F00);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 1rem;
+    }
+
+    .flow-step__title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .flow-step__text {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .flow-arrow {
+      font-size: 2rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ワッペンセクション */
+    .badge-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .badge-image-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: inline-block;
+      margin-top: 2rem;
+    }
+
+    .badge-image {
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .badge-description {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: #666;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* プレースホルダー */
+    .placeholder-box {
+      background: #f0f0f0;
+      border: 2px dashed #ccc;
+      padding: 3rem;
+      border-radius: 12px;
+      text-align: center;
+      color: #999;
+    }
+
+    /* モバイル対応 */
+    @media (max-width: 767px) {
+      .flow-steps {
+        flex-direction: column;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+      }
+
+      .specialist-intro {
+        padding: 2rem 1rem;
+      }
+
+      .specialist-intro__title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">分団の強み</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="info.html" class="nav__link">情報</a></li>
+          <li><a href="extra.html" class="nav__link">おまけ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">分団の強み</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="info.html" class="mobile-menu__link">情報</a></li>
+        <li><a href="extra.html" class="mobile-menu__link">おまけ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ページヘッダー -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">特殊技能団員とは</h1>
+      <p class="page-header__subtitle">専門技能を活かして地域を守る</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="page-content">
+    <div class="container">
+
+      <!-- 特殊技能団員の説明 -->
+      <section class="specialist-intro animate-on-scroll">
+        <h2 class="specialist-intro__title">特殊技能団員とは？</h2>
+        <p class="specialist-intro__text">
+          特殊技能団員とは、消防活動に役立つ専門的な資格や技能を持つ消防団員のことです。<br>
+          防火・防災に関する知識、輸送技術、語学力など、さまざまな専門スキルを活かして消防団活動に貢献しています。<br><br>
+          第８分団では約50%の団員が特殊技能団員として認定されており、それぞれの専門性を活かした活動を行っています。
+        </p>
+      </section>
+
+      <!-- 対象となる資格一覧 -->
+      <section class="qualification-section">
+        <h2 class="section-title animate-on-scroll">対象となる資格一覧</h2>
+
+        <div class="qualification-grid">
+          <div class="qualification-card animate-on-scroll">
+            <div class="qualification-card__category">防火分野</div>
+            <div class="qualification-card__title">防火管理者・消防設備士など</div>
+            <p class="qualification-card__description">建物の防火管理や消防設備の点検・整備に関する専門知識を持つ資格です。</p>
+          </div>
+
+          <div class="qualification-card animate-on-scroll">
+            <div class="qualification-card__category">輸送分野</div>
+            <div class="qualification-card__title">大型自動車免許・二輪免許など</div>
+            <p class="qualification-card__description">消防車両の運転や機動力を活かした活動に必要な運転技能です。</p>
+          </div>
+
+          <div class="qualification-card animate-on-scroll">
+            <div class="qualification-card__category">語学分野</div>
+            <div class="qualification-card__title">英語・中国語・韓国語など</div>
+            <p class="qualification-card__description">外国人への避難誘導や情報伝達に活かせる語学力です。</p>
+          </div>
+
+          <div class="qualification-card animate-on-scroll">
+            <div class="qualification-card__category">その他</div>
+            <div class="qualification-card__title">各種専門資格</div>
+            <p class="qualification-card__description">消防活動に活かせるその他の専門資格も対象となります。詳細はお問い合わせください。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 特殊技能団員になるフロー -->
+      <section class="flow-section animate-on-scroll">
+        <h2 class="section-title">特殊技能団員になるには</h2>
+
+        <div class="flow-steps">
+          <div class="flow-step">
+            <div class="flow-step__number">1</div>
+            <div class="flow-step__title">消防団に入団</div>
+            <p class="flow-step__text">まずは消防団員として入団</p>
+          </div>
+
+          <span class="flow-arrow">→</span>
+
+          <div class="flow-step">
+            <div class="flow-step__number">2</div>
+            <div class="flow-step__title">資格の確認</div>
+            <p class="flow-step__text">対象資格を保有しているか確認</p>
+          </div>
+
+          <span class="flow-arrow">→</span>
+
+          <div class="flow-step">
+            <div class="flow-step__number">3</div>
+            <div class="flow-step__title">申請・届出</div>
+            <p class="flow-step__text">必要書類を提出して申請</p>
+          </div>
+
+          <span class="flow-arrow">→</span>
+
+          <div class="flow-step">
+            <div class="flow-step__number">4</div>
+            <div class="flow-step__title">認定</div>
+            <p class="flow-step__text">特殊技能団員として認定</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ワッペン紹介 -->
+      <section class="badge-section">
+        <h2 class="section-title animate-on-scroll">特殊技能団員ワッペン</h2>
+
+        <div class="badge-image-container animate-on-scroll">
+          <div class="placeholder-box">
+            <p>ワッペン画像</p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;">（画像を追加予定）</p>
+          </div>
+        </div>
+
+        <p class="badge-description animate-on-scroll">
+          特殊技能団員に認定されると、専用のワッペンが授与されます。<br>
+          このワッペンは活動服に装着し、特殊技能を持つ団員であることを示します。
+        </p>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section animate-on-scroll">
+        <h2>あなたの専門スキルを地域のために</h2>
+        <p>お持ちの資格や技能を消防団活動に活かしてみませんか？</p>
+        <a href="form.html" class="btn btn--accent btn--large">入団に申し込む</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- モバイル用フローティングCTAボタン -->
+  <div class="floating-cta">
+    <a href="form.html" class="floating-cta__btn">入団申込</a>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // スクロールアニメーション
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+          element.classList.add('animated');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+</body>
+</html>
