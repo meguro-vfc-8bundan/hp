@@ -230,45 +230,6 @@
       line-height: 1.6;
     }
 
-    /* 年額報酬表 */
-    .annual-table-section {
-      margin-bottom: 4rem;
-    }
-
-    .annual-table {
-      width: 100%;
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    }
-
-    .annual-table th,
-    .annual-table td {
-      padding: 1rem;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
-
-    .annual-table th {
-      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
-      color: white;
-      font-weight: 600;
-    }
-
-    .annual-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .annual-table tr:hover td {
-      background: #f8f9fa;
-    }
-
-    .annual-table__highlight {
-      background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%) !important;
-      font-weight: 600;
-    }
-
     /* 税金セクション */
     .tax-section {
       background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
@@ -465,15 +426,6 @@
       .tax-grid {
         grid-template-columns: 1fr;
       }
-
-      .annual-table {
-        font-size: 0.85rem;
-      }
-
-      .annual-table th,
-      .annual-table td {
-        padding: 0.75rem 0.5rem;
-      }
     }
   </style>
 </head>
@@ -629,50 +581,6 @@
             </li>
           </ul>
         </div>
-      </section>
-
-      <!-- 年額報酬表（階級別） -->
-      <section class="annual-table-section">
-        <h2 class="section-title scroll-animate">階級別 年額報酬</h2>
-        <p style="text-align: center; margin-bottom: 2rem; color: #666;">階級が上がると、年額報酬も増加します</p>
-
-        <table class="annual-table scroll-animate">
-          <thead>
-            <tr>
-              <th>階級</th>
-              <th>年額報酬</th>
-              <th>備考</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="annual-table__highlight">
-              <td><strong>団員</strong></td>
-              <td><strong>42,500円</strong></td>
-              <td>入団時の階級</td>
-            </tr>
-            <tr>
-              <td>班長</td>
-              <td>47,500円</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>部長</td>
-              <td>52,500円</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>副分団長</td>
-              <td>62,500円</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>分団長</td>
-              <td>87,500円</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-        <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: #888;">※ 上記は東京消防庁管内の標準的な金額です</p>
       </section>
 
       <!-- 税金について -->
