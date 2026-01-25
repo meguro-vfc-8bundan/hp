@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/fabicon.jpg" type="image/jpeg">
+  <meta name="description" content="消防団員の報酬制度について詳しく解説。年額報酬、出場報酬（費用弁償）、退職報償金など、消防団活動に対する報酬・待遇について紹介します。">
+  <title>報酬制度について | 目黒消防団第８分団</title>
+  <link rel="canonical" href="https://meguro8bundan.tokyo/reward.html">
+  <meta property="og:title" content="報酬制度について | 目黒消防団第８分団">
+  <meta property="og:description" content="消防団員の報酬制度について詳しく解説。年額報酬、出場報酬、退職報償金など、消防団活動に対する報酬・待遇について紹介します。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://meguro8bundan.tokyo/reward.html">
+  <meta property="og:image" content="https://meguro8bundan.tokyo/images/real/H-01_hero_main.jpg">
+  <meta property="og:site_name" content="目黒消防団第８分団">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a2a4a">
+  <meta name="author" content="目黒消防団第８分団">
+  <!-- 構造化データ: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://meguro8bundan.tokyo/"},
+      {"@type": "ListItem", "position": 2, "name": "報酬制度について", "item": "https://meguro8bundan.tokyo/reward.html"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="css/style.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ページ固有スタイル */
+    .reward-intro {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 3rem;
+    }
+
+    .reward-intro__title {
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .reward-intro__text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #333;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .reward-intro__note {
+      background: white;
+      padding: 1.25rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--color-primary);
+      font-size: 0.95rem;
+    }
+
+    .reward-intro__note strong {
+      color: var(--color-primary);
+    }
+
+    /* 報酬カード */
+    .reward-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .reward-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reward-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1a2744, #2d3e5f);
+    }
+
+    .reward-card--primary::before {
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+    }
+
+    .reward-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
+
+    .reward-card__icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .reward-card__title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1a2744;
+      margin-bottom: 1rem;
+    }
+
+    .reward-card__amount {
+      display: inline-block;
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 25px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .reward-card__amount--small {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .reward-card__description {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .reward-card__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .reward-card__list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #eee;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .reward-card__list li:last-child {
+      border-bottom: none;
+    }
+
+    .reward-card__list strong {
+      color: #E53935;
+    }
+
+    /* 出場報酬セクション */
+    .attendance-section {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      margin-bottom: 4rem;
+      color: white;
+    }
+
+    .attendance-section .section-title {
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .attendance-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .attendance-card {
+      background: rgba(255,255,255,0.1);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .attendance-card--disaster {
+      border: 2px solid #FF6F00;
+    }
+
+    .attendance-card__icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .attendance-card__title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      opacity: 0.9;
+    }
+
+    .attendance-card__amount {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #FFA726;
+      margin-bottom: 0.5rem;
+    }
+
+    .attendance-card__unit {
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .attendance-card__description {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    /* 年額報酬表 */
+    .annual-table-section {
+      margin-bottom: 4rem;
+    }
+
+    .annual-table {
+      width: 100%;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .annual-table th,
+    .annual-table td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .annual-table th {
+      background: linear-gradient(135deg, #1a2744 0%, #2d3e5f 100%);
+      color: white;
+      font-weight: 600;
+    }
+
+    .annual-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .annual-table tr:hover td {
+      background: #f8f9fa;
+    }
+
+    .annual-table__highlight {
+      background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%) !important;
+      font-weight: 600;
+    }
+
+    /* 税金セクション */
+    .tax-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2.5rem;
+      border-radius: 16px;
+      margin-bottom: 4rem;
+    }
+
+    .tax-section__title {
+      font-size: 1.25rem;
+      color: #1a2744;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .tax-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tax-card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .tax-card__title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a2744;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .tax-card__amount {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #E53935;
+      margin-bottom: 0.5rem;
+    }
+
+    .tax-card__note {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* 支給方法セクション */
+    .payment-section {
+      margin-bottom: 4rem;
+    }
+
+    .payment-flow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .payment-step {
+      background: white;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      min-width: 180px;
+    }
+
+    .payment-step__icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .payment-step__title {
+      font-weight: 700;
+      color: #1a2744;
+      margin-bottom: 0.5rem;
+    }
+
+    .payment-step__text {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .payment-arrow {
+      font-size: 1.5rem;
+      color: #ccc;
+    }
+
+    /* 注意事項 */
+    .notice-section {
+      background: #fff8e1;
+      border: 2px solid #ffc107;
+      padding: 2rem;
+      border-radius: 12px;
+      margin-bottom: 4rem;
+    }
+
+    .notice-section__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f57c00;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .notice-section__text {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    .notice-section__text p {
+      margin-bottom: 1rem;
+    }
+
+    .notice-section__text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FAQ リンク */
+    .faq-link-section {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin-bottom: 3rem;
+    }
+
+    .faq-link-section__title {
+      font-size: 1.1rem;
+      color: #1a2744;
+      margin-bottom: 1rem;
+    }
+
+    /* セクションタイトル */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1a2744;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+      border-radius: 2px;
+    }
+
+    /* モバイル対応 */
+    @media (max-width: 767px) {
+      .reward-intro {
+        padding: 2rem 1rem;
+      }
+
+      .reward-intro__title {
+        font-size: 1.4rem;
+      }
+
+      .reward-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .attendance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-flow {
+        flex-direction: column;
+      }
+
+      .payment-arrow {
+        transform: rotate(90deg);
+      }
+
+      .tax-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .annual-table {
+        font-size: 0.85rem;
+      }
+
+      .annual-table th,
+      .annual-table td {
+        padding: 0.75rem 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">分団の強み</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="info.html" class="nav__link">情報</a></li>
+          <li><a href="extra.html" class="nav__link">おまけ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">分団の強み</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="info.html" class="mobile-menu__link">情報</a></li>
+        <li><a href="extra.html" class="mobile-menu__link">おまけ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ページヘッダー -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">報酬制度について</h1>
+      <p class="page-header__subtitle">消防団員の報酬・待遇を詳しく解説</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="page-content">
+    <div class="container">
+
+      <!-- 報酬制度の概要 -->
+      <section class="reward-intro scroll-animate">
+        <h2 class="reward-intro__title">消防団員への報酬制度</h2>
+        <p class="reward-intro__text">
+          消防団員は<strong>特別職の地方公務員</strong>として、その活動に対して報酬が支給されます。報酬は「年額報酬」と「出場報酬（費用弁償）」の2種類があり、団員個人に直接支給されます。
+          <br><br>
+          消防団活動は地域貢献のボランティア精神が基本ですが、団員の労苦に報いるため、また安心して活動に参加していただくために、適切な報酬制度が整備されています。
+        </p>
+        <div class="reward-intro__note">
+          <strong>重要：</strong>報酬は団員個人の口座に直接振り込まれます。消防庁の通知により、報酬の団内一括管理は認められておらず、団員個人に確実に届く仕組みとなっています。
+        </div>
+      </section>
+
+      <!-- 出場報酬（費用弁償）ハイライト -->
+      <section class="attendance-section scroll-animate">
+        <h2 class="section-title" style="color: white;">出場報酬（費用弁償）</h2>
+        <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">訓練や災害出動など、出場した回数に応じて毎月支給されます</p>
+
+        <div class="attendance-grid">
+          <div class="attendance-card">
+            <div class="attendance-card__icon">🔥</div>
+            <div class="attendance-card__title">通常出場</div>
+            <div class="attendance-card__amount">4,500円</div>
+            <div class="attendance-card__unit">/ 1回</div>
+            <p class="attendance-card__description">
+              訓練・警戒活動・行事参加など<br>
+              通常の消防団活動に対する報酬
+            </p>
+          </div>
+
+          <div class="attendance-card attendance-card--disaster">
+            <div class="attendance-card__icon">🚒</div>
+            <div class="attendance-card__title">実災害出場</div>
+            <div class="attendance-card__amount">9,000円</div>
+            <div class="attendance-card__unit">/ 1回</div>
+            <p class="attendance-card__description">
+              火災・地震・風水害など<br>
+              実際の災害活動に対する報酬
+            </p>
+          </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+          ※ 出場報酬は活動記録に基づき、毎月支給されます
+        </p>
+      </section>
+
+      <!-- 報酬の種類 -->
+      <section class="reward-grid">
+        <div class="reward-card reward-card--primary scroll-animate">
+          <div class="reward-card__icon">📅</div>
+          <h3 class="reward-card__title">年額報酬</h3>
+          <div class="reward-card__amount">42,500円〜</div>
+          <p class="reward-card__description">
+            消防団員としての即応体制を維持するための活動や、日常的な活動に対する報酬として、年2回（3月・9月）に分けて支給されます。
+          </p>
+          <ul class="reward-card__list">
+            <li>
+              <span>支給時期</span>
+              <strong>年2回（3月・9月）</strong>
+            </li>
+            <li>
+              <span>金額</span>
+              <strong>階級により異なる</strong>
+            </li>
+            <li>
+              <span>対象</span>
+              <span>全団員</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="reward-card scroll-animate">
+          <div class="reward-card__icon">🏆</div>
+          <h3 class="reward-card__title">退職報償金</h3>
+          <div class="reward-card__amount reward-card__amount--small">在団5年以上</div>
+          <p class="reward-card__description">
+            5年以上消防団に在籍し、退団される際に、勤務年数や階級に応じて退職報償金が支給されます。長年の功労に対する感謝の意を込めた制度です。
+          </p>
+          <ul class="reward-card__list">
+            <li>
+              <span>条件</span>
+              <strong>在団5年以上</strong>
+            </li>
+            <li>
+              <span>金額</span>
+              <span>勤務年数・階級に応じる</span>
+            </li>
+            <li>
+              <span>支給時期</span>
+              <span>退団時</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 年額報酬表（階級別） -->
+      <section class="annual-table-section">
+        <h2 class="section-title scroll-animate">階級別 年額報酬</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666;">階級が上がると、年額報酬も増加します</p>
+
+        <table class="annual-table scroll-animate">
+          <thead>
+            <tr>
+              <th>階級</th>
+              <th>年額報酬</th>
+              <th>備考</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="annual-table__highlight">
+              <td><strong>団員</strong></td>
+              <td><strong>42,500円</strong></td>
+              <td>入団時の階級</td>
+            </tr>
+            <tr>
+              <td>班長</td>
+              <td>47,500円</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>部長</td>
+              <td>52,500円</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>副分団長</td>
+              <td>62,500円</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>分団長</td>
+              <td>87,500円</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: #888;">※ 上記は東京消防庁管内の標準的な金額です</p>
+      </section>
+
+      <!-- 税金について -->
+      <section class="tax-section scroll-animate">
+        <h2 class="tax-section__title">報酬の非課税枠について</h2>
+        <p style="text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; color: #555;">消防団員の報酬には、所得税法上の非課税枠が設けられています</p>
+
+        <div class="tax-grid">
+          <div class="tax-card">
+            <div class="tax-card__title">📅 年額報酬</div>
+            <div class="tax-card__amount">年間5万円まで非課税</div>
+            <p class="tax-card__note">5万円を超える部分は給与所得として課税対象となります</p>
+          </div>
+          <div class="tax-card">
+            <div class="tax-card__title">🚒 災害出動</div>
+            <div class="tax-card__amount">1日8,000円まで非課税</div>
+            <p class="tax-card__note">火災・地震等の災害活動に係る出動が対象です</p>
+          </div>
+          <div class="tax-card">
+            <div class="tax-card__title">🔥 その他出動</div>
+            <div class="tax-card__amount">1日4,000円まで非課税</div>
+            <p class="tax-card__note">訓練・警戒活動等、災害以外の出動が対象です</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 支給方法 -->
+      <section class="payment-section">
+        <h2 class="section-title scroll-animate">報酬の支給方法</h2>
+
+        <div class="payment-flow scroll-animate">
+          <div class="payment-step">
+            <div class="payment-step__icon">📝</div>
+            <div class="payment-step__title">活動記録</div>
+            <p class="payment-step__text">訓練・出動を記録</p>
+          </div>
+          <span class="payment-arrow">→</span>
+          <div class="payment-step">
+            <div class="payment-step__icon">🏛️</div>
+            <div class="payment-step__title">区役所で集計</div>
+            <p class="payment-step__text">出場記録を確認</p>
+          </div>
+          <span class="payment-arrow">→</span>
+          <div class="payment-step">
+            <div class="payment-step__icon">🏦</div>
+            <div class="payment-step__title">口座振込</div>
+            <p class="payment-step__text">団員個人に直接</p>
+          </div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem; color: #666; font-size: 0.95rem;">
+          出場報酬は毎月、年額報酬は年2回（3月・9月）に支給されます
+        </p>
+      </section>
+
+      <!-- その他の待遇 -->
+      <section style="margin-bottom: 4rem;">
+        <h2 class="section-title scroll-animate">その他の待遇・補償</h2>
+
+        <div class="reward-grid">
+          <div class="reward-card scroll-animate">
+            <div class="reward-card__icon">👔</div>
+            <h3 class="reward-card__title">装備品の支給</h3>
+            <p class="reward-card__description">
+              活動に必要な装備は全て支給されます。自己負担はありません。
+            </p>
+            <ul class="reward-card__list">
+              <li><span>活動服（作業服）</span></li>
+              <li><span>制服</span></li>
+              <li><span>防火服・ヘルメット</span></li>
+              <li><span>半長靴・手袋</span></li>
+            </ul>
+          </div>
+
+          <div class="reward-card scroll-animate">
+            <div class="reward-card__icon">🏥</div>
+            <h3 class="reward-card__title">公務災害補償</h3>
+            <p class="reward-card__description">
+              活動中に怪我をした場合、公務災害補償が適用されます。
+            </p>
+            <ul class="reward-card__list">
+              <li><span>療養補償（治療費全額）</span></li>
+              <li><span>休業補償</span></li>
+              <li><span>障害補償</span></li>
+              <li><span>遺族補償</span></li>
+            </ul>
+          </div>
+
+          <div class="reward-card scroll-animate">
+            <div class="reward-card__icon">📚</div>
+            <h3 class="reward-card__title">資格取得支援</h3>
+            <p class="reward-card__description">
+              消防団活動に関連する資格取得を支援。費用は消防団が負担します。
+            </p>
+            <ul class="reward-card__list">
+              <li><span>応急手当指導員</span></li>
+              <li><span>危険物取扱者</span></li>
+              <li><span>第三級陸上特殊無線技士</span></li>
+              <li><span>可搬消防ポンプ資格</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 注意事項 -->
+      <section class="notice-section scroll-animate">
+        <h3 class="notice-section__title">
+          <span>⚠️</span>
+          第８分団における拠出金について
+        </h3>
+        <div class="notice-section__text">
+          <p>
+            第８分団では、分団運営費として団員の方々から拠出金を徴収しております。これは分団の円滑な運営（親睦会費、備品購入、交通費補填など）のために使用されるもので、分団内規定に基づいて運用されています。
+          </p>
+          <p>
+            <strong>拠出金の金額は、消防団活動に対して支給される報酬の範囲内で設定されており、団員の持ち出しが発生しないようになっております。</strong>
+          </p>
+          <p>
+            詳しい金額や使途については、入団時に必ず説明いたしますので、ご安心ください。
+          </p>
+        </div>
+      </section>
+
+      <!-- FAQ へのリンク -->
+      <section class="faq-link-section scroll-animate">
+        <h3 class="faq-link-section__title">報酬について、もっと詳しく知りたい方へ</h3>
+        <a href="faq.html#費用・待遇編" class="btn btn--accent">FAQ（よくある質問）を見る</a>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section scroll-animate" style="text-align: center;">
+        <h2>消防団活動に参加してみませんか？</h2>
+        <p>地域貢献と共に、充実した待遇が用意されています</p>
+        <a href="form.html" class="btn btn--accent btn--large">入団に申し込む</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- モバイル用フローティングCTAボタン -->
+  <div class="floating-cta">
+    <a href="form.html" class="floating-cta__btn">入団申込</a>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
