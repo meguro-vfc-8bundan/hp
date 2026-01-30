@@ -378,9 +378,15 @@ p {
   box-shadow: var(--shadow-md);
 }
 
-.btn--primary:hover {
+/* ボタンホバーエフェクト統合 */
+.btn--primary:hover,
+.btn--accent:hover,
+.btn--navy:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
+}
+
+.btn--primary:hover {
   color: var(--color-primary-dark);
 }
 
@@ -401,11 +407,6 @@ p {
   box-shadow: var(--shadow-md);
 }
 
-.btn--accent:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
 .btn--large {
   padding: var(--spacing-sm) var(--spacing-lg);
   font-size: 1.125rem;
@@ -418,8 +419,6 @@ p {
 }
 
 .btn--navy:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
   color: white;
 }
 
@@ -1304,6 +1303,13 @@ p {
     rgba(26, 39, 68, 0.9));
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
+}
+
+/* アニメーション軽減設定（アクセシビリティ対応） */
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg {
+    animation: none;
+  }
 }
 
 /* バッジのアニメーション */

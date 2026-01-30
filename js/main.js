@@ -4,6 +4,12 @@
  */
 
 /**
+ * 定数定義（正規表現など）
+ */
+var EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+var PHONE_REGEX = /^[0-9\-+()]{10,15}$/;
+
+/**
  * スクロールマネージャー
  * 複数のスクロールハンドラーを統合管理し、パフォーマンスを最適化
  */
@@ -357,17 +363,15 @@ function showError(field, message) {
  * メールアドレスのバリデーション
  */
 function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
+  return EMAIL_REGEX.test(email);
 }
 
 /**
  * 電話番号のバリデーション
+ * 日本の電話番号形式（ハイフンあり・なし両方OK）
  */
 function isValidPhone(phone) {
-  // 日本の電話番号形式（ハイフンあり・なし両方OK）
-  const phoneRegex = /^[0-9\-+()]{10,15}$/;
-  return phoneRegex.test(phone.replace(/\s/g, ''));
+  return PHONE_REGEX.test(phone.replace(/\s/g, ''));
 }
 
 /**
