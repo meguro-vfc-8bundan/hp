@@ -3,6 +3,41 @@
  * メインJavaScript
  */
 
+/**
+ * スクロールマネージャー
+ * 複数のスクロールハンドラーを統合管理し、パフォーマンスを最適化
+ */
+const scrollManager = {
+  handlers: [],
+  ticking: false,
+
+  register: function(handler) {
+    this.handlers.push(handler);
+  },
+
+  init: function() {
+    const self = this;
+    window.addEventListener('scroll', function() {
+      if (!self.ticking) {
+        window.requestAnimationFrame(function() {
+          const scrollY = window.pageYOffset;
+          self.handlers.forEach(function(handler) {
+            handler(scrollY);
+          });
+          self.ticking = false;
+        });
+        self.ticking = true;
+      }
+    }, { passive: true });
+
+    // 初期実行
+    const initialScrollY = window.pageYOffset;
+    this.handlers.forEach(function(handler) {
+      handler(initialScrollY);
+    });
+  }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
   // モバイルメニュー
   initMobileMenu();
@@ -30,6 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // モバイル用フローティングCTAボタン
   initFloatingCta();
+
+  // スクロールマネージャーを起動（全ハンドラー登録後）
+  scrollManager.init();
 });
 
 /**
@@ -80,41 +118,33 @@ function initMobileMenu() {
 }
 
 /**
+ * アコーディオン共通初期化関数
+ * @param {string} itemSelector - アコーディオンアイテムのセレクタ
+ * @param {string} triggerSelector - クリックトリガーのセレクタ
+ */
+function initAccordion(itemSelector, triggerSelector) {
+  var items = document.querySelectorAll(itemSelector);
+
+  items.forEach(function(item) {
+    var trigger = item.querySelector(triggerSelector);
+
+    if (trigger) {
+      trigger.addEventListener('click', function() {
+        item.classList.toggle('is-open');
+      });
+    }
+  });
+}
+
+/**
  * FAQアコーディオンの初期化
  */
 function initFaqAccordion() {
-  const faqItems = document.querySelectorAll('.faq-item');
+  // トップページ用FAQ
+  initAccordion('.faq-item', '.faq-item__question');
 
-  faqItems.forEach(function(item) {
-    const question = item.querySelector('.faq-item__question');
-
-    if (question) {
-      question.addEventListener('click', function() {
-        // 他のアイテムを閉じる（オプション：同時に1つだけ開く場合）
-        // faqItems.forEach(function(otherItem) {
-        //   if (otherItem !== item) {
-        //     otherItem.classList.remove('is-open');
-        //   }
-        // });
-
-        // クリックしたアイテムをトグル
-        item.classList.toggle('is-open');
-      });
-    }
-  });
-
-  // 詳細ページ用のアコーディオン
-  const accordionItems = document.querySelectorAll('.accordion-item');
-
-  accordionItems.forEach(function(item) {
-    const header = item.querySelector('.accordion-header');
-
-    if (header) {
-      header.addEventListener('click', function() {
-        item.classList.toggle('is-open');
-      });
-    }
-  });
+  // 詳細ページ用アコーディオン
+  initAccordion('.accordion-item', '.accordion-header');
 }
 
 /**
@@ -182,30 +212,16 @@ function initHeaderScroll() {
 
   if (!header) return;
 
-  let lastScrollY = 0;
-
-  window.addEventListener('scroll', function() {
-    const currentScrollY = window.pageYOffset;
-
-    // スクロール方向を判定
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // 下スクロール時（非表示にする場合）
-      // header.style.transform = 'translateY(-100%)';
-    } else {
-      // 上スクロール時
-      // header.style.transform = 'translateY(0)';
-    }
-
+  // スクロールマネージャーにハンドラーを登録
+  scrollManager.register(function(scrollY) {
     // スクロール位置に応じて背景を変更
-    if (currentScrollY > 50) {
+    if (scrollY > 50) {
       header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
       header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
     } else {
       header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
       header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
     }
-
-    lastScrollY = currentScrollY;
   });
 }
 
@@ -282,12 +298,15 @@ function initFormValidation() {
  */
 function validateField(field) {
   // 既存のエラーメッセージを削除
-  const existingError = field.parentElement.querySelector('.form__error');
+  var existingError = field.parentElement.querySelector('.form__error');
   if (existingError) {
     existingError.remove();
   }
 
+  // aria属性をクリア
   field.classList.remove('is-error');
+  field.removeAttribute('aria-describedby');
+  field.removeAttribute('aria-invalid');
 
   if (field.required && !field.value.trim()) {
     field.classList.add('is-error');
@@ -312,15 +331,24 @@ function validateField(field) {
 
 /**
  * エラーメッセージを表示
+ * アクセシビリティ対応: aria-describedby と role="alert" を設定
  */
 function showError(field, message) {
-  const error = document.createElement('span');
+  var errorId = field.id + '-error';
+
+  var error = document.createElement('span');
+  error.id = errorId;
   error.className = 'form__error';
+  error.setAttribute('role', 'alert');
   error.textContent = message;
   error.style.color = '#E53935';
   error.style.fontSize = '0.85rem';
   error.style.marginTop = '4px';
   error.style.display = 'block';
+
+  // aria-describedbyを設定してエラーメッセージと関連付け
+  field.setAttribute('aria-describedby', errorId);
+  field.setAttribute('aria-invalid', 'true');
 
   field.parentElement.appendChild(error);
 }
@@ -353,26 +381,62 @@ function sanitizeInput(input) {
 
 /**
  * フォーム送信成功時の処理
+ * XSS対策: DOM操作で要素を生成
  */
 function showSuccessMessage() {
   const form = document.querySelector('.form');
   if (!form) return;
 
-  const successHtml = `
-    <div class="form__success" style="text-align: center; padding: 2rem;">
-      <h3 style="color: #4CAF50; margin-bottom: 1rem;">ありがとうございます！</h3>
-      <p>入団申し込みを受け付けました。</p>
-      <p>近日中に分団担当者からご連絡させていただきます。</p>
-      <p>ご不明な点がございましたら、お気軽に目黒消防署までお問い合わせください。</p>
-      <p style="margin-top: 1rem;"><strong>一緒に地域を守る仲間として、お会いできることを楽しみにしています！</strong></p>
-      <p style="margin-top: 2rem; font-size: 0.9rem; color: #666;">
-        【お問い合わせ先】<br>
-        目黒消防署：<a href="tel:03-3710-0119">03-3710-0119</a>
-      </p>
-    </div>
-  `;
+  // 既存の内容をクリア
+  form.textContent = '';
 
-  form.innerHTML = successHtml;
+  // 成功メッセージコンテナを作成
+  const successDiv = document.createElement('div');
+  successDiv.className = 'form__success';
+  successDiv.style.cssText = 'text-align: center; padding: 2rem;';
+
+  // タイトル
+  const title = document.createElement('h3');
+  title.style.cssText = 'color: #4CAF50; margin-bottom: 1rem;';
+  title.textContent = 'ありがとうございます！';
+
+  // メッセージ段落
+  const msg1 = document.createElement('p');
+  msg1.textContent = '入団申し込みを受け付けました。';
+
+  const msg2 = document.createElement('p');
+  msg2.textContent = '近日中に分団担当者からご連絡させていただきます。';
+
+  const msg3 = document.createElement('p');
+  msg3.textContent = 'ご不明な点がございましたら、お気軽に目黒消防署までお問い合わせください。';
+
+  const msg4 = document.createElement('p');
+  msg4.style.marginTop = '1rem';
+  const strong = document.createElement('strong');
+  strong.textContent = '一緒に地域を守る仲間として、お会いできることを楽しみにしています！';
+  msg4.appendChild(strong);
+
+  // 問い合わせ先
+  const contactP = document.createElement('p');
+  contactP.style.cssText = 'margin-top: 2rem; font-size: 0.9rem; color: #666;';
+  contactP.appendChild(document.createTextNode('【お問い合わせ先】'));
+  contactP.appendChild(document.createElement('br'));
+  contactP.appendChild(document.createTextNode('目黒消防署：'));
+
+  const telLink = document.createElement('a');
+  telLink.href = 'tel:03-3710-0119';
+  telLink.textContent = '03-3710-0119';
+  contactP.appendChild(telLink);
+
+  // 組み立て
+  successDiv.appendChild(title);
+  successDiv.appendChild(msg1);
+  successDiv.appendChild(msg2);
+  successDiv.appendChild(msg3);
+  successDiv.appendChild(msg4);
+  successDiv.appendChild(contactP);
+
+  form.appendChild(successDiv);
 }
 
 /**
@@ -408,70 +472,62 @@ function initHeroParallax() {
 
   if (!hero) return;
 
-  let ticking = false;
+  // スクロールマネージャーにハンドラーを登録
+  scrollManager.register(function(scrollY) {
+    const heroHeight = hero.offsetHeight;
 
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        const scrollY = window.pageYOffset;
-        const heroHeight = hero.offsetHeight;
+    // ヒーローセクションが見えている間のみ効果を適用
+    if (scrollY < heroHeight) {
+      // 背景画像のパララックス（ゆっくり動く）
+      if (heroBgImage) {
+        heroBgImage.style.transform = 'scale(' + (1 + scrollY * 0.0002) + ') translateY(' + (scrollY * 0.3) + 'px)';
+      }
 
-        // ヒーローセクションが見えている間のみ効果を適用
-        if (scrollY < heroHeight) {
-          // 背景画像のパララックス（ゆっくり動く）
-          if (heroBgImage) {
-            heroBgImage.style.transform = `scale(${1 + scrollY * 0.0002}) translateY(${scrollY * 0.3}px)`;
-          }
+      // コンテンツのパララックス（速く動いてフェードアウト）
+      if (heroContent) {
+        const opacity = 1 - (scrollY / heroHeight) * 1.5;
+        const translateY = scrollY * 0.4;
+        heroContent.style.transform = 'translateY(' + translateY + 'px)';
+        heroContent.style.opacity = Math.max(0, opacity);
+      }
 
-          // コンテンツのパララックス（速く動いてフェードアウト）
-          if (heroContent) {
-            const opacity = 1 - (scrollY / heroHeight) * 1.5;
-            const translateY = scrollY * 0.4;
-            heroContent.style.transform = `translateY(${translateY}px)`;
-            heroContent.style.opacity = Math.max(0, opacity);
-          }
+      // パーティクルのパララックス
+      if (heroParticles) {
+        heroParticles.style.transform = 'translateY(' + (scrollY * 0.2) + 'px)';
+      }
 
-          // パーティクルのパララックス
-          if (heroParticles) {
-            heroParticles.style.transform = `translateY(${scrollY * 0.2}px)`;
-          }
-
-          // スクロールインジケーターのフェードアウト
-          if (scrollIndicator) {
-            const indicatorOpacity = 1 - (scrollY / 200);
-            scrollIndicator.style.opacity = Math.max(0, indicatorOpacity);
-          }
-        }
-
-        ticking = false;
-      });
-
-      ticking = true;
+      // スクロールインジケーターのフェードアウト
+      if (scrollIndicator) {
+        const indicatorOpacity = 1 - (scrollY / 200);
+        scrollIndicator.style.opacity = Math.max(0, indicatorOpacity);
+      }
     }
   });
 
   // マウス移動による微妙なパララックス効果（デスクトップのみ）
   if (window.matchMedia('(min-width: 768px)').matches) {
+    let mouseTicking = false;
+
     hero.addEventListener('mousemove', function(e) {
-      if (!ticking) {
+      if (!mouseTicking) {
         window.requestAnimationFrame(function() {
           const xPos = (e.clientX / window.innerWidth - 0.5) * 20;
           const yPos = (e.clientY / window.innerHeight - 0.5) * 20;
 
           if (heroContent && window.pageYOffset < hero.offsetHeight * 0.5) {
-            heroContent.style.transform = `translate(${xPos * 0.3}px, ${yPos * 0.3 + window.pageYOffset * 0.4}px)`;
+            heroContent.style.transform = 'translate(' + (xPos * 0.3) + 'px, ' + (yPos * 0.3 + window.pageYOffset * 0.4) + 'px)';
           }
 
-          ticking = false;
+          mouseTicking = false;
         });
 
-        ticking = true;
+        mouseTicking = true;
       }
     });
 
     hero.addEventListener('mouseleave', function() {
       if (heroContent) {
-        heroContent.style.transform = `translateY(${window.pageYOffset * 0.4}px)`;
+        heroContent.style.transform = 'translateY(' + (window.pageYOffset * 0.4) + 'px)';
       }
     });
   }
@@ -499,8 +555,6 @@ function initBackgroundColorScroll() {
     { position: 0.85, color: [235, 225, 250] },   // 淡いラベンダー
     { position: 1, color: [240, 238, 245] }       // グレーがかった紫
   ];
-
-  let ticking = false;
 
   // 2色間を補間する関数
   function interpolateColor(color1, color2, factor) {
@@ -535,30 +589,17 @@ function initBackgroundColorScroll() {
     return interpolateColor(lowerStop.color, upperStop.color, factor);
   }
 
-  // スクロールイベントハンドラー
-  function handleScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        const scrollY = window.pageYOffset;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollProgress = docHeight > 0 ? scrollY / docHeight : 0;
-
-        const color = getColorForPosition(scrollProgress);
-        document.body.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
-
-        ticking = false;
-      });
-
-      ticking = true;
-    }
-  }
-
   // 初期背景色を設定
   document.body.style.transition = 'background-color 0.1s ease-out';
-  handleScroll();
 
-  // スクロールイベントをリッスン
-  window.addEventListener('scroll', handleScroll, { passive: true });
+  // スクロールマネージャーにハンドラーを登録
+  scrollManager.register(function(scrollY) {
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollProgress = docHeight > 0 ? scrollY / docHeight : 0;
+
+    const color = getColorForPosition(scrollProgress);
+    document.body.style.backgroundColor = 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')';
+  });
 }
 
 /**
@@ -582,7 +623,7 @@ function initFloatingCta() {
     const ctaObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         isCtaVisible = entry.isIntersecting;
-        updateFloatingCtaVisibility();
+        updateFloatingCtaVisibility(window.pageYOffset);
       });
     }, {
       threshold: 0.1
@@ -596,7 +637,7 @@ function initFloatingCta() {
     const footerObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         isFooterVisible = entry.isIntersecting;
-        updateFloatingCtaVisibility();
+        updateFloatingCtaVisibility(window.pageYOffset);
       });
     }, {
       threshold: 0.1
@@ -605,11 +646,7 @@ function initFloatingCta() {
     footerObserver.observe(footer);
   }
 
-  // スクロール位置を監視
-  let ticking = false;
-
-  function updateFloatingCtaVisibility() {
-    const scrollY = window.pageYOffset;
+  function updateFloatingCtaVisibility(scrollY) {
     const shouldShow = scrollY > scrollThreshold && !isCtaVisible && !isFooterVisible;
 
     if (shouldShow) {
@@ -619,16 +656,8 @@ function initFloatingCta() {
     }
   }
 
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        updateFloatingCtaVisibility();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
-
-  // 初期状態を設定
-  updateFloatingCtaVisibility();
+  // スクロールマネージャーにハンドラーを登録
+  scrollManager.register(function(scrollY) {
+    updateFloatingCtaVisibility(scrollY);
+  });
 }

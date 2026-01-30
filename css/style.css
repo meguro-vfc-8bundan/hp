@@ -197,6 +197,7 @@ p {
   right: 0;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.95);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-sm);
   transition: background-color var(--transition-normal);
@@ -320,6 +321,7 @@ p {
   border-radius: var(--border-radius-full);
   font-size: 0.875rem;
   margin-bottom: var(--spacing-md);
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
 }
 
