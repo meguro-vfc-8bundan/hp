@@ -354,6 +354,146 @@ p {
   align-items: center;
 }
 
+/* 特設ページバナー（お知らせセクション上部） */
+.featured-event {
+  margin-bottom: 1.5rem;
+}
+
+.featured-event__link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #ffb7c5 0%, #ffd1dc 50%, #fff0f5 100%);
+  border-radius: var(--border-radius-lg);
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(255, 183, 197, 0.4);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-event__link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.featured-event__link:hover::before {
+  left: 100%;
+}
+
+.featured-event__link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 183, 197, 0.5);
+}
+
+.featured-event__badge {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: white;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--border-radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.featured-event__date {
+  background: var(--color-navy);
+  color: white;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--border-radius-md);
+  font-size: 0.85rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.featured-event__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-navy);
+}
+
+.featured-event__desc {
+  color: #555;
+  font-size: 0.85rem;
+  flex: 1;
+}
+
+.featured-event__arrow {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .featured-event__link {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .featured-event__desc {
+    display: none;
+  }
+
+  .featured-event__title {
+    font-size: 1rem;
+  }
+}
+
+/* 協力隊リンク */
+.supporters-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  background: white;
+  border: 2px solid var(--color-navy);
+  border-radius: var(--border-radius-full);
+  color: var(--color-navy);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: all var(--transition-fast);
+}
+
+.supporters-link:hover {
+  background: var(--color-navy);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.supporters-link__icon {
+  font-size: 1rem;
+}
+
+.supporters-link__text {
+  font-weight: 600;
+}
+
+/* ヒーローセクション内の協力隊リンク */
+.supporters-link--hero {
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.supporters-link--hero:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
 /* ----------------------------------------
    ボタン
    ---------------------------------------- */
@@ -1660,6 +1800,29 @@ p {
 .news-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* リンク付きお知らせカード */
+.news-card--link {
+  text-decoration: none;
+  cursor: pointer;
+  border-left-color: var(--color-accent);
+}
+
+.news-card--link:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(255, 109, 0, 0.2);
+  border-left-color: var(--color-primary);
+}
+
+.news-card__link-hint {
+  display: block;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed #ddd;
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .news-card__date {

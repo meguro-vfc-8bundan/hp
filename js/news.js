@@ -54,8 +54,16 @@ async function renderNewsCards(containerId, limit = 3) {
 
   // XSS対策: DOM操作でカードを生成（textContentを使用）
   latestNews.forEach(function(news) {
-    const card = document.createElement('div');
-    card.className = 'news-card';
+    // リンクがある場合はaタグ、ない場合はdivタグ
+    var card;
+    if (news.link) {
+      card = document.createElement('a');
+      card.href = news.link;
+      card.className = 'news-card news-card--link';
+    } else {
+      card = document.createElement('div');
+      card.className = 'news-card';
+    }
 
     // 日付部分
     const dateDiv = document.createElement('div');
@@ -98,6 +106,14 @@ async function renderNewsCards(containerId, limit = 3) {
     metaDiv.appendChild(locationSpan);
     bodyDiv.appendChild(contentP);
     bodyDiv.appendChild(metaDiv);
+
+    // リンクカードの場合は「詳しく見る」を追加
+    if (news.link) {
+      const linkHint = document.createElement('span');
+      linkHint.className = 'news-card__link-hint';
+      linkHint.textContent = '詳しく見る →';
+      bodyDiv.appendChild(linkHint);
+    }
 
     card.appendChild(dateDiv);
     card.appendChild(bodyDiv);

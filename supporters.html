@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/fabicon.jpg" type="image/jpeg">
+  <meta name="description" content="目黒消防団第８分団の団員募集キャンペーンにご協力いただいている店舗・施設のご紹介。ティッシュ設置などを通じて地域防災にご協力いただいています。">
+  <title>募集キャンペーン協力店舗 | 目黒消防団第８分団</title>
+  <link rel="canonical" href="https://meguro8bundan.tokyo/supporters.html">
+  <meta property="og:title" content="募集キャンペーン協力店舗 | 目黒消防団第８分団">
+  <meta property="og:description" content="目黒消防団第８分団の団員募集キャンペーンにご協力いただいている店舗・施設のご紹介。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://meguro8bundan.tokyo/supporters.html">
+  <meta property="og:image" content="https://meguro8bundan.tokyo/images/photos/H-01_hero_main.jpg">
+  <meta property="og:site_name" content="目黒消防団第８分団">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#1a2a4a">
+  <meta name="author" content="目黒消防団第８分団">
+  <!-- 構造化データ: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://meguro8bundan.tokyo/"},
+      {"@type": "ListItem", "position": 2, "name": "協力店舗", "item": "https://meguro8bundan.tokyo/supporters.html"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="css/style.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* 協力店舗ページ専用スタイル */
+    .supporters-intro {
+      background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+      padding: 2rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .supporters-intro h2 {
+      color: #2e7d32;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .supporters-intro p {
+      color: #1b5e20;
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    /* 店舗カードグリッド */
+    .supporters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .supporter-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-left: 5px solid var(--color-primary);
+    }
+
+    .supporter-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .supporter-card__header {
+      background: #f8f9fa;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .supporter-card__name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 0;
+      color: var(--color-navy);
+    }
+
+    .supporter-card__category {
+      font-size: 0.85rem;
+      margin-top: 0.35rem;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    .supporter-card__content {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .supporter-card__info {
+      margin-bottom: 1rem;
+    }
+
+    .supporter-card__info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .supporter-card__info-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .supporter-card__icon {
+      flex-shrink: 0;
+      width: 20px;
+      text-align: center;
+    }
+
+    .supporter-card__links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+    }
+
+    .supporter-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      border-radius: var(--border-radius-full);
+      text-decoration: none;
+      transition: all var(--transition-fast);
+    }
+
+    .supporter-card__link--map {
+      background: #e3f2fd;
+      color: #1565c0;
+    }
+
+    .supporter-card__link--map:hover {
+      background: #1565c0;
+      color: white;
+    }
+
+    .supporter-card__link--web {
+      background: #f3e5f5;
+      color: #7b1fa2;
+    }
+
+    .supporter-card__link--web:hover {
+      background: #7b1fa2;
+      color: white;
+    }
+
+    /* ティッシュ紹介セクション */
+    .tissue-section {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .tissue-section__inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .tissue-section__inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    .tissue-section__image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease;
+    }
+
+    .tissue-section__image:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .tissue-section__image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .tissue-section__note {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+      transform: rotate(2deg);
+    }
+
+    .tissue-section__content {
+      text-align: left;
+    }
+
+    .tissue-section__badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .tissue-section__title {
+      font-size: 1.5rem;
+      color: var(--color-navy);
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .tissue-section__text {
+      color: #555;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .tissue-section__highlight {
+      background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+      border-left: 4px solid var(--color-secondary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.95rem;
+      color: #1565c0;
+    }
+
+    /* 感謝メッセージ */
+    .thanks-section {
+      background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+      padding: 2.5rem;
+      border-radius: 16px;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .thanks-section h2 {
+      color: #e65100;
+      margin-bottom: 1rem;
+    }
+
+    .thanks-section p {
+      color: #bf360c;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* CTAセクション */
+    .supporters-cta {
+      background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-navy-light) 100%);
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      text-align: center;
+      color: white;
+      margin: 2rem 0;
+    }
+
+    .supporters-cta h2 {
+      margin-bottom: 1rem;
+    }
+
+    .supporters-cta p {
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    /* セクションタイトル */
+    .section-title {
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    /* アニメーション */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .animate-on-scroll.animated {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 768px) {
+      .supporters-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">入団のメリット</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="info.html" class="nav__link">情報</a></li>
+          <li><a href="extra.html" class="nav__link">おまけ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">入団のメリット</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="info.html" class="mobile-menu__link">情報</a></li>
+        <li><a href="extra.html" class="mobile-menu__link">おまけ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ページヘッダー -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">募集キャンペーン協力店舗</h1>
+      <p class="page-header__subtitle">団員募集にご協力いただいている地域の皆様</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="page-content">
+    <div class="container">
+      <!-- ティッシュ紹介セクション -->
+      <div class="tissue-section animate-on-scroll">
+        <div class="tissue-section__inner">
+          <div class="tissue-section__image">
+            <img src="images/supporters/tissue_card.jpg" alt="消防団員募集ティッシュとカード" loading="lazy">
+            <p class="tissue-section__note">※実際に配布しているカードはモノクロ印刷です</p>
+          </div>
+          <div class="tissue-section__content">
+            <span class="tissue-section__badge">団員募集キャンペーン</span>
+            <h2 class="tissue-section__title">このカード入りティッシュ、<br>見かけたことありますか？</h2>
+            <p class="tissue-section__text">
+              目黒消防団第８分団では、地域の皆様に消防団活動を知っていただくため、
+              団員募集のカードが入ったポケットティッシュを配布しています。
+            </p>
+            <p class="tissue-section__text">
+              このティッシュは、地域の店舗・施設様のご厚意により、
+              店頭などに設置していただいています。
+            </p>
+            <div class="tissue-section__highlight">
+              以下は、ティッシュ設置にご協力いただいている店舗・施設の皆様です。<br>
+              心より感謝申し上げます。
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 店舗一覧 -->
+      <h2 class="section-title animate-on-scroll">協力店舗一覧</h2>
+      <p class="section-subtitle animate-on-scroll">五十音順に掲載しております</p>
+
+      <div class="supporters-grid">
+        <!-- サトウ動物病院 -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">サトウ動物病院</h3>
+            <p class="supporter-card__category">動物病院</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=サトウ動物病院+目黒区" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+              <a href="https://www.sato-animalcl.com" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--web">
+                🌐 公式サイト
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- シーアイマンション碑文谷 -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">シーアイマンション碑文谷</h3>
+            <p class="supporter-card__category">マンション管理組合</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区碑文谷</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=シーアイマンション碑文谷" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 天ぷら川さき -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">天ぷら川さき</h3>
+            <p class="supporter-card__category">飲食店（天ぷら）</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=天ぷら川さき+目黒区" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- とん吉 -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">とん吉</h3>
+            <p class="supporter-card__category">飲食店（とんかつ）</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=とん吉+目黒区目黒本町" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 碑文谷コート歯科 -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">碑文谷コート歯科</h3>
+            <p class="supporter-card__category">歯科医院</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=碑文谷コート歯科" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+              <a href="https://www.himonyacourt.jp/" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--web">
+                🌐 公式サイト
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 居酒屋いやさか -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">居酒屋いやさか</h3>
+            <p class="supporter-card__category">飲食店（居酒屋）</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=居酒屋いやさか+目黒区" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- メンズサロンノーブル -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">メンズサロンノーブル</h3>
+            <p class="supporter-card__category">理容室</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=メンズサロンノーブル+目黒区" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 餃子どんこ -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">餃子職人どんこ</h3>
+            <p class="supporter-card__category">飲食店（餃子）</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=餃子職人どんこ+目黒区" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+              <a href="https://donko-gyoza.com/" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--web">
+                🌐 公式サイト
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- わかば歯科 -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">わかば歯科医院</h3>
+            <p class="supporter-card__category">歯科医院</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=わかば歯科医院+目黒区目黒本町" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+              <a href="https://wakaba.link/" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--web">
+                🌐 公式サイト
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 中央体育館 -->
+        <div class="supporter-card animate-on-scroll">
+          <div class="supporter-card__header">
+            <h3 class="supporter-card__name">目黒区立中央体育館</h3>
+            <p class="supporter-card__category">公共施設</p>
+          </div>
+          <div class="supporter-card__content">
+            <div class="supporter-card__info">
+              <div class="supporter-card__info-item">
+                <span class="supporter-card__icon">📍</span>
+                <span>目黒区目黒本町</span>
+              </div>
+            </div>
+            <div class="supporter-card__links">
+              <a href="https://maps.google.com/?q=目黒区立中央体育館" target="_blank" rel="noopener noreferrer" class="supporter-card__link supporter-card__link--map">
+                📍 地図
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 感謝メッセージ -->
+      <div class="thanks-section animate-on-scroll">
+        <h2>ご協力いただける店舗様を募集しています</h2>
+        <p>団員募集のティッシュ設置にご協力いただける店舗・施設様を随時募集しております。<br>ご興味のある方は、お気軽に目黒消防署までお問い合わせください。</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="supporters-cta animate-on-scroll">
+        <h2>消防団員募集中</h2>
+        <p>地域の皆様のご協力で、消防団活動はより一層充実したものになります。<br>あなたも一緒に地域を守る仲間になりませんか？</p>
+        <a href="form.html" class="btn btn--accent btn--large">入団に申し込む</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- モバイル用フローティングCTAボタン -->
+  <div class="floating-cta">
+    <a href="form.html" class="floating-cta__btn">入団申込</a>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // スクロールアニメーション
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach((element, index) => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.9) {
+          setTimeout(() => {
+            element.classList.add('animated');
+          }, index * 50);
+        }
+      });
+    }
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+  </script>
+</body>
+</html>
