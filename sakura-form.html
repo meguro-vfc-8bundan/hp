@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/fabicon.jpg" type="image/jpeg">
+  <meta name="description" content="さくらのふれあい広場 消防団ワークショップの事前申込フォーム。2026年3月29日開催、先着40名。">
+  <title>事前申込フォーム | さくらのふれあい広場 2026 | 目黒消防団第８分団</title>
+  <link rel="canonical" href="https://meguro8bundan.tokyo/sakura-form.html">
+  <meta property="og:title" content="事前申込フォーム | さくらのふれあい広場 2026">
+  <meta property="og:description" content="さくらのふれあい広場 消防団ワークショップの事前申込フォーム。先着40名、参加者全員に200円金券プレゼント！">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://meguro8bundan.tokyo/sakura-form.html">
+  <meta property="og:image" content="https://meguro8bundan.tokyo/images/events/sakura-2026/noroien_kv.jpg">
+  <meta property="og:site_name" content="目黒消防団第８分団">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1a2a4a">
+  <meta name="author" content="目黒消防団第８分団">
+  <!-- 構造化データ: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://meguro8bundan.tokyo/"},
+      {"@type": "ListItem", "position": 2, "name": "さくらのふれあい広場", "item": "https://meguro8bundan.tokyo/sakura-event.html"},
+      {"@type": "ListItem", "position": 3, "name": "事前申込フォーム", "item": "https://meguro8bundan.tokyo/sakura-form.html"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="css/style.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .form-hero {
+      background: linear-gradient(135deg, rgba(255, 183, 197, 0.85) 0%, rgba(255, 209, 220, 0.85) 50%, rgba(255, 240, 245, 0.9) 100%);
+      padding: calc(80px + 3rem) 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('images/events/sakura-2026/sakura_BG.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+    }
+
+    .form-hero__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-hero__badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+      color: white;
+      padding: 0.4rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 4px 15px rgba(229, 57, 53, 0.3);
+    }
+
+    .form-hero__title {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      color: #1a2744;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    }
+
+    .form-hero__subtitle {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .form-hero__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 0.5rem 1.25rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .form-hero__back:hover {
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateX(-4px);
+    }
+
+    .form-hero__wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .form-hero__wave svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 50px;
+    }
+
+    .form-hero__wave .shape-fill {
+      fill: #fff8e1;
+    }
+
+    /* フォームセクション */
+    .sakura-form-section {
+      padding: 3rem 0;
+      background: linear-gradient(180deg, #fff8e1 0%, #fff5f7 100%);
+    }
+
+    .sakura-form-info {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .sakura-form-info__box {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 2px solid #ffb7c5;
+    }
+
+    .sakura-form-info__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .sakura-form-info__item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .sakura-form-info__icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .sakura-form__embed {
+      background: white;
+      border-radius: 16px;
+      padding: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .sakura-form__embed iframe {
+      border-radius: 8px;
+    }
+
+    .sakura-form__note {
+      max-width: 700px;
+      margin: 1.5rem auto 0;
+      text-align: center;
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    /* セクションタイトル */
+    .section-title {
+      font-size: 1.75rem;
+      color: var(--color-primary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #E53935, #FF6F00);
+      margin: 1rem auto 0;
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .sakura-form__embed {
+        padding: 0.5rem;
+      }
+
+      .sakura-form__embed iframe {
+        height: 900px;
+      }
+
+      .sakura-form-info__item {
+        font-size: 0.9rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">入団のメリット</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="info.html" class="nav__link">情報</a></li>
+          <li><a href="extra.html" class="nav__link">おまけ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">入団のメリット</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="info.html" class="mobile-menu__link">情報</a></li>
+        <li><a href="extra.html" class="mobile-menu__link">おまけ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ヒーロー -->
+  <section class="form-hero">
+    <div class="container form-hero__content">
+      <span class="form-hero__badge">3/29(日) 開催</span>
+      <h1 class="form-hero__title">ワークショップ事前申込</h1>
+      <p class="form-hero__subtitle">さくらのふれあい広場 消防団体験コーナー</p>
+      <a href="sakura-event.html" class="form-hero__back">← イベント詳細に戻る</a>
+    </div>
+    <div class="form-hero__wave">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C57.1,118.92,150.68,80.55,321.39,56.44Z" class="shape-fill"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 申込フォームセクション -->
+  <section class="sakura-form-section">
+    <div class="container">
+      <h2 class="section-title">事前申込フォーム</h2>
+      <p class="section-subtitle">当日参加も可能ですが、事前申込で確実に参加できます（先着40名）</p>
+
+      <div class="sakura-form-info">
+        <div class="sakura-form-info__box">
+          <ul class="sakura-form-info__list">
+            <li class="sakura-form-info__item">
+              <span class="sakura-form-info__icon">📅</span>
+              <span>開催日：2026年3月29日（日）</span>
+            </li>
+            <li class="sakura-form-info__item">
+              <span class="sakura-form-info__icon">🕐</span>
+              <span>ワークショップ：11:50〜12:30（40分間）</span>
+            </li>
+            <li class="sakura-form-info__item">
+              <span class="sakura-form-info__icon">📍</span>
+              <span>場所：円融寺境内、幼稚園園庭</span>
+            </li>
+            <li class="sakura-form-info__item">
+              <span class="sakura-form-info__icon">👥</span>
+              <span>定員：先着40名（親子1組＝1名）</span>
+            </li>
+            <li class="sakura-form-info__item">
+              <span class="sakura-form-info__icon">🎁</span>
+              <span>参加特典：200円金券プレゼント</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sakura-form__embed">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScP_O_WSiGQinlpwSQh20Nd7VJIVD1LYDk6pYDWdd-JxAtnig/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+      </div>
+
+      <p class="sakura-form__note">※ 定員に達した場合はご参加いただけません。あらかじめご了承ください</p>
+    </div>
+  </section>
+
+  <!-- モバイル用フローティングCTAボタン -->
+  <div class="floating-cta">
+    <a href="form.html" class="floating-cta__btn">入団申込</a>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

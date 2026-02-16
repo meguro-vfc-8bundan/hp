@@ -425,17 +425,12 @@
       background: linear-gradient(180deg, #fff8e1 0%, #fff5f7 100%);
     }
 
-    .apply-form__embed {
-      background: white;
-      border-radius: 16px;
-      padding: 1rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-      max-width: 700px;
-      margin: 0 auto;
+    .apply-cta {
+      text-align: center;
     }
 
-    .apply-form__embed iframe {
-      border-radius: 8px;
+    .apply-cta .btn {
+      margin-top: 0.5rem;
     }
 
     /* 金券セクション */
@@ -965,14 +960,6 @@
         font-size: 0.8rem;
       }
 
-      .apply-form__embed {
-        padding: 0.5rem;
-      }
-
-      .apply-form__embed iframe {
-        height: 900px;
-      }
-
       .instagram-links {
         flex-direction: column;
         align-items: center;
@@ -1177,13 +1164,13 @@
     </div>
   </section>
 
-  <!-- 事前申込フォームセクション -->
+  <!-- 事前申込への誘導 -->
   <section class="apply-form-section">
     <div class="container">
-      <h2 class="section-title animate-on-scroll">📝 事前申込</h2>
-      <p class="section-subtitle animate-on-scroll">当日参加も可能ですが、事前申込で確実に参加できます（先着40名）</p>
-      <div class="apply-form__embed animate-on-scroll">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScP_O_WSiGQinlpwSQh20Nd7VJIVD1LYDk6pYDWdd-JxAtnig/viewform?embedded=true" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+      <div class="apply-cta animate-on-scroll">
+        <h2 class="section-title">📝 事前申込</h2>
+        <p class="section-subtitle">当日参加も可能ですが、事前申込で確実に参加できます（先着40名）</p>
+        <a href="sakura-form.html" class="btn btn--primary btn--large">事前申込フォームへ</a>
       </div>
     </div>
   </section>
