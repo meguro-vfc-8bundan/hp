@@ -1452,6 +1452,7 @@ let answers = []; // { qIndex, selected, correct, qId, category }
 let userName = '';
 let userRank = '';
 let unitName = '目黒消防団 第８分団';
+let shuffleMap = []; // shuffleMap[qIndex] = [originalIdx...] in display order
 
 // ===== HELPERS =====
 function getAnswer(qIdx) {
@@ -1468,6 +1469,17 @@ function unansweredIndices() {
 }
 
 // ===== FUNCTIONS =====
+function initShuffleMap() {
+  shuffleMap = questions.map(q => {
+    const indices = q.options.map((_, i) => i);
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    return indices;
+  });
+}
+
 function startQuiz() {
   const uName = document.getElementById('user-name').value.trim();
   const uRank = document.getElementById('user-rank').value.trim();
@@ -1483,6 +1495,7 @@ function startQuiz() {
   unitName = uUnit;
   document.getElementById('entry-area').classList.add('hidden');
   document.getElementById('quiz-area').classList.remove('hidden');
+  initShuffleMap();
   renderQuestionMap();
   renderQuestion();
 }
@@ -1549,14 +1562,15 @@ function renderQuestion() {
   html += `<div class="q-text">${q.text}</div>
     <div class="options" id="options">`;
 
-  q.options.forEach((opt, i) => {
+  const map = shuffleMap[currentQ];
+  map.forEach((origIdx, displayIdx) => {
     let btnClass = 'option-btn';
-    if (isAnswered && prevAnswer.selected === i) {
+    if (isAnswered && prevAnswer.selected === origIdx) {
       btnClass += ' selected';
     }
-    html += `<button class="${btnClass}" data-index="${i}" onclick="selectAnswer(${i})">
-      <span class="opt-label">${labels[i]}</span>
-      <span>${opt}</span>
+    html += `<button class="${btnClass}" data-index="${displayIdx}" onclick="selectAnswer(${displayIdx})">
+      <span class="opt-label">${labels[displayIdx]}</span>
+      <span>${q.options[origIdx]}</span>
     </button>`;
   });
 
@@ -1578,16 +1592,17 @@ function renderQuestion() {
   renderQuestionMap();
 }
 
-function selectAnswer(idx) {
+function selectAnswer(displayIdx) {
   const q = questions[currentQ];
+  const origIdx = shuffleMap[currentQ][displayIdx];
 
   // Remove previous answer for this question if exists
   answers = answers.filter(a => a.qIndex !== currentQ);
 
-  // Store only selection (no judgment yet)
+  // Store original index so answer checking works regardless of shuffle
   answers.push({
     qIndex: currentQ,
-    selected: idx,
+    selected: origIdx,
     qId: q.id,
     category: q.category
   });
@@ -1793,6 +1808,7 @@ function retryQuiz() {
   document.getElementById('result-area').classList.add('hidden');
   document.getElementById('result-area').innerHTML = '';
   document.getElementById('quiz-area').classList.remove('hidden');
+  initShuffleMap();
   renderQuestionMap();
   renderQuestion();
 }
