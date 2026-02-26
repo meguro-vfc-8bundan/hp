@@ -5,8 +5,7 @@
     "time": "09:00〜12:00",
     "location": "林試の森公園",
     "content": "「防災フェア in 林試の森公園」に参加します！消防車乗車体験や起震車体験など、楽しみながら防災を学べるイベントです。ぜひお越しください！",
-    "link": "https://www.tokyo-park.or.jp/association/assets/prerelease_rinshi_20250205.pdf",
-    "linkText": "イベント詳細はこちら（PDF）"
+    "link": "https://www.tokyo-park.or.jp/association/assets/prerelease_rinshi_20250205.pdf"
   },
   {
     "id": "news-005",
@@ -14,8 +13,7 @@
     "time": "10:30〜14:00",
     "location": "中目黒GT タワー前広場",
     "content": "春の火災予防イベント「中目黒BT（Bousai Town）」に参加します！消防演技披露やはしご車搭乗体験など盛りだくさん。ぜひお越しください！",
-    "link": "https://www.city.meguro.tokyo.jp/bousai/event/kasai_yobou_undou.html",
-    "linkText": "目黒区公式サイトで詳細を見る"
+    "link": "https://www.city.meguro.tokyo.jp/bousai/event/kasai_yobou_undou.html"
   },
   {
     "id": "news-003",
@@ -23,7 +21,6 @@
     "time": "11:00〜15:00",
     "location": "円融寺境内、幼稚園園庭",
     "content": "さくらのふれあい広場にてワークショップを展開します！参加者には当日会場内で使える金券をプレゼント。特設ページで詳細をチェック！",
-    "link": "sakura-event.html",
-    "linkText": "特設ページを見る"
+    "link": "sakura-event.html"
   }
 ]
