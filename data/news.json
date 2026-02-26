@@ -1,17 +1,21 @@
 [
   {
-    "id": "news-001",
-    "date": "2026-02-18",
-    "time": "19:30〜21:00",
-    "location": "分団本部",
-    "content": "２月度の定期訓練を開催します。ぜひ見学においでください。当回では可搬ポンプ取扱について訓練いたします。"
+    "id": "news-004",
+    "date": "2026-03-01",
+    "time": "09:00〜12:00",
+    "location": "林試の森公園",
+    "content": "「防災フェア in 林試の森公園」に参加します！消防車乗車体験や起震車体験など、楽しみながら防災を学べるイベントです。ぜひお越しください！",
+    "link": "https://www.tokyo-park.or.jp/park/rinshinomori/index.html",
+    "linkText": "公園公式サイトで詳細を見る"
   },
   {
-    "id": "news-002",
-    "date": "2026-02-22",
-    "time": "09:30〜11:30",
-    "location": "月光原公園",
-    "content": "月光町会で行われる防災訓練に参加いたします。当分団はスタンドパイプ取扱について指導を行います。ぜひお越しください！"
+    "id": "news-005",
+    "date": "2026-03-08",
+    "time": "10:30〜14:00",
+    "location": "中目黒GT タワー前広場",
+    "content": "春の火災予防イベント「中目黒BT（Bousai Town）」に参加します！消防演技披露やはしご車搭乗体験など盛りだくさん。ぜひお越しください！",
+    "link": "https://www.city.meguro.tokyo.jp/bousai/event/kasai_yobou_undou.html",
+    "linkText": "目黒区公式サイトで詳細を見る"
   },
   {
     "id": "news-003",
