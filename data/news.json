@@ -1,19 +1,18 @@
 [
   {
-    "id": "news-004",
-    "date": "2026-03-01",
-    "time": "09:00〜12:00",
-    "location": "林試の森公園",
-    "content": "「防災フェア in 林試の森公園」に参加します！消防車乗車体験や起震車体験など、楽しみながら防災を学べるイベントです。ぜひお越しください！",
-    "link": "https://www.tokyo-park.or.jp/association/assets/prerelease_rinshi_20250205.pdf"
-  },
-  {
     "id": "news-005",
     "date": "2026-03-08",
     "time": "10:30〜14:00",
     "location": "中目黒GT タワー前広場",
     "content": "春の火災予防イベント「中目黒BT（Bousai Town）」に参加します！消防演技披露やはしご車搭乗体験など盛りだくさん。ぜひお越しください！",
     "link": "https://www.city.meguro.tokyo.jp/bousai/event/kasai_yobou_undou.html"
+  },
+  {
+    "id": "news-006",
+    "date": "2026-03-18",
+    "time": "19:30〜21:00",
+    "location": "円融寺境内",
+    "content": "定期訓練を実施します！消防可搬ポンプの操作・放水訓練を行います。見学も大歓迎ですので、お気軽にお立ち寄りください！"
   },
   {
     "id": "news-003",
