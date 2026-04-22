@@ -348,6 +348,30 @@
       color: #666;
     }
 
+    /* スケジュール表 「後日公開」行 */
+    .pt-schedule__coming td {
+      background: linear-gradient(135deg, #fff7ea 0%, #ffe8cc 100%);
+      text-align: center;
+      padding: 1.25rem 1rem;
+      border-left: 4px solid #f5a623;
+      color: #6c3800;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .pt-schedule__coming strong {
+      color: #8b3a00;
+      font-size: 1.02rem;
+    }
+
+    .pt-schedule__coming .pt-coming__detail {
+      display: block;
+      margin-top: 0.45rem;
+      font-size: 0.85rem;
+      color: #8b5a2b;
+      font-weight: 500;
+    }
+
     /* 場所案内セクション */
     .pt-locations {
       padding: 3.5rem 0;
@@ -720,12 +744,13 @@
   <section class="pt-schedule">
     <div class="container">
       <h2 class="pt-section__title">訓練スケジュール</h2>
-      <p class="pt-section__subtitle">4/26〜6月下旬の日程（5月中心、以降は本番に向けた追い込み）</p>
+      <p class="pt-section__subtitle">まずは 4/26〜5/31 の日程を公開中（6月分は調整中）</p>
 
       <div class="pt-schedule__notes">
         <p>📌 <strong>5/7（木）より円融寺参道で訓練実施</strong>。それ以前は分団本部で準備・座学・基礎礼式訓練が中心です。</p>
         <p>💧 <strong>放水訓練は6/7以降</strong>。それまでは防火水槽を使わず、機材操作や動作の確認が中心となります。</p>
         <p>🌙 <strong>夜間訓練も多め</strong>。住宅街の静かな夜に行うため、見学は周辺環境にご配慮ください。</p>
+        <p>📅 <strong>6月の詳細日程は後日公開予定</strong>。更新時は当ページでお知らせします。</p>
       </div>
 
       <table class="pt-schedule__table">
@@ -753,7 +778,12 @@
           <tr><td class="pt-date">5/27<span class="pt-dow">水</span></td><td class="pt-time">19:30〜</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
           <tr><td class="pt-date">5/29<span class="pt-dow">金</span></td><td class="pt-time">19:30〜</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
           <tr><td class="pt-date">5/31<span class="pt-dow--sun">日</span></td><td class="pt-time">15:00〜</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
-          <tr><td class="pt-date">6/7<span class="pt-dow--sun">日</span></td><td class="pt-time">初回水出し予定</td><td><span class="pt-place pt-place--tbd">詳細未定</span></td></tr>
+          <tr class="pt-schedule__coming">
+            <td colspan="3">
+              📅 <strong>6月の詳細日程は後日公開予定</strong>
+              <span class="pt-coming__detail">※ 初回の放水訓練は6/7（日）を予定／以降も6月下旬まで継続します</span>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
