@@ -1848,7 +1848,7 @@ p {
 .news-card__content {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-navy);
+  color: #1f2d3d;
   margin-bottom: 0.75rem;
   line-height: 1.5;
 }
@@ -1963,6 +1963,99 @@ p {
   .news-item__details {
     flex-direction: column;
     gap: 0.75rem;
+  }
+}
+
+/* ポンプ操法大会 訓練バナー */
+.pump-banner-section {
+  padding: 2rem 0 3rem;
+  background: #fff;
+}
+
+.pump-banner {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  min-height: 220px;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-image: url('../images/photos/PT-01_hero_day.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.pump-banner:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.pump-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(26, 42, 74, 0.9) 0%, rgba(229, 57, 53, 0.78) 100%);
+}
+
+.pump-banner__content {
+  position: relative;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+
+.pump-banner__badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
+  color: #fff;
+  padding: 0.4rem 1.15rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.9rem;
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.45);
+}
+
+.pump-banner__title {
+  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+  line-height: 1.45;
+  margin-bottom: 0.75rem;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.pump-banner__text {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.pump-banner__cta {
+  display: inline-block;
+  background: #fff;
+  color: #1f2d3d;
+  padding: 0.7rem 1.75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.pump-banner:hover .pump-banner__cta {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .pump-banner {
+    min-height: 200px;
+  }
+
+  .pump-banner__content {
+    padding: 1.75rem 1.25rem;
   }
 }
 
