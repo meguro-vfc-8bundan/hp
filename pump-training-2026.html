@@ -348,28 +348,29 @@
       color: #666;
     }
 
-    /* スケジュール表 「後日公開」行 */
-    .pt-schedule__coming td {
-      background: linear-gradient(135deg, #fff7ea 0%, #ffe8cc 100%);
-      text-align: center;
-      padding: 1.25rem 1rem;
-      border-left: 4px solid #f5a623;
-      color: #6c3800;
-      font-size: 0.95rem;
-      line-height: 1.8;
+    /* スケジュール表 「大会本番」行 */
+    .pt-schedule__final td {
+      background: linear-gradient(135deg, #1a2a4a 0%, #c62828 100%);
     }
 
-    .pt-schedule__coming strong {
-      color: #8b3a00;
-      font-size: 1.02rem;
+    .pt-schedule__final .pt-date,
+    .pt-schedule__final .pt-dow--sun,
+    .pt-schedule__final .pt-time {
+      color: #fff;
     }
 
-    .pt-schedule__coming .pt-coming__detail {
+    .pt-final__label {
       display: block;
-      margin-top: 0.45rem;
-      font-size: 0.85rem;
-      color: #8b5a2b;
-      font-weight: 500;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #ffd54f;
+    }
+
+    .pt-place--final {
+      background: #fff;
+      color: #1a2a4a;
     }
 
     /* 場所案内セクション */
@@ -434,6 +435,18 @@
       padding: 0.9rem 1.1rem;
       border-radius: 8px;
       border-left: 3px solid var(--color-navy);
+    }
+
+    /* 大会会場セクション */
+    .pt-venue {
+      padding: 3.5rem 0;
+      background: #fff;
+    }
+
+    .pt-venue__card {
+      max-width: 560px;
+      margin: 2rem auto 0;
+      border-top: 4px solid #E53935;
     }
 
     /* ギャラリー */
@@ -663,11 +676,11 @@
   <!-- ヒーロー -->
   <section class="pt-hero">
     <div class="container pt-hero__inner">
-      <span class="pt-hero__badge">4/26（日）訓練スタート</span>
+      <span class="pt-hero__badge">6/28（日）大会本番</span>
       <h1 class="pt-hero__title">令和8年度<br>ポンプ操法大会 訓練日程</h1>
-      <p class="pt-hero__subtitle">約2ヶ月の本気の訓練、いよいよスタート。<br>見学・お立ち寄り大歓迎です！</p>
+      <p class="pt-hero__subtitle">約2ヶ月の本気の訓練も、いよいよ大詰め。<br>見学・お立ち寄り大歓迎です！</p>
       <div class="pt-hero__meta">
-        <span class="pt-hero__meta-item">📅 4/26 〜 6月下旬</span>
+        <span class="pt-hero__meta-item">📅 4/26 〜 6/28 大会本番</span>
         <span class="pt-hero__meta-item">📍 分団本部 / 円融寺参道</span>
         <span class="pt-hero__meta-item">🔥 放水訓練は6/7から</span>
       </div>
@@ -744,13 +757,13 @@
   <section class="pt-schedule">
     <div class="container">
       <h2 class="pt-section__title">訓練スケジュール</h2>
-      <p class="pt-section__subtitle">まずは 4/26〜5/31 の日程を公開中（6月分は調整中）</p>
+      <p class="pt-section__subtitle">4/26の訓練開始から6/28の大会本番まで、全日程を公開しています</p>
 
       <div class="pt-schedule__notes">
         <p>📌 <strong>5/7（木）より円融寺参道で訓練実施</strong>。それ以前は分団本部で準備・座学・基礎礼式訓練が中心です。</p>
         <p>💧 <strong>放水訓練は6/7以降</strong>。それまでは防火水槽を使わず、機材操作や動作の確認が中心となります。</p>
         <p>🌙 <strong>夜間訓練も多め</strong>。住宅街の静かな夜に行うため、見学は周辺環境にご配慮ください。</p>
-        <p>📅 <strong>6月の詳細日程は後日公開予定</strong>。更新時は当ページでお知らせします。</p>
+        <p>🏆 <strong>6/28（日）は大会本番</strong>。目黒清掃工場での競技に向け、6月は訓練の総仕上げに入ります。</p>
       </div>
 
       <table class="pt-schedule__table">
@@ -778,11 +791,22 @@
           <tr><td class="pt-date">5/27<span class="pt-dow">水</span></td><td class="pt-time">19:30〜</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
           <tr><td class="pt-date">5/29<span class="pt-dow">金</span></td><td class="pt-time">19:30〜</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
           <tr><td class="pt-date">5/31<span class="pt-dow--sun">日</span></td><td class="pt-time">15:00〜</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
-          <tr class="pt-schedule__coming">
-            <td colspan="3">
-              📅 <strong>6月の詳細日程は後日公開予定</strong>
-              <span class="pt-coming__detail">※ 初回の放水訓練は6/7（日）を予定／以降も6月下旬まで継続します</span>
-            </td>
+          <tr><td class="pt-date">6/3<span class="pt-dow">水</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/4<span class="pt-dow">木</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/7<span class="pt-dow--sun">日</span></td><td class="pt-time">16:00〜19:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/10<span class="pt-dow">水</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/12<span class="pt-dow">金</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/14<span class="pt-dow--sun">日</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/16<span class="pt-dow">火</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/18<span class="pt-dow">木</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/21<span class="pt-dow--sun">日</span></td><td class="pt-time">16:00〜19:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/23<span class="pt-dow">火</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/25<span class="pt-dow">木</span></td><td class="pt-time">19:30〜21:00</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr><td class="pt-date">6/27<span class="pt-dow--sat">土</span></td><td class="pt-time">17:30〜19:30</td><td><span class="pt-place pt-place--temple">円融寺参道</span></td></tr>
+          <tr class="pt-schedule__final">
+            <td class="pt-date">6/28<span class="pt-dow--sun">日</span><span class="pt-final__label">🏆 大会本番</span></td>
+            <td class="pt-time">09:00〜</td>
+            <td><span class="pt-place pt-place--final">目黒清掃工場</span></td>
           </tr>
         </tbody>
       </table>
@@ -843,6 +867,31 @@
             <div class="pt-location__note">
               5/7以降のメイン訓練会場。参道の広いスペースを活用して、実際のホース延長や動作訓練を行います。
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 大会会場 -->
+  <section class="pt-venue">
+    <div class="container">
+      <h2 class="pt-section__title">大会本番の会場</h2>
+      <p class="pt-section__subtitle">6/28（日）の大会は目黒清掃工場で行われます</p>
+      <div class="pt-venue__card pt-location">
+        <div class="pt-location__map">
+          <iframe
+            src="https://www.google.com/maps?q=%E7%9B%AE%E9%BB%92%E6%B8%85%E6%8E%83%E5%B7%A5%E5%A0%B4&output=embed"
+            title="目黒清掃工場の地図"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+        <div class="pt-location__body">
+          <h3 class="pt-location__name">目黒清掃工場</h3>
+          <p class="pt-location__address">〒153-0062 東京都目黒区三田2-19-43</p>
+          <div class="pt-location__note">
+            令和8年度ポンプ操法大会の本番会場です。当日は9:00開始予定。第8分団の活躍を、ぜひ会場で応援してください。
           </div>
         </div>
       </div>
