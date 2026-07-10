@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/fabicon.jpg" type="image/jpeg">
+  <meta name="description" content="目黒消防団第８分団のお知らせ一覧。訓練・地域行事・イベントの予定をご案内しています。">
+  <title>お知らせ一覧 | 目黒消防団第８分団</title>
+  <link rel="canonical" href="https://meguro8bundan.tokyo/news.html">
+  <meta property="og:title" content="お知らせ一覧 | 目黒消防団第８分団">
+  <meta property="og:description" content="訓練・地域行事・イベントの予定をご案内しています。">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://meguro8bundan.tokyo/news.html">
+  <meta property="og:image" content="https://meguro8bundan.tokyo/images/photos/H-01_hero_main.jpg">
+  <meta property="og:site_name" content="目黒消防団第８分団">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#1a2a4a">
+  <meta name="author" content="目黒消防団第８分団">
+  <!-- 構造化データ: BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://meguro8bundan.tokyo/"},
+      {"@type": "ListItem", "position": 2, "name": "お知らせ一覧", "item": "https://meguro8bundan.tokyo/news.html"}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="css/style.css" as="style">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* お知らせ一覧ページ専用スタイル */
+    .news-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .news-section__title {
+      font-size: 1.5rem;
+      color: var(--color-navy);
+      margin-bottom: 1.5rem;
+      padding-left: 0.75rem;
+      border-left: 5px solid var(--color-primary);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 終了したお知らせは控えめに表示 */
+    #news-list-past .news-item {
+      border-left-color: #b0b0b0;
+      opacity: 0.75;
+    }
+
+    #news-list-past .news-item__date-text {
+      color: #777;
+    }
+
+    .news-item .news-card__link-hint {
+      display: inline-block;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        目黒消防団<span>第８分団</span>
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#strengths" class="nav__link">入団のメリット</a></li>
+          <li><a href="activity.html" class="nav__link">活動紹介</a></li>
+          <li><a href="interview.html" class="nav__link">団員の声</a></li>
+          <li><a href="training.html" class="nav__link">訓練内容</a></li>
+          <li><a href="index.html#requirements" class="nav__link">入団条件</a></li>
+          <li><a href="faq.html" class="nav__link">FAQ</a></li>
+          <li><a href="info.html" class="nav__link">情報</a></li>
+          <li><a href="extra.html" class="nav__link">おまけ</a></li>
+          <li><a href="form.html" class="btn btn--accent">入団申込</a></li>
+        </ul>
+      </nav>
+      <button class="menu-btn" aria-label="メニューを開く">
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+        <span class="menu-btn__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <div class="mobile-menu__content">
+      <button class="mobile-menu__close" aria-label="メニューを閉じる">&times;</button>
+      <ul class="mobile-menu__list">
+        <li><a href="index.html#strengths" class="mobile-menu__link">入団のメリット</a></li>
+        <li><a href="activity.html" class="mobile-menu__link">活動紹介</a></li>
+        <li><a href="interview.html" class="mobile-menu__link">団員の声</a></li>
+        <li><a href="training.html" class="mobile-menu__link">訓練内容</a></li>
+        <li><a href="index.html#requirements" class="mobile-menu__link">入団条件</a></li>
+        <li><a href="faq.html" class="mobile-menu__link">FAQ</a></li>
+        <li><a href="info.html" class="mobile-menu__link">情報</a></li>
+        <li><a href="extra.html" class="mobile-menu__link">おまけ</a></li>
+        <li><a href="form.html" class="mobile-menu__link">入団申込</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ページヘッダー -->
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-header__title">お知らせ一覧</h1>
+      <p class="page-header__subtitle">訓練・地域行事・イベントの予定をご案内しています</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="page-content">
+    <div class="container">
+      <!-- 開催予定 -->
+      <section class="news-section">
+        <h2 class="news-section__title">開催予定</h2>
+        <div id="news-list-upcoming" class="news-list">
+          <!-- JSで動的に読み込み -->
+        </div>
+      </section>
+
+      <!-- 終了したお知らせ（該当が無ければJSで非表示） -->
+      <section class="news-section" id="news-past-section" hidden>
+        <h2 class="news-section__title">終了したお知らせ</h2>
+        <div id="news-list-past" class="news-list">
+          <!-- JSで動的に読み込み -->
+        </div>
+      </section>
+
+      <div class="news-more">
+        <a href="index.html" class="btn btn--navy">トップページに戻る</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- モバイル用フローティングCTAボタン -->
+  <div class="floating-cta">
+    <a href="form.html" class="floating-cta__btn">入団申込</a>
+  </div>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__section">
+          <h4>目黒消防団第８分団</h4>
+          <p>目黒本町を拠点に、地域の安全・安心を守るために活動しています。</p>
+        </div>
+        <div class="footer__section">
+          <h4>お問い合わせ</h4>
+          <p>目黒消防署</p>
+          <p>〒153-0064<br>東京都目黒区下目黒6丁目1番22号</p>
+          <p><a href="tel:03-3710-0119">03-3710-0119</a></p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 目黒消防団第８分団</p>
+        <p style="font-size: 0.85rem; margin-top: 0.5rem; opacity: 0.8;">本サイトの内容の無断改変、転載、再配布を禁止します。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/news.js"></script>
+</body>
+</html>

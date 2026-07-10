@@ -1874,7 +1874,7 @@ p {
 
 .news-more {
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
 }
 
 .news-empty {
@@ -1966,13 +1966,193 @@ p {
   }
 }
 
-/* ポンプ操法大会 訓練バナー */
-.pump-banner-section {
+/* ポンプ操法大会 結果報告 */
+.champion-section {
   padding: 2rem 0 3rem;
   background: #fff;
 }
 
-.pump-banner {
+.champion {
+  max-width: 880px;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(15, 26, 46, 0.18);
+}
+
+/* 写真の上に濃紺グラデーションを重ね、下部の見出しを確実に読ませる */
+.champion__hero {
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--color-navy-dark);
+}
+
+/* 背景写真のみをぼかす（文字がぼけないよう疑似要素に分離）
+   blurは端が透けるため、scaleで少し拡大して縁を隠す */
+.champion__hero::before {
+  content: '';
+  position: absolute;
+  inset: -2%;
+  background-image: url('../images/events/pump-2026/champion.jpg');
+  background-size: cover;
+  background-position: center 22%;
+  filter: blur(2.5px);
+  transform: scale(1.04);
+}
+
+/* グラデーションはぼかさず、写真の上に重ねる */
+.champion__hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(15, 26, 46, 0.25) 0%,
+    rgba(15, 26, 46, 0.45) 40%,
+    rgba(15, 26, 46, 0.88) 78%,
+    rgba(15, 26, 46, 0.97) 100%);
+}
+
+.champion__hero-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 0 2.75rem 2.5rem;
+  color: #fff;
+}
+
+.champion__badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #c9a227 0%, #f3e08a 50%, #c9a227 100%);
+  color: #2b2109;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 1.1rem;
+  border-radius: var(--border-radius-full);
+  margin-bottom: 1.1rem;
+  box-shadow: 0 4px 14px rgba(201, 162, 39, 0.4);
+}
+
+.champion__eyebrow {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.6rem;
+}
+
+/* h1〜h6の既定色（--color-text）を上書きしないと暗背景で沈む */
+.champion__title {
+  font-size: clamp(1.75rem, 4vw, 2.6rem);
+  line-height: 1.35;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+}
+
+.champion__title-accent {
+  position: relative;
+  color: #f3e08a;
+}
+
+/* 「優勝」の下に金の下線を引く */
+.champion__title-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.15em;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #f3e08a, transparent);
+}
+
+.champion__body {
+  padding: 3rem 2.75rem;
+  border-top: 3px solid #c9a227;
+}
+
+.champion__lead {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  line-height: 1.95;
+  margin-bottom: 2rem;
+}
+
+.champion__text {
+  color: var(--color-text);
+  line-height: 2.05;
+  margin-bottom: 1.5rem;
+}
+
+.champion__text:last-of-type {
+  margin-bottom: 0;
+}
+
+.champion__thanks {
+  position: relative;
+  background: linear-gradient(135deg, #fdfaf0 0%, #f7eed4 100%);
+  border: 1px solid #e6d9a8;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  color: #5c4a15;
+  line-height: 2.05;
+  margin: 2.5rem 0 0;
+}
+
+@media (max-width: 768px) {
+  .champion {
+    border-radius: 16px;
+  }
+
+  .champion__hero {
+    min-height: 300px;
+  }
+
+  .champion__hero::before {
+    background-position: center 18%;
+  }
+
+  .champion__hero-inner {
+    padding: 0 1.5rem 1.75rem;
+  }
+
+  .champion__eyebrow {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+
+  .champion__body {
+    padding: 2rem 1.5rem 2.25rem;
+  }
+
+  .champion__lead {
+    font-size: 1.02rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .champion__text {
+    line-height: 1.95;
+  }
+
+  .champion__thanks {
+    padding: 1.35rem 1.35rem;
+    line-height: 1.95;
+  }
+}
+
+/* 水かけ祭り 特設ページバナー */
+.mizukake-banner-section {
+  padding: 2rem 0 3rem;
+  background: #fff;
+}
+
+.mizukake-banner {
   display: block;
   position: relative;
   overflow: hidden;
@@ -1982,41 +2162,41 @@ p {
   color: #fff;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-image: url('../images/photos/PT-01_hero_day.jpg');
+  background-image: url('../images/events/mizukake-2026/mizukake_panorama.jpg');
   background-size: cover;
   background-position: center;
 }
 
-.pump-banner:hover {
+.mizukake-banner:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.pump-banner__overlay {
+.mizukake-banner__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(26, 42, 74, 0.9) 0%, rgba(229, 57, 53, 0.78) 100%);
+  background: linear-gradient(135deg, rgba(0, 151, 167, 0.88) 0%, rgba(3, 155, 229, 0.82) 100%);
 }
 
-.pump-banner__content {
+.mizukake-banner__content {
   position: relative;
   padding: 2rem 2rem;
   text-align: center;
 }
 
-.pump-banner__badge {
+.mizukake-banner__badge {
   display: inline-block;
-  background: linear-gradient(135deg, #E53935 0%, #FF6F00 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #FF9100 0%, #FFD600 100%);
+  color: #4a3000;
   padding: 0.4rem 1.15rem;
   border-radius: 999px;
   font-weight: 700;
   font-size: 0.95rem;
   margin-bottom: 0.9rem;
-  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.45);
+  box-shadow: 0 2px 8px rgba(255, 145, 0, 0.45);
 }
 
-.pump-banner__title {
+.mizukake-banner__title {
   font-size: clamp(1.35rem, 3.5vw, 1.9rem);
   line-height: 1.45;
   margin-bottom: 0.75rem;
@@ -2024,7 +2204,7 @@ p {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.pump-banner__text {
+.mizukake-banner__text {
   font-size: 1.05rem;
   line-height: 1.7;
   margin-bottom: 1.25rem;
@@ -2033,10 +2213,10 @@ p {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.pump-banner__cta {
+.mizukake-banner__cta {
   display: inline-block;
   background: #fff;
-  color: #1f2d3d;
+  color: #00707d;
   padding: 0.7rem 1.75rem;
   border-radius: 999px;
   font-weight: 700;
@@ -2045,16 +2225,16 @@ p {
   transition: transform 0.2s ease;
 }
 
-.pump-banner:hover .pump-banner__cta {
+.mizukake-banner:hover .mizukake-banner__cta {
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  .pump-banner {
+  .mizukake-banner {
     min-height: 200px;
   }
 
-  .pump-banner__content {
+  .mizukake-banner__content {
     padding: 1.75rem 1.25rem;
   }
 }
