@@ -1515,6 +1515,68 @@
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
+    /* ---------- スマホ（1列表示） ---------- */
+    @media (max-width: 600px) {
+      .mizu-feature-grid,
+      .mizu-exp-grid,
+      .mizu-prepare-grid,
+      .mizu-perspective-grid,
+      .mizu-purpose-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .mizu-feature-card,
+      .mizu-perspective-card {
+        padding: 1.5rem 1.2rem;
+      }
+
+      .mizu-feature-card__icon {
+        font-size: 2.4rem;
+      }
+
+      .mizu-feature-card__title,
+      .mizu-perspective-card__title {
+        font-size: 1.1rem;
+      }
+
+      .mizu-feature-card__text,
+      .mizu-perspective-card__text {
+        font-size: 0.92rem;
+      }
+
+      /* 横幅が広くなるので番号は左に戻す */
+      .mizu-exp-card {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1rem;
+        padding: 1.3rem 1.2rem;
+      }
+
+      .mizu-exp-card__number {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+
+      .mizu-exp-card__text {
+        font-size: 0.92rem;
+      }
+
+      .mizu-perspective-card__icon {
+        font-size: 2rem;
+      }
+
+      .mizu-purpose-card__header h3 {
+        font-size: 1.05rem;
+      }
+
+      .mizu-purpose-card__body p {
+        font-size: 0.92rem;
+      }
+    }
   </style>
 </head>
 <body>
