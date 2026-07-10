@@ -84,19 +84,28 @@ function initMobileMenu() {
   const mobileMenu = document.querySelector('.mobile-menu');
   const closeBtn = document.querySelector('.mobile-menu__close');
   const menuLinks = document.querySelectorAll('.mobile-menu__link');
+  const header = document.querySelector('.header');
 
   if (!menuBtn || !mobileMenu) return;
 
   // メニューを開く
   menuBtn.addEventListener('click', function() {
+    // スクロールバーが消える分だけ余白を足し、背景とヘッダーの横ずれを防ぐ
+    // ヘッダーは position: fixed のため body の余白では補正されず、個別に指定する
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
     mobileMenu.classList.add('is-open');
     document.body.style.overflow = 'hidden';
+    document.body.style.paddingRight = scrollbarWidth + 'px';
+    if (header) header.style.paddingRight = scrollbarWidth + 'px';
   });
 
   // メニューを閉じる
   function closeMenu() {
     mobileMenu.classList.remove('is-open');
     document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+    if (header) header.style.paddingRight = '';
   }
 
   if (closeBtn) {
