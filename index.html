@@ -118,10 +118,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="dns-prefetch" href="https://www.youtube.com">
   <link rel="dns-prefetch" href="https://www.instagram.com">
-  <link rel="preload" href="css/style.css" as="style">
+  <link rel="preload" href="css/style.css?v=20260807-trial" as="style">
   <link rel="preload" href="images/photos/H-01_hero_main.jpg" as="image">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=20260807-trial">
 </head>
 <body>
   <!-- ヘッダー -->
@@ -232,18 +232,32 @@
     </div>
   </section>
 
-  <!-- 水かけ祭り 特設ページバナー -->
-  <section class="mizukake-banner-section">
+  <!-- 注目の特設ページ -->
+  <section class="special-pages-section" aria-labelledby="special-pages-title">
     <div class="container">
-      <a href="mizukake-event.html" class="mizukake-banner" aria-label="水かけ祭り2026の特設ページへ">
-        <div class="mizukake-banner__overlay"></div>
-        <div class="mizukake-banner__content">
-          <span class="mizukake-banner__badge">7/25・8/29・8/30 区内3会場で開催</span>
-          <h3 class="mizukake-banner__title">水かけ祭り 2026<br>特設ページ公開中</h3>
-          <p class="mizukake-banner__text">消防団が本気で放水します。びしょ濡れになって、遊んで、防災も学ぼう！</p>
-          <span class="mizukake-banner__cta">特設ページを見る →</span>
-        </div>
-      </a>
+      <h2 class="section__title" id="special-pages-title">注目の特設ページ</h2>
+      <p class="section__subtitle">開催情報や見どころを詳しくご紹介します</p>
+      <div class="special-pages-grid">
+        <a href="trial-2026.html" class="special-page-card special-page-card--trial" aria-label="消防団トライアル（体験入団会）の特設ページへ">
+          <span class="special-page-card__overlay" aria-hidden="true"></span>
+          <span class="special-page-card__content">
+            <span class="special-page-card__badge">9/13（日）目黒消防署で開催</span>
+            <h3 class="special-page-card__title">消防団トライアル<br><small>体験入団会</small></h3>
+            <span class="special-page-card__text">見て、聞いて、体験して。消防団のリアルを知る2時間。事前申込制・参加無料です。</span>
+            <span class="special-page-card__cta">特設ページを見る →</span>
+          </span>
+        </a>
+
+        <a href="mizukake-event.html" class="special-page-card special-page-card--mizukake" aria-label="水かけ祭り2026の特設ページへ">
+          <span class="special-page-card__overlay" aria-hidden="true"></span>
+          <span class="special-page-card__content">
+            <span class="special-page-card__badge">7/25・8/29・8/30 区内3会場で開催</span>
+            <h3 class="special-page-card__title">水かけ祭り 2026<br><small>特設ページ公開中</small></h3>
+            <span class="special-page-card__text">消防団が本気で放水します。びしょ濡れになって、遊んで、防災も学ぼう！</span>
+            <span class="special-page-card__cta">特設ページを見る →</span>
+          </span>
+        </a>
+      </div>
     </div>
   </section>
 

@@ -2146,46 +2146,89 @@ p {
   }
 }
 
-/* 水かけ祭り 特設ページバナー */
-.mizukake-banner-section {
-  padding: 2rem 0 3rem;
+/* 注目の特設ページ */
+.special-pages-section {
+  padding: 2.75rem 0 3.5rem;
   background: #fff;
 }
 
-.mizukake-banner {
-  display: block;
+.special-pages-section .section__title {
+  margin-bottom: 0.5rem;
+}
+
+.special-pages-section .section__subtitle {
+  margin-bottom: 1.75rem;
+}
+
+.special-pages-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.special-page-card {
   position: relative;
+  display: flex;
+  align-items: stretch;
   overflow: hidden;
-  border-radius: 16px;
-  min-height: 220px;
+  min-height: 330px;
+  border-radius: 18px;
   text-decoration: none;
   color: #fff;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-image: url('../images/events/mizukake-2026/mizukake_panorama.jpg');
   background-size: cover;
   background-position: center;
+  isolation: isolate;
 }
 
-.mizukake-banner:hover {
+.special-page-card--trial {
+  background-image: url('../images/events/trial-2026/trial-hero-sky.webp');
+  background-position: center 45%;
+}
+
+.special-page-card--mizukake {
+  background-image: url('../images/events/mizukake-2026/mizukake_panorama.jpg');
+}
+
+.special-page-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.mizukake-banner__overlay {
+.special-page-card:focus-visible {
+  outline: 4px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.special-page-card__overlay {
   position: absolute;
   inset: 0;
+  z-index: -1;
+}
+
+.special-page-card--trial .special-page-card__overlay {
+  background: linear-gradient(135deg, rgba(15, 26, 46, 0.94) 0%, rgba(26, 39, 68, 0.82) 58%, rgba(229, 57, 53, 0.56) 100%);
+}
+
+.special-page-card--mizukake .special-page-card__overlay {
   background: linear-gradient(135deg, rgba(0, 151, 167, 0.88) 0%, rgba(3, 155, 229, 0.82) 100%);
 }
 
-.mizukake-banner__content {
+.special-page-card__content {
   position: relative;
-  padding: 2rem 2rem;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.75rem;
   text-align: center;
 }
 
-.mizukake-banner__badge {
+.special-page-card__badge {
   display: inline-block;
+  max-width: 100%;
   background: linear-gradient(135deg, #FF9100 0%, #FFD600 100%);
   color: #4a3000;
   padding: 0.4rem 1.15rem;
@@ -2196,16 +2239,31 @@ p {
   box-shadow: 0 2px 8px rgba(255, 145, 0, 0.45);
 }
 
-.mizukake-banner__title {
-  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+.special-page-card--trial .special-page-card__badge {
+  background: linear-gradient(135deg, #E53935 0%, #FF6D00 100%);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(229, 57, 53, 0.45);
+}
+
+.special-page-card__title {
+  display: block;
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 900;
   line-height: 1.45;
   margin-bottom: 0.75rem;
   color: #fff;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.mizukake-banner__text {
-  font-size: 1.05rem;
+.special-page-card__title small {
+  font-size: 0.65em;
+  letter-spacing: 0.08em;
+}
+
+.special-page-card__text {
+  display: block;
+  max-width: 31rem;
+  font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 1.25rem;
   font-weight: 500;
@@ -2213,10 +2271,11 @@ p {
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
 
-.mizukake-banner__cta {
+.special-page-card__cta {
   display: inline-block;
+  margin-top: auto;
   background: #fff;
-  color: #00707d;
+  color: var(--color-navy);
   padding: 0.7rem 1.75rem;
   border-radius: 999px;
   font-weight: 700;
@@ -2225,17 +2284,37 @@ p {
   transition: transform 0.2s ease;
 }
 
-.mizukake-banner:hover .mizukake-banner__cta {
+.special-page-card--mizukake .special-page-card__cta {
+  color: #00707d;
+}
+
+.special-page-card:hover .special-page-card__cta {
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  .mizukake-banner {
-    min-height: 200px;
+  .special-pages-grid {
+    grid-template-columns: 1fr;
   }
 
-  .mizukake-banner__content {
+  .special-page-card {
+    min-height: 285px;
+  }
+
+  .special-page-card__content {
     padding: 1.75rem 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .special-page-card,
+  .special-page-card__cta {
+    transition: none;
+  }
+
+  .special-page-card:hover,
+  .special-page-card:hover .special-page-card__cta {
+    transform: none;
   }
 }
 
