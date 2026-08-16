@@ -2166,6 +2166,11 @@ p {
   gap: 1.25rem;
 }
 
+/* 特設ページが1件のみの場合は、カードをコンテナ全幅で表示する */
+.special-pages-grid--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .special-page-card {
   position: relative;
   display: flex;
