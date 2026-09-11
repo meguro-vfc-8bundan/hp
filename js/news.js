@@ -55,15 +55,15 @@ function splitByDate(newsList) {
   return { upcoming: upcoming, past: past };
 }
 
-// トップページ用：お知らせカードを生成（開催が近い順に3件）
-// 開催予定が3件に満たない場合は、終了分を新しい順で埋めてお知らせ欄が空にならないようにする
+// トップページ用：開催予定のお知らせカードを生成（開催が近い順に3件）
+// 終了したお知らせはトップページには表示しない
 async function renderNewsCards(containerId, limit = 3) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
   const newsList = await fetchNews();
   const split = splitByDate(newsList);
-  const latestNews = split.upcoming.concat(split.past).slice(0, limit);
+  const latestNews = split.upcoming.slice(0, limit);
 
   // 既存の内容をクリア
   container.textContent = '';
