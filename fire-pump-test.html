@@ -1778,7 +1778,7 @@ function showResult() {
         <div class="result-verdict ${passed ? 'pass' : 'fail'}">${passed ? '🎉 合格' : '⚠️ 不合格'}</div>
         <div class="result-stats">${total}問中 ${totalCorrect}問正解（${pct}点）</div>
         <div class="result-passline">合格ライン：70点以上（${Math.ceil(total * 0.7)}問正解）</div>
-        <div class="result-name">${unitName}　${userRank}　${userName}</div>
+        <div class="result-name"></div>
       </div>
     </div>
 
@@ -1800,6 +1800,8 @@ function showResult() {
 
     <button class="retry-btn" onclick="retryQuiz()">${passed ? 'もう一度挑戦する' : '🔄 再テストを受ける'}</button>
   </div>`;
+  // 受験者の入力はHTMLとして解釈せず、テキストとして表示する。
+  resultArea.querySelector('.result-name').textContent = `${unitName}　${userRank}　${userName}`;
 }
 
 function retryQuiz() {

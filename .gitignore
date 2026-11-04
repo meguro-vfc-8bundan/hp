@@ -1,22 +1,59 @@
-# macOS
+# ============================================================
+# 公開リポジトリに含めるのは「サイト表示に必要なファイル」だけ。
+# 方式：まず全部を除外し、必要なものだけ「!」で許可する（ホワイトリスト）。
+# 新しい種類のファイル／フォルダを公開したいときは、下の許可リストに追記する。
+# ============================================================
+
+# --- 1. いったん全部を除外 ---
+/*
+
+# --- 2. 公開に必要なものだけ許可 ---
+!/.gitignore
+!/CNAME
+!/robots.txt
+!/sitemap.xml
+!/*.html
+!/css/
+!/js/
+!/data/
+!/images/
+
+# --- 3. 許可したフォルダ内でも、公開不要なものは除外 ---
 .DS_Store
-.AppleDouble
-.LSOverride
 ._*
-
-# Claude
-.claude/
-
-# Thumbnails
 Thumbs.db
+*.xlsx
+*.xls
+*.csv
+*.docx
+*.md
+*.command
+*.bak
+*.tmp
 
-# IDE
-.vscode/
-.idea/
-
-# ローカル専用ファイル
-要件定義書/
-GitHubにアップロード.command
-改修タスク.md
-サイト概要.md
-mizukake_materials/
+# --- 4. サイトで未使用の画像（2026-11-04 公開停止。使う時はこの行を消す）---
+/images/chokaimap.pdf
+/images/events/sakura-2026/kunren.jpg
+/images/photos/AP-03_training_equipment.jpg
+/images/photos/AP-05_training_team.jpg
+/images/photos/AP-06_certificate.jpg
+/images/photos/BG-01_texture.jpg
+/images/photos/BG-02_meguro_scene.jpg
+/images/photos/BG-03_background.jpg
+/images/photos/EQ-01_vehicle_exterior.jpg
+/images/photos/EQ-03_uniform_activity.jpg
+/images/photos/EQ-04_uniform_formal.jpg
+/images/photos/EQ-05_uniform_fire.jpg
+/images/photos/EQ-06_helmet.jpg
+/images/photos/EQ-07_other_equipment.jpg
+/images/photos/FA-01_fire_station.jpg
+/images/photos/FA-02_training_ground.jpg
+/images/photos/FA-03_training_facility.jpg
+/images/photos/IN-07_activity_female_01.jpg
+/images/photos/IN-08_activity_female_02.jpg
+/images/photos/IN-09_activity_male_01.jpg
+/images/photos/IN-10_activity_male_02.jpg
+/images/photos/IN-12_activity_male_04.jpg
+/images/photos/TM-02_team_smile.jpg.jpg
+/images/photos/TR-04_rescue_equipment.jpg
+/images/photos/IN-02_portrait_female_02.jpg
